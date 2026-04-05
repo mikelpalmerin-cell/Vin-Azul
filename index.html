@@ -55,16 +55,37 @@ background: #080e1a; /* fallback before CSS vars load */
 
 body {
 background: #080e1a !important;
-background: var(–navy) !important;
+background: #080e1a !important;
 color: #f2ece0 !important;
-color: var(–cream) !important;
+color: #f2ece0 !important;
 font-family: ‘Cormorant Garamond’, Georgia, ‘Times New Roman’, serif;
 overflow-x: hidden;
 cursor: default;
-/* Prevent flash of unstyled content */
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── GLOBAL RESET: Kill Safari blue links everywhere ── */
+a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+a:link, a:visited, a:hover, a:active { text-decoration: none; }
+
+/* ── GLOBAL: Force gold on all italic em elements ── */
+em { color: #c9a96e !important; font-style: italic; }
+
+/* ── GLOBAL: Force gold on section eyebrows ── */
+.section-eyebrow { color: #c9a96e !important; }
+.hero-eyebrow { color: #c9a96e !important; }
+.member-role { color: #c9a96e !important; }
+.tier-name { color: #c9a96e !important; }
+.dest-region { color: #c9a96e !important; }
+.month-name em { color: #c9a96e !important; }
+.wordmark em { color: #c9a96e !important; }
+.manifesto-headline em { color: #c9a96e !important; }
+.section-title em { color: #c9a96e !important; }
+.waitlist-headline em { color: #c9a96e !important; }
+.footer-brand-name em { color: #c9a96e !important; }
+.brand-name em { color: #c9a96e !important; }
+.hero-headline em { color: #c9a96e !important; }
 
 /* Grain overlay */
 body::before {
@@ -76,8 +97,8 @@ pointer-events: none; z-index: 999; opacity: 0.5;
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(–navy); }
-::-webkit-scrollbar-thumb { background: var(–gold-dim); }
+::-webkit-scrollbar-track { background: #080e1a; }
+::-webkit-scrollbar-thumb { background: #7a6040; }
 
 /* ─── NAV ─── */
 nav {
@@ -91,7 +112,7 @@ transition: background 0.4s ease, padding 0.4s ease;
 nav.scrolled {
 background: rgba(8,14,26,0.97);
 padding: 18px 60px;
-border-bottom: 1px solid var(–rule);
+border-bottom: 1px solid rgba(201,169,110,0.2);
 backdrop-filter: blur(12px);
 }
 
@@ -101,11 +122,11 @@ font-size: 20px;
 font-weight: 300;
 letter-spacing: 0.18em;
 color: #f2ece0;
-color: var(–cream);
+color: #f2ece0;
 text-decoration: none;
 text-transform: uppercase;
 }
-.nav-logo em { font-style: italic; color: #c9a96e; color: var(–gold); }
+.nav-logo em { font-style: italic; color: #c9a96e; color: #c9a96e; }
 
 .nav-links {
 display: flex; align-items: center; gap: 40px;
@@ -117,11 +138,15 @@ font-size: 10px;
 font-weight: 300;
 letter-spacing: 0.35em;
 text-transform: uppercase;
-color: var(–cream-dim);
-text-decoration: none;
+color: rgba(242,236,224,0.65) !important;
+text-decoration: none !important;
 transition: color 0.3s ease;
+-webkit-text-fill-color: rgba(242,236,224,0.65);
 }
-.nav-links a:hover { color: var(–gold); }
+.nav-links a:hover {
+color: #c9a96e !important;
+-webkit-text-fill-color: #c9a96e;
+}
 
 .nav-cta {
 font-family: ‘Raleway’, sans-serif;
@@ -129,15 +154,15 @@ font-size: 9px;
 font-weight: 300;
 letter-spacing: 0.4em;
 text-transform: uppercase;
-color: var(–gold) !important;
+color: #c9a96e !important;
 border: 1px solid rgba(201,169,110,0.4);
 padding: 10px 20px;
 transition: all 0.3s ease !important;
 }
 .nav-cta:hover {
-background: var(–gold-glow) !important;
-border-color: var(–gold) !important;
-color: var(–gold-bright) !important;
+background: rgba(201,169,110,0.15) !important;
+border-color: #c9a96e !important;
+color: #e2c48a !important;
 }
 
 .nav-mobile-toggle {
@@ -146,7 +171,7 @@ flex-direction: column; gap: 5px; cursor: pointer;
 background: none; border: none; padding: 4px;
 }
 .nav-mobile-toggle span {
-display: block; width: 24px; height: 1px; background: var(–cream);
+display: block; width: 24px; height: 1px; background: #f2ece0;
 transition: all 0.3s ease;
 }
 
@@ -167,27 +192,9 @@ radial-gradient(ellipse at 80% 20%, rgba(201,169,110,0.04) 0%, transparent 50%),
 linear-gradient(160deg, #0a1220 0%, #06080f 50%, #0d1420 100%);
 }
 
-/* Animated vineyard lines */
-.hero-lines {
-position: absolute; inset: 0; overflow: hidden;
-}
-.hero-line {
-position: absolute;
-height: 1px;
-background: linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent);
-animation: lineSweep 8s ease-in-out infinite;
-}
-.hero-line:nth-child(1) { top: 25%; width: 60%; left: -60%; animation-delay: 0s; }
-.hero-line:nth-child(2) { top: 45%; width: 80%; left: -80%; animation-delay: 2s; }
-.hero-line:nth-child(3) { top: 65%; width: 50%; left: -50%; animation-delay: 4s; }
-.hero-line:nth-child(4) { top: 75%; width: 70%; left: -70%; animation-delay: 6s; }
-
-@keyframes lineSweep {
-0% { transform: translateX(0); opacity: 0; }
-20% { opacity: 1; }
-80% { opacity: 1; }
-100% { transform: translateX(250%); opacity: 0; }
-}
+/* Animated vineyard lines — removed for Safari iOS compatibility */
+.hero-lines { display: none; }
+.hero-line { display: none; }
 
 /* Large decorative letter */
 .hero-watermark {
@@ -216,7 +223,7 @@ font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 font-weight: 300;
 letter-spacing: 0.55em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 28px;
 opacity: 0;
@@ -226,7 +233,7 @@ display: flex; align-items: center; gap: 16px;
 .hero-eyebrow::before {
 content: ‘’;
 display: block; width: 40px; height: 1px;
-background: var(–gold-dim);
+background: #7a6040;
 }
 
 .hero-headline {
@@ -235,7 +242,7 @@ font-weight: 200;
 line-height: 1.0;
 letter-spacing: -0.01em;
 color: #f2ece0;
-color: var(–cream);
+color: #f2ece0;
 margin-bottom: 32px;
 opacity: 0;
 animation: fadeUp 1s ease 0.5s forwards;
@@ -244,7 +251,7 @@ animation: fadeUp 1s ease 0.5s forwards;
 font-style: italic;
 font-weight: 200;
 color: #c9a96e;
-color: var(–gold);
+color: #c9a96e;
 display: block;
 }
 
@@ -252,7 +259,7 @@ display: block;
 font-size: 19px;
 font-weight: 300;
 line-height: 1.7;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 max-width: 540px;
 margin-bottom: 48px;
 opacity: 0;
@@ -271,26 +278,19 @@ font-size: 9px;
 font-weight: 300;
 letter-spacing: 0.45em;
 text-transform: uppercase;
-color: var(–navy);
-background: var(–gold);
+color: #080e1a !important;
+-webkit-text-fill-color: #080e1a;
+background: #c9a96e;
 border: none;
 padding: 16px 36px;
 cursor: pointer;
-text-decoration: none;
+text-decoration: none !important;
 display: inline-block;
 transition: all 0.3s ease;
 position: relative;
 overflow: hidden;
 }
-.btn-primary::after {
-content: ‘’;
-position: absolute; inset: 0;
-background: var(–gold-bright);
-transform: translateX(-100%);
-transition: transform 0.3s ease;
-}
-.btn-primary:hover::after { transform: translateX(0); }
-.btn-primary span { position: relative; z-index: 1; }
+.btn-primary span { position: relative; z-index: 1; color: #080e1a !important; -webkit-text-fill-color: #080e1a; }
 
 .btn-ghost {
 font-family: ‘Raleway’, sans-serif;
@@ -298,17 +298,19 @@ font-size: 9px;
 font-weight: 300;
 letter-spacing: 0.45em;
 text-transform: uppercase;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65) !important;
+-webkit-text-fill-color: rgba(242,236,224,0.65);
 background: none;
 border: 1px solid rgba(242,236,224,0.2);
 padding: 16px 36px;
 cursor: pointer;
-text-decoration: none;
+text-decoration: none !important;
 display: inline-block;
 transition: all 0.3s ease;
 }
 .btn-ghost:hover {
-color: var(–cream);
+color: #f2ece0 !important;
+-webkit-text-fill-color: #f2ece0;
 border-color: rgba(242,236,224,0.5);
 }
 
@@ -324,13 +326,13 @@ animation: fadeIn 1s ease 1.4s forwards;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.4em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 writing-mode: vertical-rl;
 }
 .hero-scroll-line {
 width: 1px; height: 48px;
-background: linear-gradient(to bottom, var(–gold-dim), transparent);
+background: linear-gradient(to bottom, #7a6040, transparent);
 animation: scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse {
@@ -350,7 +352,7 @@ padding: 0 60px;
 /* ─── MANIFESTO ─── */
 .manifesto {
 padding: 140px 0;
-border-top: 1px solid var(–rule);
+border-top: 1px solid rgba(201,169,110,0.2);
 overflow: hidden;
 }
 
@@ -365,7 +367,7 @@ align-items: start;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.5em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 padding-top: 8px;
 position: sticky;
@@ -378,40 +380,40 @@ top: 100px;
 font-size: clamp(32px, 4vw, 52px);
 font-weight: 300;
 line-height: 1.25;
-color: var(–cream);
+color: #f2ece0;
 margin-bottom: 40px;
 letter-spacing: 0.01em;
 }
 .manifesto-headline em {
 font-style: italic;
-color: var(–gold);
+color: #c9a96e;
 }
 
 .manifesto-text {
 font-size: 18px;
 font-weight: 300;
 line-height: 1.9;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 margin-bottom: 24px;
 }
 
 .manifesto-quote {
-border-left: 1px solid var(–gold-dim);
+border-left: 1px solid #7a6040;
 padding: 8px 0 8px 32px;
 margin: 48px 0;
 font-size: 24px;
 font-style: italic;
 font-weight: 300;
-color: var(–cream);
+color: #f2ece0;
 line-height: 1.5;
 }
 
 /* ─── DESTINATIONS ─── */
 .destinations {
 padding: 120px 0;
-background: var(–navy-mid);
-border-top: 1px solid var(–rule);
-border-bottom: 1px solid var(–rule);
+background: #0d1526;
+border-top: 1px solid rgba(201,169,110,0.2);
+border-bottom: 1px solid rgba(201,169,110,0.2);
 }
 
 .destinations-header {
@@ -423,7 +425,7 @@ margin-bottom: 72px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.5em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 16px;
 }
@@ -432,10 +434,10 @@ margin-bottom: 16px;
 font-size: clamp(28px, 3.5vw, 44px);
 font-weight: 300;
 letter-spacing: 0.02em;
-color: var(–cream);
+color: #f2ece0;
 line-height: 1.1;
 }
-.section-title em { font-style: italic; color: var(–gold); }
+.section-title em { font-style: italic; color: #c9a96e; }
 
 .destinations-grid {
 display: grid;
@@ -511,7 +513,7 @@ padding: 32px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.45em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 8px;
 }
@@ -519,7 +521,7 @@ margin-bottom: 8px;
 .dest-name {
 font-size: 24px;
 font-weight: 300;
-color: var(–cream);
+color: #f2ece0;
 margin-bottom: 6px;
 letter-spacing: 0.04em;
 }
@@ -537,21 +539,21 @@ display: flex; align-items: center; gap: 8px;
 width: 5px; height: 5px; border-radius: 50%;
 }
 .status-active { background: #6aad7e; box-shadow: 0 0 6px rgba(106,173,126,0.6); }
-.status-soon { background: var(–gold); box-shadow: 0 0 6px rgba(201,169,110,0.5); }
-.status-horizon { background: var(–muted); }
+.status-soon { background: #c9a96e; box-shadow: 0 0 6px rgba(201,169,110,0.5); }
+.status-horizon { background: #5a5448; }
 
-.dest-status-label { color: var(–cream-ghost); }
+.dest-status-label { color: rgba(242,236,224,0.35); }
 
 /* ─── WORLD MAP ─── */
 .world-map-section {
 padding: 120px 0;
-background: linear-gradient(180deg, var(–navy) 0%, #080d18 50%, var(–navy) 100%);
+background: linear-gradient(180deg, #080e1a 0%, #080d18 50%, #080e1a 100%);
 }
 
 .world-map-container {
 position: relative;
 margin-top: 64px;
-border: 1px solid var(–rule);
+border: 1px solid rgba(201,169,110,0.2);
 overflow: hidden;
 background: radial-gradient(ellipse at 50% 50%, rgba(13,21,38,0.9) 0%, rgba(6,10,18,0.98) 100%);
 }
@@ -600,13 +602,13 @@ border-color: rgba(201,169,110,0.2);
 .pin-dot {
 width: 10px; height: 10px;
 border-radius: 50%;
-background: var(–gold);
+background: #c9a96e;
 box-shadow: 0 0 12px rgba(201,169,110,0.8), 0 0 4px rgba(201,169,110,1);
 position: relative; z-index: 2;
 }
 
 .pin-dot.soon {
-background: var(–gold-bright);
+background: #e2c48a;
 box-shadow: 0 0 8px rgba(226,196,138,0.6), 0 0 3px rgba(226,196,138,0.9);
 }
 
@@ -628,7 +630,7 @@ white-space: nowrap;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.3em;
-color: var(–gold-bright);
+color: #e2c48a;
 text-transform: uppercase;
 background: rgba(6,10,18,0.95);
 padding: 5px 10px;
@@ -658,7 +660,7 @@ display: flex;
 justify-content: center;
 gap: 32px;
 padding: 20px 32px;
-border-top: 1px solid var(–rule);
+border-top: 1px solid rgba(201,169,110,0.2);
 background: rgba(6,10,18,0.6);
 }
 
@@ -667,7 +669,7 @@ display: flex; align-items: center; gap: 8px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.3em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 }
 
@@ -675,8 +677,8 @@ text-transform: uppercase;
 width: 8px; height: 8px;
 border-radius: 50%;
 }
-.lp-active { background: var(–gold); box-shadow: 0 0 6px rgba(201,169,110,0.7); }
-.lp-soon   { background: var(–gold-bright); box-shadow: 0 0 6px rgba(226,196,138,0.5); }
+.lp-active { background: #c9a96e; box-shadow: 0 0 6px rgba(201,169,110,0.7); }
+.lp-soon   { background: #e2c48a; box-shadow: 0 0 6px rgba(226,196,138,0.5); }
 .lp-horizon{ background: rgba(90,84,72,0.8); }
 
 @keyframes ringPulse {
@@ -687,8 +689,8 @@ border-radius: 50%;
 /* ─── THE COLLECTIVE ─── */
 .collective {
 padding: 120px 0;
-background: var(–navy-mid);
-border-top: 1px solid var(–rule);
+background: #0d1526;
+border-top: 1px solid rgba(201,169,110,0.2);
 }
 
 .collective-intro {
@@ -703,7 +705,7 @@ gap: 2px;
 }
 
 .member-card {
-background: var(–navy-card);
+background: #101828;
 padding: 48px 40px;
 position: relative;
 overflow: hidden;
@@ -716,7 +718,7 @@ content: ‘’;
 position: absolute;
 top: 0; left: 0; right: 0;
 height: 1px;
-background: linear-gradient(90deg, transparent, var(–gold-dim), transparent);
+background: linear-gradient(90deg, transparent, #7a6040, transparent);
 transform: scaleX(0);
 transition: transform 0.5s ease;
 }
@@ -737,7 +739,7 @@ display: block;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.45em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 12px;
 }
@@ -745,16 +747,16 @@ margin-bottom: 12px;
 .member-name {
 font-size: 26px;
 font-weight: 300;
-color: var(–cream);
+color: #f2ece0;
 letter-spacing: 0.04em;
 margin-bottom: 20px;
 line-height: 1.1;
 }
-.member-name em { font-style: italic; color: var(–gold); }
+.member-name em { font-style: italic; color: #c9a96e; }
 
 .member-rule {
 width: 32px; height: 1px;
-background: var(–gold-dim);
+background: #7a6040;
 margin-bottom: 20px;
 }
 
@@ -762,7 +764,7 @@ margin-bottom: 20px;
 font-size: 15px;
 font-weight: 300;
 line-height: 1.8;
-color: var(–cream-ghost);
+color: rgba(242,236,224,0.35);
 }
 
 /* ─── MEMBERSHIP ─── */
@@ -784,7 +786,7 @@ margin-bottom: 20px;
 font-size: 18px;
 font-weight: 300;
 line-height: 1.8;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 }
 
 .tiers-grid {
@@ -796,7 +798,7 @@ margin-bottom: 64px;
 
 .tier-card {
 padding: 56px 44px;
-background: var(–navy-card);
+background: #101828;
 position: relative;
 overflow: hidden;
 transition: background 0.4s ease;
@@ -814,9 +816,9 @@ top: 24px; right: 24px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 7px;
 letter-spacing: 0.4em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
-border: 1px solid var(–rule);
+border: 1px solid rgba(201,169,110,0.2);
 padding: 4px 10px;
 }
 
@@ -824,7 +826,7 @@ padding: 4px 10px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.5em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 8px;
 }
@@ -832,7 +834,7 @@ margin-bottom: 8px;
 .tier-title {
 font-size: 28px;
 font-weight: 300;
-color: var(–cream);
+color: #f2ece0;
 letter-spacing: 0.04em;
 margin-bottom: 24px;
 }
@@ -840,13 +842,13 @@ margin-bottom: 24px;
 .tier-price {
 margin-bottom: 32px;
 padding-bottom: 32px;
-border-bottom: 1px solid var(–rule);
+border-bottom: 1px solid rgba(201,169,110,0.2);
 }
 
 .tier-amount {
 font-size: 44px;
 font-weight: 200;
-color: var(–gold-bright);
+color: #e2c48a;
 line-height: 1;
 letter-spacing: -0.01em;
 }
@@ -855,7 +857,7 @@ letter-spacing: -0.01em;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.3em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 margin-top: 6px;
 }
@@ -867,7 +869,7 @@ margin-bottom: 40px;
 .tier-benefits li {
 font-size: 14px;
 font-weight: 300;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 line-height: 1.5;
 padding: 8px 0;
 border-bottom: 1px solid rgba(201,169,110,0.06);
@@ -877,7 +879,7 @@ position: relative;
 .tier-benefits li::before {
 content: ‘—’;
 position: absolute; left: 0;
-color: var(–gold-dim);
+color: #7a6040;
 }
 
 .tier-cta {
@@ -894,17 +896,17 @@ text-decoration: none;
 transition: all 0.3s ease;
 }
 .tier-cta.primary {
-background: var(–gold);
-color: var(–navy);
+background: #c9a96e;
+color: #080e1a;
 }
-.tier-cta.primary:hover { background: var(–gold-bright); }
+.tier-cta.primary:hover { background: #e2c48a; }
 .tier-cta.ghost {
-border: 1px solid var(–rule);
-color: var(–cream-dim);
+border: 1px solid rgba(201,169,110,0.2);
+color: rgba(242,236,224,0.65);
 }
 .tier-cta.ghost:hover {
-border-color: var(–gold-dim);
-color: var(–cream);
+border-color: #7a6040;
+color: #f2ece0;
 }
 
 /* Founding circle CTA */
@@ -922,14 +924,14 @@ align-items: center;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.5em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 12px;
 display: flex; align-items: center; gap: 10px;
 }
 .founding-pulse-dot {
 width: 6px; height: 6px;
-background: var(–gold);
+background: #c9a96e;
 border-radius: 50%;
 animation: pulseDot 2s ease-in-out infinite;
 }
@@ -941,14 +943,14 @@ animation: pulseDot 2s ease-in-out infinite;
 .founding-cta-text h3 {
 font-size: 32px;
 font-weight: 300;
-color: var(–cream);
+color: #f2ece0;
 margin-bottom: 12px;
 letter-spacing: 0.02em;
 }
 .founding-cta-text p {
 font-size: 16px;
 font-weight: 300;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 line-height: 1.7;
 }
 
@@ -956,7 +958,7 @@ line-height: 1.7;
 .waitlist {
 padding: 140px 0;
 background: linear-gradient(160deg, #060a14, #0a1020);
-border-top: 1px solid var(–rule);
+border-top: 1px solid rgba(201,169,110,0.2);
 text-align: center;
 overflow: hidden;
 position: relative;
@@ -982,17 +984,17 @@ pointer-events: none;
 font-size: clamp(36px, 5vw, 64px);
 font-weight: 200;
 line-height: 1.15;
-color: var(–cream);
+color: #f2ece0;
 margin: 24px auto 20px;
 max-width: 700px;
 letter-spacing: 0.01em;
 }
-.waitlist-headline em { font-style: italic; color: var(–gold); }
+.waitlist-headline em { font-style: italic; color: #c9a96e; }
 
 .waitlist-sub {
 font-size: 18px;
 font-weight: 300;
-color: var(–cream-dim);
+color: rgba(242,236,224,0.65);
 margin-bottom: 56px;
 font-style: italic;
 }
@@ -1007,19 +1009,19 @@ gap: 0;
 .waitlist-input {
 flex: 1;
 background: rgba(255,255,255,0.04);
-border: 1px solid var(–rule);
+border: 1px solid rgba(201,169,110,0.2);
 border-right: none;
 padding: 16px 24px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 12px;
 font-weight: 300;
 letter-spacing: 0.1em;
-color: var(–cream);
+color: #f2ece0;
 outline: none;
 transition: border-color 0.3s ease;
 }
-.waitlist-input::placeholder { color: var(–muted); }
-.waitlist-input:focus { border-color: var(–gold-dim); }
+.waitlist-input::placeholder { color: #5a5448; }
+.waitlist-input:focus { border-color: #7a6040; }
 
 .waitlist-submit {
 font-family: ‘Raleway’, sans-serif;
@@ -1027,21 +1029,21 @@ font-size: 9px;
 font-weight: 300;
 letter-spacing: 0.4em;
 text-transform: uppercase;
-background: var(–gold);
-color: var(–navy);
+background: #c9a96e;
+color: #080e1a;
 border: none;
 padding: 16px 28px;
 cursor: pointer;
 white-space: nowrap;
 transition: background 0.3s ease;
 }
-.waitlist-submit:hover { background: var(–gold-bright); }
+.waitlist-submit:hover { background: #e2c48a; }
 
 .waitlist-note {
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.25em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 }
 
@@ -1050,7 +1052,7 @@ text-transform: uppercase;
 display: none;
 font-size: 18px;
 font-style: italic;
-color: var(–gold);
+color: #c9a96e;
 font-weight: 300;
 padding: 20px;
 }
@@ -1058,7 +1060,7 @@ padding: 20px;
 /* ─── FOOTER ─── */
 footer {
 padding: 64px 0 48px;
-border-top: 1px solid var(–rule);
+border-top: 1px solid rgba(201,169,110,0.2);
 }
 
 .footer-grid {
@@ -1072,17 +1074,17 @@ margin-bottom: 64px;
 font-size: 22px;
 font-weight: 300;
 letter-spacing: 0.12em;
-color: var(–cream);
+color: #f2ece0;
 margin-bottom: 16px;
 text-transform: uppercase;
 }
-.footer-brand-name em { font-style: italic; color: var(–gold); }
+.footer-brand-name em { font-style: italic; color: #c9a96e; }
 
 .footer-tagline {
 font-size: 14px;
 font-style: italic;
 font-weight: 300;
-color: var(–muted);
+color: #5a5448;
 line-height: 1.6;
 margin-bottom: 28px;
 }
@@ -1091,7 +1093,7 @@ margin-bottom: 28px;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.45em;
-color: var(–gold);
+color: #c9a96e;
 text-transform: uppercase;
 margin-bottom: 20px;
 }
@@ -1103,12 +1105,12 @@ display: flex; flex-direction: column; gap: 10px;
 .footer-links a {
 font-size: 14px;
 font-weight: 300;
-color: var(–cream-ghost);
+color: rgba(242,236,224,0.35);
 text-decoration: none;
 letter-spacing: 0.02em;
 transition: color 0.3s ease;
 }
-.footer-links a:hover { color: var(–gold); }
+.footer-links a:hover { color: #c9a96e; }
 
 .footer-bottom {
 display: flex;
@@ -1122,7 +1124,7 @@ border-top: 1px solid rgba(201,169,110,0.1);
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.25em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 }
 
@@ -1130,7 +1132,7 @@ text-transform: uppercase;
 font-family: ‘Raleway’, sans-serif;
 font-size: 9px;
 letter-spacing: 0.25em;
-color: var(–muted);
+color: #5a5448;
 text-transform: uppercase;
 }
 
@@ -1192,7 +1194,7 @@ nav.scrolled { padding: 14px 24px; }
 .founding-cta { grid-template-columns: 1fr; padding: 40px 32px; }
 
 .waitlist-form { flex-direction: column; }
-.waitlist-input { border-right: 1px solid var(–rule); border-bottom: none; }
+.waitlist-input { border-right: 1px solid rgba(201,169,110,0.2); border-bottom: none; }
 
 .footer-grid { grid-template-columns: 1fr; gap: 40px; }
 .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
@@ -1372,188 +1374,188 @@ nav.scrolled { padding: 14px 24px; }
       <h2 class="section-title" style="margin-top:12px;">Built for the <em>World</em></h2>
     </div>
     <div class="world-map-container reveal">
-      <svg class="world-svg" viewBox="0 0 1010 530" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="mapGlow" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="rgba(201,169,110,0.08)"/>
-            <stop offset="100%" stop-color="rgba(201,169,110,0)"/>
-          </radialGradient>
-          <filter id="landGlow">
-            <feGaussianBlur stdDeviation="1" result="blur"/>
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-          </filter>
-        </defs>
-        <!-- Glow bg -->
-        <rect width="1010" height="530" fill="url(#mapGlow)"/>
+      <svg class="world-svg" viewBox="0 0 1010 500" xmlns="http://www.w3.org/2000/svg" style="background:#080e1a;">
         <!-- Grid lines -->
-        <g stroke="rgba(201,169,110,0.06)" stroke-width="0.5">
-          <line x1="0" y1="132" x2="1010" y2="132"/>
-          <line x1="0" y1="265" x2="1010" y2="265"/>
-          <line x1="0" y1="398" x2="1010" y2="398"/>
-          <line x1="252" y1="0" x2="252" y2="530"/>
-          <line x1="504" y1="0" x2="504" y2="530"/>
-          <line x1="756" y1="0" x2="756" y2="530"/>
-        </g>
+        <line x1="0" y1="125" x2="1010" y2="125" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
+        <line x1="0" y1="250" x2="1010" y2="250" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
+        <line x1="0" y1="375" x2="1010" y2="375" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
+        <line x1="252" y1="0" x2="252" y2="500" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
+        <line x1="504" y1="0" x2="504" y2="500" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
+        <line x1="756" y1="0" x2="756" y2="500" stroke="rgba(201,169,110,0.07)" stroke-width="0.5"/>
         <!-- Equator -->
-        <line x1="0" y1="265" x2="1010" y2="265" stroke="rgba(201,169,110,0.12)" stroke-width="0.8" stroke-dasharray="4,6"/>
+        <line x1="0" y1="250" x2="1010" y2="250" stroke="rgba(201,169,110,0.15)" stroke-width="0.8" stroke-dasharray="4,8"/>
 
 ```
-    <!-- ── CONTINENTS ── -->
-    <g fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.35)" stroke-width="0.8" filter="url(#landGlow)">
+    <!-- ALL CONTINENTS: stroke only, no fill — renders correctly on all browsers -->
+    <!-- NORTH AMERICA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      168,28 180,22 196,20 212,22 224,28 232,36 238,46 240,56 236,66 228,72 222,80
+      226,90 224,102 218,114 210,124 200,134 188,146 176,156 164,164 152,170
+      140,174 130,178 120,180 112,178 104,172 96,164 90,154 86,142 84,130
+      82,118 80,106 78,94 78,82 80,70 84,58 90,48 98,40 108,34 120,30 134,26 150,24 168,28"/>
+    <!-- ALASKA bump -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      78,82 68,78 58,76 48,80 44,90 48,100 58,104 68,100 78,94"/>
+    <!-- GREENLAND -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.45)" stroke-width="1" stroke-linejoin="round" points="
+      196,18 210,12 228,10 244,14 252,22 250,34 240,42 224,46 208,44 196,36 190,26 196,18"/>
+    <!-- FLORIDA peninsula -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1" stroke-linejoin="round" points="
+      128,178 132,188 130,200 124,208 118,202 116,190 120,182 128,178"/>
+    <!-- CENTRAL AMERICA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      120,180 124,190 128,202 132,214 136,224 138,234 134,240 128,238 122,230 118,220 116,208 116,196 118,186 120,180"/>
+    <!-- SOUTH AMERICA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      138,234 148,228 162,226 176,228 188,234 198,242 206,254 210,268 212,282
+      212,298 210,314 206,330 200,346 192,362 182,376 170,388 158,398 146,404
+      136,402 126,394 118,382 112,368 108,352 106,336 106,318 108,300 112,282
+      118,266 126,252 134,240 138,234"/>
 
-      <!-- NORTH AMERICA -->
-      <path d="M 105,45 L 130,38 L 155,35 L 175,40 L 195,42 L 215,50 L 228,62 L 232,78
-               L 225,90 L 218,100 L 222,112 L 215,125 L 205,138 L 195,148 L 180,160
-               L 168,175 L 155,185 L 140,192 L 128,198 L 115,205 L 105,210 L 95,208
-               L 82,200 L 72,188 L 65,172 L 62,155 L 65,138 L 70,122 L 75,108
-               L 78,90 L 82,72 L 90,55 Z"/>
+    <!-- EUROPE main body -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      432,60 442,54 454,50 468,50 482,52 494,56 506,62 514,70 518,80 516,90
+      510,100 502,108 492,114 480,118 468,120 454,118 442,112 432,104 426,94
+      424,82 428,70 432,60"/>
+    <!-- IBERIAN PENINSULA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1" stroke-linejoin="round" points="
+      432,104 436,112 442,120 450,128 456,136 456,146 448,152 438,150 428,144
+      422,134 422,122 426,112 432,104"/>
+    <!-- ITALY boot -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      480,118 484,128 486,138 482,148 476,156 470,162 466,158 468,148 472,138 474,126 478,118"/>
+    <!-- SCANDINAVIA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      468,50 468,40 470,30 474,22 480,18 488,22 492,32 492,44 488,54 482,60 472,58 468,50"/>
+    <!-- UK -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.45)" stroke-width="1" stroke-linejoin="round" points="
+      420,64 426,58 432,60 430,70 424,76 418,74 416,66 420,64"/>
+    <!-- ICELAND -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      370,38 380,32 392,32 400,38 402,46 396,54 384,56 372,52 366,44 370,38"/>
 
-      <!-- GREENLAND -->
-      <path d="M 195,18 L 218,14 L 238,18 L 248,28 L 245,42 L 232,48 L 215,46 L 200,38 L 192,28 Z"/>
+    <!-- AFRICA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      432,120 444,114 460,110 478,110 494,114 506,120 516,130 524,142 528,156
+      530,170 530,186 528,202 524,220 518,238 508,256 496,272 482,286 468,298
+      454,306 442,308 430,304 420,294 412,280 406,264 402,246 400,228 400,210
+      402,192 406,174 412,158 420,144 428,132 432,120"/>
+    <!-- HORN OF AFRICA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      528,202 540,198 554,196 562,202 558,214 548,220 536,218 528,210 528,202"/>
+    <!-- MADAGASCAR -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      540,272 546,264 554,266 558,278 556,292 548,300 540,298 536,286 538,274 540,272"/>
 
-      <!-- ALASKA -->
-      <path d="M 62,55 L 80,48 L 95,50 L 105,58 L 100,70 L 85,75 L 68,68 Z"/>
+    <!-- MIDDLE EAST / ARABIAN PENINSULA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      516,120 528,116 542,112 558,114 570,120 578,130 578,144 570,156 558,164
+      546,168 534,164 524,154 518,142 516,130 516,120"/>
 
-      <!-- CENTRAL AMERICA & CARIBBEAN -->
-      <path d="M 155,210 L 168,205 L 178,212 L 182,225 L 175,240 L 162,248 L 150,245 L 142,232 L 145,218 Z"/>
+    <!-- ASIA main -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      542,58 558,50 578,44 604,38 632,34 660,34 686,36 710,40 732,46 752,54
+      768,64 780,76 786,90 784,104 776,116 764,126 750,132 734,136 716,140
+      698,142 678,140 658,136 638,130 618,122 600,114 584,104 570,92 560,80
+      550,68 542,58"/>
+    <!-- INDIAN SUBCONTINENT -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      600,130 614,136 630,138 644,136 654,144 656,158 652,172 644,184 632,194
+      618,200 604,196 594,184 590,170 592,156 598,142 600,130"/>
+    <!-- SOUTHEAST ASIA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.5)" stroke-width="1" stroke-linejoin="round" points="
+      698,142 710,148 724,152 736,150 744,158 744,170 736,178 722,182 708,178
+      698,168 694,156 698,142"/>
+    <!-- MALAY PENINSULA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.45)" stroke-width="1" stroke-linejoin="round" points="
+      722,152 724,162 722,174 718,184 714,190 712,184 714,172 716,160 720,152"/>
+    <!-- JAPAN -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.45)" stroke-width="1" stroke-linejoin="round" points="
+      764,82 772,76 780,78 784,88 782,98 774,104 766,102 760,94 762,86 764,82"/>
+    <!-- BORNEO -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      742,172 752,168 764,170 772,178 772,190 764,198 750,200 740,194 736,184 740,174 742,172"/>
+    <!-- SUMATRA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      694,176 706,172 718,174 726,182 722,192 710,196 698,192 690,184 692,176 694,176"/>
 
-      <!-- SOUTH AMERICA -->
-      <path d="M 175,258 L 198,248 L 222,250 L 242,258 L 258,272 L 268,292 L 272,318
-               L 270,345 L 265,372 L 258,398 L 245,422 L 228,442 L 210,450 L 195,445
-               L 182,430 L 172,408 L 165,382 L 162,355 L 162,325 L 165,298 L 168,275 Z"/>
+    <!-- AUSTRALIA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.55)" stroke-width="1.2" stroke-linejoin="round" points="
+      742,296 758,288 778,284 800,284 820,288 838,296 852,308 860,324 862,340
+      858,356 848,370 832,382 812,390 790,394 768,390 750,380 736,366 728,350
+      724,334 724,318 730,304 740,296 742,296"/>
+    <!-- CAPE YORK PENINSULA -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.45)" stroke-width="1" stroke-linejoin="round" points="
+      840,284 844,272 848,262 852,268 852,280 848,288 842,290"/>
+    <!-- NEW ZEALAND NORTH -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      888,356 894,350 900,354 902,364 898,372 890,374 884,368 886,358 888,356"/>
+    <!-- NEW ZEALAND SOUTH -->
+    <polyline fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linejoin="round" points="
+      882,378 890,372 898,376 900,388 894,398 884,400 878,392 880,382 882,378"/>
 
-      <!-- EUROPE (detailed) -->
-      <path d="M 435,68 L 448,62 L 462,60 L 476,62 L 490,65 L 504,68 L 515,75
-               L 520,85 L 518,97 L 510,108 L 498,116 L 484,120 L 468,122 L 452,118
-               L 438,110 L 428,98 L 425,85 L 428,74 Z"/>
-
-      <!-- IBERIAN PENINSULA -->
-      <path d="M 428,118 L 442,115 L 455,118 L 462,128 L 458,140 L 445,146 L 432,142 L 425,132 Z"/>
-
-      <!-- UK & IRELAND -->
-      <path d="M 420,72 L 430,68 L 438,72 L 435,84 L 425,88 L 416,82 Z"/>
-      <path d="M 408,76 L 416,74 L 418,82 L 410,86 L 404,80 Z"/>
-
-      <!-- SCANDINAVIA -->
-      <path d="M 462,40 L 472,35 L 485,38 L 490,50 L 485,65 L 472,68 L 460,62 L 455,50 Z"/>
-
-      <!-- AFRICA (detailed) -->
-      <path d="M 440,140 L 460,132 L 482,130 L 504,135 L 520,145 L 530,162
-               L 535,185 L 535,210 L 530,238 L 520,265 L 505,292 L 488,315
-               L 468,332 L 450,338 L 435,330 L 422,312 L 415,288 L 412,260
-               L 412,232 L 415,205 L 420,178 L 428,158 Z"/>
-
-      <!-- MADAGASCAR -->
-      <path d="M 538,298 L 545,292 L 552,298 L 552,318 L 545,328 L 538,322 L 535,308 Z"/>
-
-      <!-- MIDDLE EAST / ARABIAN PENINSULA -->
-      <path d="M 530,125 L 548,118 L 565,120 L 575,132 L 572,150 L 558,162 L 540,165 L 528,155 L 525,140 Z"/>
-
-      <!-- ASIA (detailed) -->
-      <path d="M 545,48 L 575,40 L 615,36 L 655,38 L 692,42 L 725,48 L 755,58
-               L 775,72 L 782,88 L 778,105 L 765,118 L 748,128 L 728,135 L 705,140
-               L 678,142 L 650,140 L 622,135 L 598,128 L 575,118 L 558,105
-               L 545,90 L 540,72 L 542,58 Z"/>
-
-      <!-- INDIAN SUBCONTINENT -->
-      <path d="M 598,148 L 618,142 L 638,145 L 650,158 L 648,178 L 638,195
-               L 622,205 L 605,200 L 595,185 L 592,168 Z"/>
-
-      <!-- SOUTHEAST ASIA -->
-      <path d="M 688,148 L 712,142 L 732,148 L 742,162 L 738,178 L 722,185
-               L 705,182 L 692,168 L 688,155 Z"/>
-
-      <!-- JAPAN -->
-      <path d="M 758,98 L 768,92 L 778,96 L 780,108 L 772,115 L 762,112 L 756,104 Z"/>
-
-      <!-- CHINA COAST DETAIL -->
-      <path d="M 725,138 L 745,132 L 758,138 L 762,152 L 752,162 L 738,162 L 726,152 Z"/>
-
-      <!-- AUSTRALIA (detailed) -->
-      <path d="M 730,318 L 758,308 L 788,305 L 818,308 L 842,318 L 858,335
-               L 862,358 L 855,380 L 838,395 L 812,402 L 782,400 L 755,390
-               L 735,372 L 722,350 L 720,330 Z"/>
-
-      <!-- NEW ZEALAND -->
-      <path d="M 878,385 L 886,378 L 894,382 L 895,395 L 888,402 L 878,398 Z"/>
-      <path d="M 882,408 L 890,402 L 898,408 L 898,420 L 890,426 L 882,420 Z"/>
-
-      <!-- INDONESIA / BORNEO -->
-      <path d="M 730,188 L 750,182 L 768,186 L 775,198 L 768,210 L 748,212 L 732,205 Z"/>
-      <path d="M 772,195 L 790,190 L 805,195 L 808,208 L 798,218 L 780,215 L 770,205 Z"/>
-
-      <!-- PHILIPPINES -->
-      <path d="M 762,155 L 772,150 L 780,155 L 780,168 L 772,172 L 762,168 Z"/>
-
-      <!-- ICELAND -->
-      <path d="M 368,42 L 380,38 L 392,42 L 395,52 L 385,60 L 372,58 L 362,50 Z"/>
-
-    </g>
-
-    <!-- Subtle latitude labels -->
-    <g font-family="'Raleway', sans-serif" font-size="7" fill="rgba(201,169,110,0.25)" letter-spacing="1">
-      <text x="8" y="135">60°N</text>
-      <text x="8" y="268">EQ</text>
-      <text x="8" y="400">30°S</text>
-    </g>
+    <!-- Latitude labels -->
+    <text x="8" y="128" font-size="7" fill="rgba(201,169,110,0.3)" font-family="Georgia,serif">60°N</text>
+    <text x="8" y="253" font-size="7" fill="rgba(201,169,110,0.3)" font-family="Georgia,serif">EQ</text>
+    <text x="8" y="378" font-size="7" fill="rgba(201,169,110,0.3)" font-family="Georgia,serif">30°S</text>
   </svg>
 
   <!-- MAP PINS -->
   <div class="map-pins">
     <!-- California — ACTIVE -->
-    <div class="map-pin" style="left:13.5%; top:41%;">
+    <div class="map-pin" style="left:11%; top:38%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot"></div>
       <div class="pin-label">California · Active</div>
     </div>
     <!-- Fallbrook -->
-    <div class="map-pin" style="left:13.2%; top:46%;">
+    <div class="map-pin" style="left:11.5%; top:44%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot"></div>
       <div class="pin-label">Fallbrook · Active</div>
     </div>
     <!-- Valle de Guadalupe — SOON -->
-    <div class="map-pin" style="left:13.8%; top:51%;">
+    <div class="map-pin" style="left:12%; top:50%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot soon"></div>
       <div class="pin-label">Valle de Guadalupe · 2026</div>
     </div>
     <!-- Provence — SOON -->
-    <div class="map-pin" style="left:46.8%; top:31%;">
+    <div class="map-pin" style="left:47.5%; top:26%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot soon"></div>
       <div class="pin-label">Provence · 2027</div>
     </div>
     <!-- Spain — SOON -->
-    <div class="map-pin" style="left:43.5%; top:33%;">
+    <div class="map-pin" style="left:43%; top:30%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot soon"></div>
       <div class="pin-label">Priorat, Spain · 2027</div>
     </div>
     <!-- Tuscany — SOON -->
-    <div class="map-pin" style="left:48.5%; top:32%;">
+    <div class="map-pin" style="left:49%; top:28%;">
       <div class="pin-ring"></div>
       <div class="pin-ring pin-ring-2"></div>
       <div class="pin-dot soon"></div>
       <div class="pin-label">Tuscany · 2027</div>
     </div>
     <!-- Mendoza — HORIZON -->
-    <div class="map-pin" style="left:22%; top:74%;">
+    <div class="map-pin" style="left:21%; top:76%;">
       <div class="pin-dot horizon"></div>
       <div class="pin-label">Mendoza · Horizon</div>
     </div>
     <!-- Douro — HORIZON -->
-    <div class="map-pin" style="left:41.5%; top:33.5%;">
+    <div class="map-pin" style="left:41%; top:32%;">
       <div class="pin-dot horizon"></div>
       <div class="pin-label">Douro Valley · Horizon</div>
     </div>
     <!-- Central Otago — HORIZON -->
-    <div class="map-pin" style="left:88%; top:79%;">
+    <div class="map-pin" style="left:89%; top:76%;">
       <div class="pin-dot horizon"></div>
       <div class="pin-label">Central Otago · Horizon</div>
     </div>
@@ -1578,7 +1580,7 @@ nav.scrolled { padding: 14px 24px; }
     <div class="collective-intro reveal">
       <div class="section-eyebrow">The Collective</div>
       <h2 class="section-title" style="margin-top: 14px; margin-bottom: 20px;">The Authorities<br><em>Behind the Experience</em></h2>
-      <p style="font-size:17px; font-weight:300; line-height:1.8; color:var(--cream-dim);">
+      <p style="font-size:17px; font-weight:300; line-height:1.8; color:rgba(242,236,224,0.65);">
         Vin Azul is not a company with a team. It is a collective of genuine experts in hospitality, wine, and storytelling — who happen to be building something together.
       </p>
     </div>
@@ -1732,7 +1734,7 @@ nav.scrolled { padding: 14px 24px; }
       <div>
         <div class="footer-brand-name"><em>Vin</em> Azul Collective</div>
         <p class="footer-tagline">The infrastructure of a life well-traveled.</p>
-        <p style="font-family:'Raleway',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--muted); text-transform:uppercase;">vinazul.com</p>
+        <p style="font-family:'Raleway',sans-serif; font-size:9px; letter-spacing:0.25em; color:#5a5448; text-transform:uppercase;">vinazul.com</p>
       </div>
       <div>
         <div class="footer-col-title">Experiences</div>
