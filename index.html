@@ -1445,9 +1445,8 @@ nav.scrolled { padding: 14px 24px; }
     .attr('stroke-linejoin', 'round');
 
   // Latitude labels
-  const labelProj = d3.geoEquirectangular().scale(W/6.3).translate([W/2, H/2]);
   [[60,'60°N'],[0,'EQ'],[-30,'30°S']].forEach(([lat, label]) => {
-    const [,y] = labelProj([0, lat]);
+    const [,y] = projection([0, lat]);
     S.append('text')
       .attr('x', 8).attr('y', y - 3)
       .attr('fill', 'rgba(201,169,110,0.35)')
@@ -1665,9 +1664,28 @@ nav.scrolled { padding: 14px 24px; }
     <p class="waitlist-sub reveal">Fifty seats. By personal invitation. No exceptions.</p>
 
 ```
-<div class="waitlist-form reveal" id="waitlist-form">
-  <input type="email" class="waitlist-input" placeholder="Your email address" id="email-input">
-  <button class="waitlist-submit" onclick="handleWaitlist()">Request Access</button>
+<div class="reveal" id="waitlist-form">
+  <form
+    name="founding-circle"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/success"
+    style="display:flex; max-width:480px; margin:0 auto 24px; gap:0;"
+    onsubmit="handleNetlifySubmit(event)"
+  >
+    <input type="hidden" name="form-name" value="founding-circle">
+    <input type="hidden" name="bot-field" style="display:none;">
+    <input
+      type="email"
+      name="email"
+      class="waitlist-input"
+      placeholder="Your email address"
+      id="email-input"
+      required
+    >
+    <button type="submit" class="waitlist-submit">Request Access</button>
+  </form>
 </div>
 <div class="waitlist-success" id="waitlist-success">
   Your request has been received. We will be in touch personally.
