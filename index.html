@@ -1763,27 +1763,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-// Waitlist form
-function handleWaitlist() {
-  const input = document.getElementById('email-input');
-  const form = document.getElementById('waitlist-form');
-  const success = document.getElementById('waitlist-success');
-  if (input.value && input.value.includes('@')) {
-    form.style.display = 'none';
-    success.style.display = 'block';
-  } else {
-    input.style.borderColor = 'rgba(201,169,110,0.6)';
-    input.placeholder = 'Please enter a valid email';
-    setTimeout(() => {
-      input.style.borderColor = '';
-      input.placeholder = 'Your email address';
-    }, 2000);
+// Netlify form handler
+function handleNetlifySubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('email-input').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('email-input').style.borderColor = 'rgba(201,169,110,0.6)';
+    return;
   }
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name': 'founding-circle', 'email': email }).toString()
+  })
+  .finally(() => {
+    document.getElementById('waitlist-form').style.display = 'none';
+    document.getElementById('waitlist-success').style.display = 'block';
+  });
 }
 
-// Enter key on waitlist
 document.getElementById('email-input')?.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') handleWaitlist();
+  if (e.key === 'Enter') e.target.closest('form')?.requestSubmit();
 });
 </script>
 
