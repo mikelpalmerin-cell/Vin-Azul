@@ -700,7 +700,7 @@ margin-bottom: 80px;
 
 .collective-grid {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(4, 1fr);
 gap: 2px;
 }
 
@@ -1189,7 +1189,7 @@ nav.scrolled { padding: 14px 24px; }
 .destination-card:first-child { height: 320px; }
 .destination-card { height: 260px; }
 
-.collective-grid { grid-template-columns: 1fr; gap: 2px; }
+.collective-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
 .tiers-grid { grid-template-columns: 1fr; gap: 2px; }
 .founding-cta { grid-template-columns: 1fr; padding: 40px 32px; }
 
@@ -1530,35 +1530,51 @@ nav.scrolled { padding: 14px 24px; }
   <div class="section-inner">
     <div class="collective-intro reveal">
       <div class="section-eyebrow">The Collective</div>
-      <h2 class="section-title" style="margin-top: 14px; margin-bottom: 20px;">The Authorities<br><em>Behind the Experience</em></h2>
+      <h2 class="section-title" style="margin-top: 14px; margin-bottom: 20px;">The People<br><em>Behind the Experience</em></h2>
       <p style="font-size:17px; font-weight:300; line-height:1.8; color:rgba(242,236,224,0.65);">
-        Vin Azul is not a company with a team. It is a collective of genuine experts in hospitality, wine, and storytelling — who happen to be building something together.
+        Vin Azul was built by one founder with a clear vision — and assembled around a team of genuine authorities in hospitality, wine, and storytelling.
       </p>
     </div>
 
 ```
 <div class="collective-grid">
-  <div class="member-card reveal">
+
+  <!-- MIKEL — FOUNDER -->
+  <div class="member-card reveal" style="background: linear-gradient(160deg, rgba(201,169,110,0.1), rgba(201,169,110,0.03)); border: 1px solid rgba(201,169,110,0.2);">
     <span class="member-number">I</span>
-    <div class="member-role">Head of Hospitality</div>
-    <div class="member-name">Joseph<br><em>Puekurt</em></div>
+    <div class="member-role" style="color:#c9a96e;">Founder</div>
+    <div class="member-name">Mikel<br><em>Palmerin</em></div>
     <div class="member-rule"></div>
-    <p class="member-bio">Trained at the Four Seasons standard. Joseph brings world-class guest experience design and hotel partnership expertise — the reason every Vin Azul event feels effortless from the moment you arrive.</p>
+    <p class="member-bio">Former professional athlete and entrepreneur. A San Diego native and founder of the Fallbrook Wine Festival, Mikel created Vin Azul Collective with a singular vision — to build the world's most prestigious wine lifestyle platform and connect extraordinary people to the wines, tables, and destinations that define a life lived at its finest.</p>
   </div>
+
+  <!-- JOSEPH -->
   <div class="member-card reveal reveal-delay-1">
     <span class="member-number">II</span>
+    <div class="member-role">Head of Hospitality</div>
+    <div class="member-name">Joseph<br><em>Peukert</em></div>
+    <div class="member-rule"></div>
+    <p class="member-bio">Holder of a BS in Hospitality Management from UNLV — the most prestigious hospitality program in the world. Joseph has worked alongside world-renowned chef José Andrés and brings Four Seasons-level service standards to every Vin Azul experience. He is the reason every event feels effortless from the moment you arrive.</p>
+  </div>
+
+  <!-- LISA -->
+  <div class="member-card reveal reveal-delay-2">
+    <span class="member-number">III</span>
     <div class="member-role">Head Sommelier</div>
     <div class="member-name">Lisa<br><em>Redwine</em></div>
     <div class="member-rule"></div>
-    <p class="member-bio">Advanced Level 3 Sommelier based in San Diego. Lisa's palate and relationships with winemakers are the curatorial spine of everything Vin Azul pours, recommends, and travels toward.</p>
+    <p class="member-bio">Advanced Level 3 Sommelier based in San Diego. Lisa's palate and relationships with winemakers are the curatorial spine of everything Vin Azul pours, recommends, and travels toward. Every wine at every table has been chosen with intention.</p>
   </div>
-  <div class="member-card reveal reveal-delay-2">
-    <span class="member-number">III</span>
-    <div class="member-role">Media & Storytelling</div>
+
+  <!-- WILL -->
+  <div class="member-card reveal reveal-delay-3">
+    <span class="member-number">IV</span>
+    <div class="member-role">Media & Brand</div>
     <div class="member-name">Will<br><em>Burtner</em></div>
     <div class="member-rule"></div>
     <p class="member-bio">Known for Wine Wednesday on Fox News. Will is the voice that makes wine culture feel alive, relevant, and worth paying attention to — and the reason the world will know what Vin Azul is building.</p>
   </div>
+
 </div>
 ```
 
