@@ -710,10 +710,6 @@ padding: 48px 56px;
 position: relative;
 overflow: hidden;
 transition: background 0.4s ease;
-display: grid;
-grid-template-columns: 200px 1fr;
-gap: 0 48px;
-align-items: start;
 }
 .member-card:hover { background: rgba(16,24,40,0.8); }
 
@@ -761,7 +757,7 @@ line-height: 1.1;
 .member-rule {
 width: 32px; height: 1px;
 background: #7a6040;
-margin-bottom: 0;
+margin-bottom: 20px;
 }
 
 .member-bio {
@@ -769,7 +765,7 @@ font-size: 16px;
 font-weight: 300;
 line-height: 1.9;
 color: rgba(242,236,224,0.6);
-padding-top: 8px;
+max-width: 720px;
 }
 
 /* ─── MEMBERSHIP ─── */
@@ -1195,8 +1191,8 @@ nav.scrolled { padding: 14px 24px; }
 .destination-card { height: 260px; }
 
 .collective-grid { grid-template-columns: 1fr; gap: 2px; }
-.member-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 0; }
-.member-bio { grid-column: 1; grid-row: auto; padding-top: 16px; }
+.member-card { padding: 36px 28px; }
+.member-bio { font-size: 15px; }
 .tiers-grid { grid-template-columns: 1fr; gap: 2px; }
 .founding-cta { grid-template-columns: 1fr; padding: 40px 32px; }
 
