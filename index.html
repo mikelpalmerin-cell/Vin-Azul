@@ -700,16 +700,20 @@ margin-bottom: 80px;
 
 .collective-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: 1fr;
 gap: 2px;
 }
 
 .member-card {
 background: #101828;
-padding: 48px 40px;
+padding: 48px 56px;
 position: relative;
 overflow: hidden;
 transition: background 0.4s ease;
+display: grid;
+grid-template-columns: 200px 1fr;
+gap: 0 48px;
+align-items: start;
 }
 .member-card:hover { background: rgba(16,24,40,0.8); }
 
@@ -726,12 +730,12 @@ transition: transform 0.5s ease;
 
 .member-number {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 80px;
+font-size: 56px;
 font-weight: 200;
 font-style: italic;
-color: rgba(201,169,110,0.08);
+color: rgba(201,169,110,0.1);
 line-height: 1;
-margin-bottom: -20px;
+margin-bottom: 8px;
 display: block;
 }
 
@@ -739,32 +743,33 @@ display: block;
 font-family: ‘Raleway’, sans-serif;
 font-size: 8px;
 letter-spacing: 0.45em;
-color: #c9a96e;
+color: #c9a96e !important;
 text-transform: uppercase;
 margin-bottom: 12px;
 }
 
 .member-name {
-font-size: 26px;
+font-size: 28px;
 font-weight: 300;
 color: #f2ece0;
 letter-spacing: 0.04em;
 margin-bottom: 20px;
 line-height: 1.1;
 }
-.member-name em { font-style: italic; color: #c9a96e; }
+.member-name em { font-style: italic; color: #c9a96e !important; }
 
 .member-rule {
 width: 32px; height: 1px;
 background: #7a6040;
-margin-bottom: 20px;
+margin-bottom: 0;
 }
 
 .member-bio {
-font-size: 15px;
+font-size: 16px;
 font-weight: 300;
-line-height: 1.8;
-color: rgba(242,236,224,0.35);
+line-height: 1.9;
+color: rgba(242,236,224,0.6);
+padding-top: 8px;
 }
 
 /* ─── MEMBERSHIP ─── */
@@ -1189,7 +1194,9 @@ nav.scrolled { padding: 14px 24px; }
 .destination-card:first-child { height: 320px; }
 .destination-card { height: 260px; }
 
-.collective-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+.collective-grid { grid-template-columns: 1fr; gap: 2px; }
+.member-card { grid-template-columns: 1fr; padding: 36px 28px; gap: 0; }
+.member-bio { grid-column: 1; grid-row: auto; padding-top: 16px; }
 .tiers-grid { grid-template-columns: 1fr; gap: 2px; }
 .founding-cta { grid-template-columns: 1fr; padding: 40px 32px; }
 
