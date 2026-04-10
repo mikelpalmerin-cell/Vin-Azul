@@ -452,16 +452,14 @@ display: inline-block;
 
   <nav class="topnav">
     <div class="nav-left">
+      <a href="/" style="font-family:'Raleway',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.35em;color:rgba(242,236,224,0.4);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:6px;margin-right:4px;transition:color 0.2s ease;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='rgba(242,236,224,0.4)'">← Home</a>
+      <div class="nav-sep"></div>
       <div class="nav-logo"><em>Vin</em> Azul</div>
       <div class="nav-sep"></div>
       <div class="nav-product">Voya AI</div>
     </div>
     <div class="nav-right">
-      <div class="member-info">
-        <div class="member-name">Founding Member</div>
-        <div class="member-tier">Founding Circle</div>
-      </div>
-      <div class="member-avatar">VA</div>
+      <a href="/#waitlist" style="font-family:'Raleway',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.4em;color:#c9a96e;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,169,110,0.3);padding:7px 16px;transition:all 0.2s ease;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='transparent'">Join the Circle</a>
     </div>
   </nav>
 
@@ -475,58 +473,46 @@ display: inline-block;
         <div class="sidebar-text">Voya AI</div>
         <div class="sidebar-badge">Live</div>
       </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">📅</div>
-        <div class="sidebar-text">My Events</div>
-      </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">🗺</div>
-        <div class="sidebar-text">Destinations</div>
-      </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">🍾</div>
-        <div class="sidebar-text">My Cellar</div>
-      </div>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">Intelligence</div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">🌍</div>
-        <div class="sidebar-text">Market Scanner</div>
-        <div class="sidebar-badge">New</div>
-      </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">🤝</div>
-        <div class="sidebar-text">Partner Pipeline</div>
-      </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">📰</div>
-        <div class="sidebar-text">Press Tracker</div>
-      </div>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-label">Profile</div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">👤</div>
-        <div class="sidebar-text">My Profile</div>
-      </div>
-      <div class="sidebar-item">
-        <div class="sidebar-icon">⚙️</div>
-        <div class="sidebar-text">Preferences</div>
-      </div>
-    </div>
-    <div class="agent-status">
-      <div class="agent-label">
-        <div class="pulse-dot"></div>
-        Voya Active
-      </div>
-      <div class="agent-stats">
-        <div><div class="stat-val">14</div><div class="stat-label">Markets</div></div>
-        <div><div class="stat-val">38</div><div class="stat-label">Partners</div></div>
-        <div><div class="stat-val">7</div><div class="stat-label">Events</div></div>
-        <div><div class="stat-val">24/7</div><div class="stat-label">Active</div></div>
-      </div>
-    </div>
+
+```
+<div class="sidebar-section">
+  <div class="sidebar-label">2026 Events</div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about The Founding Table on June 4th';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🌅</div>
+    <div class="sidebar-text">The Founding Table</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Harvest Weekend in Paso Robles';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🍇</div>
+    <div class="sidebar-text">Harvest Weekend</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Napa Valley Winter Estate experience';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">❄️</div>
+    <div class="sidebar-text">Napa Winter Estate</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Fallbrook Wine Festival';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🏆</div>
+    <div class="sidebar-text">Fallbrook Festival</div>
+  </div>
+</div>
+
+<div class="sidebar-section">
+  <div class="sidebar-label">Ask Voya</div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Recommend a wine based on my palate';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🍾</div>
+    <div class="sidebar-text">Wine Recommendation</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Plan a wine trip to Provence for 5 days';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">✈️</div>
+    <div class="sidebar-text">Plan a Trip</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about Vin Azul membership';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">⭐</div>
+    <div class="sidebar-text">Membership</div>
+  </div>
+</div>
+```
+
   </aside>
 
   <!-- MAIN CHAT -->
@@ -578,39 +564,13 @@ display: inline-block;
 
 ```
 <div class="right-section">
-  <div class="right-label">🍷 Your Palate Profile</div>
-  <div class="palate-items">
-    <div class="palate-item">
-      <div class="palate-label">Tannin</div>
-      <div class="palate-bar"><div class="palate-fill" style="width:80%"></div></div>
-    </div>
-    <div class="palate-item">
-      <div class="palate-label">Acidity</div>
-      <div class="palate-bar"><div class="palate-fill" style="width:55%"></div></div>
-    </div>
-    <div class="palate-item">
-      <div class="palate-label">Fruit Forward</div>
-      <div class="palate-bar"><div class="palate-fill" style="width:70%"></div></div>
-    </div>
-    <div class="palate-item">
-      <div class="palate-label">Oak / Toast</div>
-      <div class="palate-bar"><div class="palate-fill" style="width:65%"></div></div>
-    </div>
-    <div class="palate-item">
-      <div class="palate-label">Earthiness</div>
-      <div class="palate-bar"><div class="palate-fill" style="width:45%"></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="right-section">
   <div class="right-label">📅 Upcoming Events</div>
   <div class="event-items">
     <div class="event-item" onclick="setPrompt('Tell me about The Founding Table on June 4th')">
       <div class="event-item-date">Jun 4, 2026</div>
       <div class="event-item-name">The Founding Table</div>
       <div class="event-item-loc">Monserate Winery, Fallbrook</div>
-      <div class="event-item-status status-open">Accepting RSVPs</div>
+      <div class="event-item-status status-open">$250 · Accepting RSVPs</div>
     </div>
     <div class="event-item" onclick="setPrompt('Tell me about The Summer Cellar in July')">
       <div class="event-item-date">Jul 16, 2026</div>
@@ -664,7 +624,7 @@ ABOUT VIN AZUL:
 - Membership tiers: Cellar ($1,200/yr), Reserve ($3,600/yr), Grand Cru ($9,600/yr), Founding Circle ($1,000/yr - 50 seats only)
 
 2026 EVENT CALENDAR:
-1. The Founding Table — June 4, 2026 — Monserate Winery, Fallbrook CA — $100/person, 30-40 guests, sunset vineyard walk + seated 5-course wine dinner. NOW ACCEPTING RSVPs.
+1. The Founding Table — June 4, 2026 — Monserate Winery, Fallbrook CA — $250/person, 30-40 guests, sunset vineyard walk + seated 5-course wine dinner. NOW ACCEPTING RSVPs.
 2. The Summer Cellar — July 16, 2026 — San Diego County — Members only, cellar tasting, founding members + 2 guests
 3. Terroir & Table — August 20, 2026 — Boutique Hotel, San Diego — $195 members / $250 public, 40 guests
 4. The Winemaker's Dinner — September 10, 2026 — Temecula Valley — $350 members / $450 waitlist, 20 guests max
