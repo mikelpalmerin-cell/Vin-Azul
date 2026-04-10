@@ -2008,7 +2008,10 @@ document.getElementById('email-input')?.addEventListener('keypress', (e) => {
         <span style="font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.35em;color:#c9a96e;text-transform:uppercase;">Voya</span>
         <span style="font-family:'Raleway',sans-serif;font-size:9px;font-weight:300;letter-spacing:0.2em;color:rgba(242,236,224,0.3);text-transform:uppercase;">· Private Concierge</span>
       </div>
-      <div onclick="toggleVoya()" style="cursor:pointer;color:rgba(242,236,224,0.4);font-size:18px;line-height:1;padding:2px 6px;font-family:sans-serif;" onmouseover="this.style.color='#f2ece0'" onmouseout="this.style.color='rgba(242,236,224,0.4)'">×</div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="/voya.html" style="font-family:'Raleway',sans-serif;font-size:7.5px;letter-spacing:0.3em;color:rgba(201,169,110,0.6);text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.2);padding-bottom:2px;transition:color 0.2s ease;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='rgba(201,169,110,0.6)'">Full Experience →</a>
+        <div onclick="toggleVoya()" style="cursor:pointer;color:rgba(242,236,224,0.4);font-size:18px;line-height:1;padding:2px 6px;font-family:sans-serif;" onmouseover="this.style.color='#f2ece0'" onmouseout="this.style.color='rgba(242,236,224,0.4)'">×</div>
+      </div>
     </div>
 
 ```
@@ -2081,6 +2084,7 @@ box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 <script>
 let floatHistory = [];
 let voyaOpen = false;
+let floatGreeted = false;
 
 function toggleVoya() {
   voyaOpen = !voyaOpen;
@@ -2091,8 +2095,17 @@ function toggleVoya() {
 }
 
 function floatPrompt(text) {
+  // Skip greeting if already greeted — go straight to the request
+  if (!floatGreeted) floatGreeted = true;
   document.getElementById('floatInput').value = text;
   floatChat();
+}
+
+// Save conversation to sessionStorage so voya.html can pick it up
+function saveConversation() {
+  const messages = document.getElementById('floatMessages');
+  sessionStorage.setItem('voyaHistory', JSON.stringify(floatHistory));
+  sessionStorage.setItem('voyaMessages', messages.innerHTML);
 }
 
 async function floatChat() {
@@ -2101,6 +2114,8 @@ async function floatChat() {
   const messages = document.getElementById('floatMessages');
   const text = input.value.trim();
   if (!text || btn.disabled) return;
+
+  floatGreeted = true;
 
   // User message
   const uDiv = document.createElement('div');
@@ -2154,6 +2169,9 @@ async function floatChat() {
         <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.85);border-radius:2px 8px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;">${reply}</div>`;
       messages.appendChild(vDiv);
       messages.scrollTop = messages.scrollHeight;
+
+      // Save conversation after every exchange
+      saveConversation();
     }
   } catch(e) {
     document.getElementById('floatTyping')?.remove();
