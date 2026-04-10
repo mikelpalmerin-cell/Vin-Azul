@@ -1715,8 +1715,8 @@ nav.scrolled { padding: 14px 24px; }
 ```
 <div style="text-align: center; margin-bottom: 48px;" class="reveal">
   <div style="font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 0.5em; color: #c9a96e; text-transform: uppercase; margin-bottom: 12px;">Meet Voya</div>
-  <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 300; color: #f2ece0; letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 14px;">Your Personal <em>Wine & Travel</em> Concierge</h2>
-  <p style="font-size: 16px; font-style: italic; font-weight: 300; color: rgba(242,236,224,0.45); max-width: 500px; margin: 0 auto;">Ask Voya anything — wine pairings, travel itineraries, upcoming events. Available to all members, 24 hours a day.</p>
+  <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 300; color: #f2ece0; letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 14px;">Speak with <em>Voya</em></h2>
+  <p style="font-size: 16px; font-style: italic; font-weight: 300; color: rgba(242,236,224,0.45); max-width: 500px; margin: 0 auto;">Receive a curated wine experience or private invitation.</p>
 </div>
 
 <!-- Chat Interface -->
@@ -1728,7 +1728,7 @@ nav.scrolled { padding: 14px 24px; }
     <div style="display: flex; gap: 10px;">
       <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.03)); border: 1px solid rgba(201,169,110,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-size: 9px; color: #c9a96e; flex-shrink: 0; margin-top: 2px;">V</div>
       <div style="background: rgba(201,169,110,0.06); border: 1px solid rgba(201,169,110,0.12); padding: 12px 16px; font-size: 14px; font-weight: 300; line-height: 1.65; color: rgba(242,236,224,0.85); border-radius: 2px 10px 10px 10px; max-width: 85%;">
-        Good evening. I'm Voya — your personal sommelier and travel concierge. Ask me about wine pairings, destinations, or upcoming Vin Azul experiences. Where shall we begin?
+        Welcome to Vin Azul. I'm Voya — your private concierge. May I curate something for you?
       </div>
     </div>
   </div>
@@ -1739,28 +1739,28 @@ nav.scrolled { padding: 14px 24px; }
       <input
         type="text"
         id="homeChatInput"
-        placeholder="Ask Voya about wine, travel, or events..."
+        placeholder="Tell Voya what you're looking for..."
         onkeypress="if(event.key==='Enter') homeChat()"
         style="flex: 1; background: none; border: none; outline: none; padding: 14px 18px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 300; letter-spacing: 0.05em; color: #f2ece0;">
       <button
         onclick="homeChat()"
         id="homeSendBtn"
         style="background: #c9a96e; border: none; padding: 0 24px; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 0.45em; text-transform: uppercase; color: #080e1a;">
-        Ask
+        Send
       </button>
     </div>
 
     <!-- Quick prompts -->
     <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-      <div onclick="document.getElementById('homeChatInput').value='Recommend a wine for a special dinner'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease;">Wine Pairing</div>
-      <div onclick="document.getElementById('homeChatInput').value='What Vin Azul events are coming up?'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Upcoming Events</div>
-      <div onclick="document.getElementById('homeChatInput').value='Plan a wine trip to Provence'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Provence Trip</div>
+      <div onclick="document.getElementById('homeChatInput').value='I am looking for a one-time experience'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease;">Book an Experience</div>
+      <div onclick="document.getElementById('homeChatInput').value='I am interested in something more exclusive and ongoing'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Private Membership</div>
+      <div onclick="document.getElementById('homeChatInput').value='Tell me about upcoming Vin Azul events'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Upcoming Events</div>
     </div>
   </div>
 </div>
 
 <div style="text-align: center; margin-top: 24px;" class="reveal">
-  <a href="/voya.html" style="font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 0.4em; color: rgba(201,169,110,0.5); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.2); padding-bottom: 3px;">Open Full Voya Experience →</a>
+  <a href="/voya.html" style="font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 0.4em; color: rgba(201,169,110,0.5); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.2); padding-bottom: 3px;">Continue with Voya →</a>
 </div>
 ```
 
@@ -1768,15 +1768,28 @@ nav.scrolled { padding: 14px 24px; }
 </section>
 
 <script>
-const HOME_VOYA_SYSTEM = `You are Voya, the AI-powered sommelier and travel concierge for Vin Azul Collective — a luxury wine experience and membership brand based in San Diego, California, building toward a global presence.
+const HOME_VOYA_SYSTEM = `You are Voya — the private concierge for Vin Azul Collective, a luxury wine experience and membership brand based in San Diego, California.
 
-Your personality: Elegant, knowledgeable, warm but never casual. You speak like a world-class sommelier who also happens to be a luxury travel expert. You are understated, precise, and deeply passionate about wine and culture. Never use emojis. Always speak in full, refined sentences. Keep responses concise — 3-5 sentences maximum for the homepage widget.
+You are not a chatbot. You are a luxury concierge with access to experiences most people never encounter. Never mention being an AI.
 
-2026 EVENTS: The Founding Table (June 4, Monserate Winery Fallbrook, $100), The Summer Cellar (July 16, Members Only), Terroir & Table (Aug 20, $195 members), Winemaker's Dinner (Sep 10, Temecula, $350), Harvest Weekend (Sep 26, Paso Robles, $1,800), Fallbrook Wine Festival (Oct 10, founding members free), The Autumn Table (Nov 19, $350), Napa Valley Winter Estate (Dec 10, $2,800).
+TONE: Elegant, minimal, confident. Never pushy. Short responses — 2-3 sentences maximum. Always guide forward with one question. Use exclusivity language naturally.
 
-WINE PARTNERS: Monserate Winery (Fallbrook CA), De Amo Winery (97-point Cabernet), GRW Wine Collection.
+YOUR MISSION: Qualify visitors and convert them into experience bookings or Founding Circle membership applications.
 
-Keep all responses elegant, brief, and on-brand for Vin Azul. If someone wants more detail, invite them to open the full Voya experience.`;
+CONVERSATION FLOW:
+1. Open: "Welcome to Vin Azul. I'm Voya — your private concierge. May I curate something for you?"
+2. Ask: "Are you looking for a one-time experience, or something more ongoing and exclusive?"
+3. Ask: "Do you enjoy wine experiences locally in California, or while traveling?"
+4. Ask: "Do you prefer intimate private settings, or curated social events?"
+5. Based on answers — guide toward booking an experience OR a Founding Circle invitation
+
+EXPERIENCE PATH: Present The Founding Table (June 4, Monserate Winery Fallbrook, $250/person, 4-course dinner co-presented with Monserate's sommelier team) or Harvest Weekend (Sep 26, Paso Robles, $1,800). Collect name and email.
+
+MEMBERSHIP PATH: Say "Based on what you've shared, you'd be a natural fit for our private membership circle." Then: "We're currently building our Founding Circle — 50 members globally, rate locked for life at $1,000/year." Collect name, email, location.
+
+For more detail, invite them to continue with the full Voya experience at the link below.
+
+2026 EVENTS: Founding Table (Jun 4, $250), Summer Cellar (Jul 16, members), Terroir & Table (Aug 20, $195 members/$250 public), Winemaker's Dinner (Sep 10, $350), Harvest Weekend (Sep 26, $1,800), Fallbrook Festival (Oct 10, founding members free), Autumn Table (Nov 19, $350), Napa Winter Estate (Dec 10, $2,800).`;
 
 let homeChatHistory = [];
 
