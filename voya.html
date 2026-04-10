@@ -525,7 +525,7 @@ display: inline-block;
 
 ```
 <div class="chat-messages" id="chatMessages">
-  <div class="message">
+  <div class="message" id="voyaGreeting">
     <div class="msg-avatar voya">V</div>
     <div class="msg-content">
       <div class="msg-bubble voya">
@@ -606,6 +606,57 @@ display: inline-block;
 <script>
 // ── CONVERSATION HISTORY ──
 let conversationHistory = [];
+
+// Restore conversation from homepage float tab if it exists
+(function restoreConversation() {
+  const savedHistory = sessionStorage.getItem('voyaHistory');
+  const savedMessages = sessionStorage.getItem('voyaMessages');
+
+  if (savedHistory && savedMessages) {
+    try {
+      conversationHistory = JSON.parse(savedHistory);
+      const messages = document.getElementById('chatMessages');
+      const greeting = document.getElementById('voyaGreeting');
+
+      // Replace greeting with restored conversation
+      if (greeting) greeting.remove();
+
+      // Add a continuity notice
+      const notice = document.createElement('div');
+      notice.style.cssText = 'text-align:center;padding:8px 16px;margin:4px 0;';
+      notice.innerHTML = '<span style="font-family:\'Raleway\',sans-serif;font-size:8px;letter-spacing:0.3em;color:rgba(201,169,110,0.4);text-transform:uppercase;">Continuing your conversation</span>';
+      messages.appendChild(notice);
+
+      // Rebuild messages from history
+      conversationHistory.forEach(msg => {
+        const div = document.createElement('div');
+        div.className = `message ${msg.role === 'user' ? 'user' : ''}`;
+        if (msg.role === 'user') {
+          div.innerHTML = `
+            <div class="msg-content" style="align-items:flex-end;">
+              <div class="msg-bubble user">${msg.content}</div>
+            </div>
+            <div class="msg-avatar user">M</div>`;
+        } else {
+          div.innerHTML = `
+            <div class="msg-avatar voya">V</div>
+            <div class="msg-content">
+              <div class="msg-bubble voya">${msg.content}</div>
+            </div>`;
+        }
+        messages.appendChild(div);
+      });
+
+      messages.scrollTop = messages.scrollHeight;
+
+      // Clear so refreshing voya.html starts fresh
+      sessionStorage.removeItem('voyaHistory');
+      sessionStorage.removeItem('voyaMessages');
+    } catch(e) {
+      conversationHistory = [];
+    }
+  }
+})();
 
 // ── EVENT WAITLIST (simulated) ──
 const waitlist = {};
