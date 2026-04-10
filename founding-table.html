@@ -955,6 +955,14 @@ async function handleRsvp(e) {
   const email = form.querySelector('[name="email"]').value;
   const ticketType = document.getElementById('ticketType').value;
 
+  if (ticketType === 'comp') {
+    const code = document.getElementById('inviteCode')?.value.trim();
+    if (code.toUpperCase() !== 'FOUNDING2026') {
+      alert('Invalid invitation code. Please check your invitation and try again.');
+      return;
+    }
+  }
+
   // Save email for confirmation
   document.getElementById('confirmedEmail').textContent = email;
 
