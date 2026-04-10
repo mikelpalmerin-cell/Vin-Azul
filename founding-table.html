@@ -636,11 +636,6 @@ transition: opacity 0.8s ease, transform 0.8s ease;
     </div>
   </div>
 
-  <div class="hero-ctas">
-    <a href="#rsvp" class="btn-primary">Reserve My Seat</a>
-    <a href="#rsvp" class="btn-ghost" id="compBtn">I Have a Private Invitation</a>
-  </div>
-
   <div class="scroll-hint">Scroll to explore the evening ↓</div>
 </section>
 
@@ -760,8 +755,8 @@ transition: opacity 0.8s ease, transform 0.8s ease;
   </div>
 
   <div class="menu-credit">
-    Menu and wine program presented by the culinary and sommelier team at Monserate Winery<br>
-    in partnership with Vin Azul Collective
+    Menu and wine program crafted entirely by the culinary and sommelier team at Monserate Winery.<br>
+    This evening is hosted in partnership with Vin Azul Collective.
   </div>
 </section>
 
@@ -807,24 +802,39 @@ transition: opacity 0.8s ease, transform 0.8s ease;
       <label class="form-label">Phone Number</label>
       <input type="tel" name="phone" class="form-input" placeholder="(000) 000-0000">
     </div>
-    <div class="form-group">
-      <label class="form-label">Number of Guests</label>
-      <select name="guests" class="form-select" required>
-        <option value="" style="color:#5a5448;">Select</option>
-        <option value="1">1 Guest</option>
-        <option value="2">2 Guests</option>
-      </select>
+    <div class="form-group full">
+      <label class="form-label">Attending</label>
+      <div style="display:flex;gap:0;margin-top:4px;">
+        <button type="button" id="btn1Guest" onclick="setGuests(1)" style="flex:1;padding:14px;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.35em;text-transform:uppercase;border:1px solid rgba(201,169,110,0.5);background:rgba(201,169,110,0.1);color:#c9a96e;cursor:pointer;transition:all 0.2s ease;">Myself Only</button>
+        <button type="button" id="btn2Guest" onclick="setGuests(2)" style="flex:1;padding:14px;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.35em;text-transform:uppercase;border:1px solid rgba(201,169,110,0.2);border-left:none;background:transparent;color:rgba(242,236,224,0.3);cursor:pointer;transition:all 0.2s ease;">Myself + One Guest</button>
+      </div>
+      <input type="hidden" name="guests" id="guestCount" value="1">
     </div>
+
     <div class="form-group">
-      <label class="form-label">Dietary Restrictions</label>
-      <select name="dietary" class="form-select">
+      <label class="form-label">Your Dietary Restrictions</label>
+      <select name="dietary-1" class="form-select">
         <option value="none">None</option>
         <option value="vegetarian">Vegetarian</option>
         <option value="vegan">Vegan</option>
         <option value="gluten-free">Gluten-Free</option>
         <option value="dairy-free">Dairy-Free</option>
         <option value="nut-allergy">Nut Allergy</option>
-        <option value="other">Other — Please Specify Below</option>
+        <option value="other">Other — see notes</option>
+      </select>
+    </div>
+
+    <!-- Second guest dietary — shown only when +1 selected -->
+    <div class="form-group" id="guest2Dietary" style="display:none;">
+      <label class="form-label">Guest Dietary Restrictions</label>
+      <select name="dietary-2" class="form-select">
+        <option value="none">None</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="gluten-free">Gluten-Free</option>
+        <option value="dairy-free">Dairy-Free</option>
+        <option value="nut-allergy">Nut Allergy</option>
+        <option value="other">Other — see notes</option>
       </select>
     </div>
     <div class="form-group full">
@@ -841,9 +851,9 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 
   <!-- Payment block -->
   <div class="payment-block" id="paymentBlock" style="margin-top:32px;">
-    <div class="payment-amount">$250</div>
-    <div class="payment-per">Per Person · Includes all courses and wine pairings</div>
-    <div class="payment-note">After submitting your details below, you'll be directed to our secure payment page. Your seat is confirmed upon payment.</div>
+    <div class="payment-amount" id="paymentAmount">$250</div>
+    <div class="payment-per" id="paymentPer">1 Seat · Includes all courses and wine pairings</div>
+    <div class="payment-note">After submitting your details you'll be directed to our secure payment page. Your seat is confirmed upon payment.</div>
     <button type="submit" class="btn-primary" style="width:100%;padding:18px;background:#c9a96e !important;color:#080e1a !important;border-color:#c9a96e !important;">Confirm &amp; Proceed to Payment</button>
   </div>
 
@@ -896,6 +906,36 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 </footer>
 
 <script>
+// Guest toggle
+function setGuests(count) {
+  document.getElementById('guestCount').value = count;
+  const btn1 = document.getElementById('btn1Guest');
+  const btn2 = document.getElementById('btn2Guest');
+  const diet2 = document.getElementById('guest2Dietary');
+  const amount = document.getElementById('paymentAmount');
+  const per = document.getElementById('paymentPer');
+
+  if (count === 1) {
+    btn1.style.background = 'rgba(201,169,110,0.1)';
+    btn1.style.color = '#c9a96e';
+    btn1.style.borderColor = 'rgba(201,169,110,0.5)';
+    btn2.style.background = 'transparent';
+    btn2.style.color = 'rgba(242,236,224,0.3)';
+    btn2.style.borderColor = 'rgba(201,169,110,0.2)';
+    diet2.style.display = 'none';
+    if (amount) { amount.textContent = '$250'; per.textContent = '1 Seat · Includes all courses and wine pairings'; }
+  } else {
+    btn2.style.background = 'rgba(201,169,110,0.1)';
+    btn2.style.color = '#c9a96e';
+    btn2.style.borderColor = 'rgba(201,169,110,0.5)';
+    btn1.style.background = 'transparent';
+    btn1.style.color = 'rgba(242,236,224,0.3)';
+    btn1.style.borderColor = 'rgba(201,169,110,0.2)';
+    diet2.style.display = 'flex';
+    if (amount) { amount.textContent = '$500'; per.textContent = '2 Seats · Includes all courses and wine pairings'; }
+  }
+}
+
 // Tab switching
 function switchTab(type) {
   const isPaying = type === 'paying';
@@ -907,10 +947,6 @@ function switchTab(type) {
   document.getElementById('inviteCodeGroup').style.display = isPaying ? 'none' : 'block';
 }
 
-// If they clicked comp button on hero
-document.getElementById('compBtn').addEventListener('click', () => {
-  setTimeout(() => switchTab('comp'), 100);
-});
 
 // Form submission
 async function handleRsvp(e) {
@@ -933,8 +969,11 @@ async function handleRsvp(e) {
   } catch(err) { /* continue regardless */ }
 
   if (ticketType === 'paying') {
-    // Redirect to Square payment
-    window.location.href = 'https://square.link/u/m94ORL4k?src=sheet';
+    const guests = parseInt(document.getElementById('guestCount').value);
+    const squareLink = guests === 2
+      ? 'https://square.link/u/7SdE8L2f?src=sheet'
+      : 'https://square.link/u/m94ORL4k?src=sheet';
+    window.location.href = squareLink;
   } else {
     // Show success state for comped guests
     document.getElementById('rsvpForm').style.display = 'none';
