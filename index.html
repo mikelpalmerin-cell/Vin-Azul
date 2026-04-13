@@ -468,20 +468,10 @@ background-position: center !important;
 .destination-card:hover .dest-bg { transform: scale(1.06); }
 
 /* ── DESTINATION PHOTOS — only change from original ── */
-.dest-california .dest-bg {
-background: url(‘https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1400&q=85&fit=crop’) center/cover no-repeat;
-}
-.dest-baja .dest-bg {
-background: url(‘https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85&fit=crop’) center/cover no-repeat;
-}
-.dest-provence .dest-bg {
-background: url(‘https://images.unsplash.com/photo-1560963513-1e64e7ca96bd?w=900&q=85&fit=crop’) center/cover no-repeat;
-}
-.dest-spain .dest-bg {
-background: url(‘https://images.unsplash.com/photo-1543871595-e11129b309b4?w=900&q=85&fit=crop’) center/cover no-repeat;
-}
-.dest-tuscany .dest-bg {
-background: url(‘https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=900&q=85&fit=crop’) center/cover no-repeat;
+.dest-california .dest-bg, .dest-baja .dest-bg, .dest-provence .dest-bg, .dest-spain .dest-bg, .dest-tuscany .dest-bg {
+background-size: cover !important;
+background-position: center center !important;
+background-repeat: no-repeat !important;
 }
 
 /* Vineyard pattern overlay — kept from original */
@@ -1302,7 +1292,7 @@ nav.scrolled { padding: 14px 24px; }
 ```
 <div class="destinations-grid">
   <div class="destination-card dest-card-first dest-california reveal">
-    <div class="dest-bg"></div>
+    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1400&auto=format&fit=crop');"></div>
     <div class="dest-overlay"></div>
     <div class="dest-content">
       <div class="dest-region">California, USA</div>
@@ -1315,7 +1305,7 @@ nav.scrolled { padding: 14px 24px; }
   </div>
 
   <div class="destination-card dest-baja reveal reveal-delay-1">
-    <div class="dest-bg"></div>
+    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop');"></div>
     <div class="dest-overlay"></div>
     <div class="dest-content">
       <div class="dest-region">Baja California, Mexico</div>
@@ -1328,7 +1318,7 @@ nav.scrolled { padding: 14px 24px; }
   </div>
 
   <div class="destination-card dest-provence reveal reveal-delay-2">
-    <div class="dest-bg"></div>
+    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1560963513-1e64e7ca96bd?w=900&auto=format&fit=crop');"></div>
     <div class="dest-overlay"></div>
     <div class="dest-content">
       <div class="dest-region">South of France</div>
@@ -1341,7 +1331,7 @@ nav.scrolled { padding: 14px 24px; }
   </div>
 
   <div class="destination-card dest-spain reveal reveal-delay-1">
-    <div class="dest-bg"></div>
+    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1543871595-e11129b309b4?w=900&auto=format&fit=crop');"></div>
     <div class="dest-overlay"></div>
     <div class="dest-content">
       <div class="dest-region">Spain</div>
@@ -1354,7 +1344,7 @@ nav.scrolled { padding: 14px 24px; }
   </div>
 
   <div class="destination-card dest-tuscany reveal reveal-delay-2">
-    <div class="dest-bg"></div>
+    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=900&auto=format&fit=crop');"></div>
     <div class="dest-overlay"></div>
     <div class="dest-content">
       <div class="dest-region">Italy</div>
