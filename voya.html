@@ -4,1747 +4,626 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vin Azul Collective — The Infrastructure of a Life Well-Traveled</title>
-
-<!-- Open Graph / iMessage / WhatsApp / Social preview -->
+<title>Voya — Vin Azul Private Concierge</title>
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vinazul.com">
-<meta property="og:title" content="Vin Azul Collective">
-<meta property="og:description" content="Where wine is the language. The world is the table. A private global network of curated wine experiences, membership, and luxury travel.">
+<meta property="og:url" content="https://vinazul.com/voya.html">
+<meta property="og:title" content="Voya — Vin Azul Private Concierge">
+<meta property="og:description" content="Your private wine and travel concierge. Book experiences, plan trips, discover wines. Available 24 hours a day.">
 <meta property="og:image" content="https://vinazul.com/og-vinazul.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vin Azul Collective">
-<meta name="twitter:description" content="Where wine is the language. The world is the table.">
+<meta name="twitter:title" content="Voya — Vin Azul Private Concierge">
+<meta name="twitter:description" content="Your private wine and travel concierge. Book experiences, plan trips, discover wines.">
 <meta name="twitter:image" content="https://vinazul.com/og-vinazul.png">
-<meta name="description" content="Vin Azul Collective — A private global network of curated wine experiences, membership, and luxury travel. From California to Provence.">
-<meta name="description" content="A curated circle of people who experience the world through wine, culture, and extraordinary hospitality. Membership by invitation.">
-<!-- Critical: render background immediately before any stylesheet -->
-<style>html,body{background:#080e1a!important;color:#f2ece0!important;}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-/* ── CRITICAL: Inline font-face fallbacks so text renders immediately ── */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local('Georgia'), local('Times New Roman');
-}
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local('Helvetica Neue'), local('Arial');
-}
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-–navy:        #080e1a;
-–navy-mid:    #0d1526;
-–navy-card:   #101828;
-–gold:        #c9a96e;
-–gold-bright: #e2c48a;
-–gold-dim:    #7a6040;
-–gold-glow:   rgba(201,169,110,0.15);
-–cream:       #f2ece0;
-–cream-dim:   rgba(242,236,224,0.65);
-–cream-ghost: rgba(242,236,224,0.35);
-–muted:       #5a5448;
-–rule:        rgba(201,169,110,0.2);
-–white:       #ffffff;
-}
-
-html {
-font-size: 16px;
-scroll-behavior: smooth;
-background: #080e1a;
-}
+html { font-size: 16px; }
 
 body {
-background: #080e1a !important;
-color: #f2ece0 !important;
-font-family: ‘Cormorant Garamond’, Georgia, ‘Times New Roman’, serif;
-overflow-x: hidden;
-cursor: default;
+background: #080e1a;
+color: #f2ece0;
+font-family: ‘Cormorant Garamond’, Georgia, serif;
+min-height: 100vh;
 -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+overflow: hidden;
 }
 
-/* ── GLOBAL RESET: Kill Safari blue links everywhere ── */
-a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
-a:link, a:visited, a:hover, a:active { text-decoration: none; }
-
-/* ── GLOBAL: Force gold on all italic em elements ── */
-em { color: #c9a96e !important; font-style: italic; }
-
-/* ── GLOBAL: Force gold on section eyebrows ── */
-.section-eyebrow { color: #c9a96e !important; }
-.hero-eyebrow { color: #c9a96e !important; }
-.member-role { color: #c9a96e !important; }
-.tier-name { color: #c9a96e !important; }
-.dest-region { color: #c9a96e !important; }
-.month-name em { color: #c9a96e !important; }
-.wordmark em { color: #c9a96e !important; }
-.manifesto-headline em { color: #c9a96e !important; }
-.section-title em { color: #c9a96e !important; }
-.waitlist-headline em { color: #c9a96e !important; }
-.footer-brand-name em { color: #c9a96e !important; }
-.brand-name em { color: #c9a96e !important; }
-.hero-headline em { color: #c9a96e !important; }
-
-/* Grain overlay */
 body::before {
 content: ‘’;
 position: fixed; inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 512 512’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘g’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.75’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23g)’ opacity=‘0.032’/%3E%3C/svg%3E”);
-pointer-events: none; z-index: 999; opacity: 0.5;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 512 512’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘g’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.75’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23g)’ opacity=‘0.03’/%3E%3C/svg%3E”);
+pointer-events: none; z-index: 999;
 }
 
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #080e1a; }
-::-webkit-scrollbar-thumb { background: #7a6040; }
+em { color: #c9a96e !important; font-style: italic; }
 
-/* ─── NAV ─── */
-nav {
-position: fixed; top: 0; left: 0; right: 0;
-z-index: 100;
-display: flex; align-items: center; justify-content: space-between;
-padding: 28px 60px;
-background: linear-gradient(to bottom, rgba(8,14,26,0.95), transparent);
-transition: background 0.4s ease, padding 0.4s ease;
-}
-nav.scrolled {
-background: rgba(8,14,26,0.97);
-padding: 18px 60px;
-border-bottom: 1px solid rgba(201,169,110,0.2);
-backdrop-filter: blur(12px);
-}
-
-.nav-logo {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
-font-size: 20px;
-font-weight: 300;
-letter-spacing: 0.18em;
-color: #f2ece0;
-text-decoration: none;
-text-transform: uppercase;
-}
-.nav-logo em { font-style: italic; color: #c9a96e; }
-
-.nav-links {
-display: flex; align-items: center; gap: 40px;
-list-style: none;
-}
-.nav-links a {
-font-family: ‘Raleway’, sans-serif;
-font-size: 10px;
-font-weight: 300;
-letter-spacing: 0.35em;
-text-transform: uppercase;
-color: rgba(242,236,224,0.65) !important;
-text-decoration: none !important;
-transition: color 0.3s ease;
--webkit-text-fill-color: rgba(242,236,224,0.65);
-}
-.nav-links a:hover {
-color: #c9a96e !important;
--webkit-text-fill-color: #c9a96e;
-}
-
-.nav-cta {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-color: #c9a96e !important;
-border: 1px solid rgba(201,169,110,0.4);
-padding: 10px 20px;
-transition: all 0.3s ease !important;
-}
-.nav-cta:hover {
-background: rgba(201,169,110,0.15) !important;
-border-color: #c9a96e !important;
-color: #e2c48a !important;
-}
-
-.nav-mobile-toggle {
-display: none;
-flex-direction: column; gap: 5px; cursor: pointer;
-background: none; border: none; padding: 4px;
-}
-.nav-mobile-toggle span {
-display: block; width: 24px; height: 1px; background: #f2ece0;
-transition: all 0.3s ease;
-}
-
-/* ─── HERO ─── */
-.hero {
-min-height: 100vh;
-display: flex; flex-direction: column;
-justify-content: flex-end;
-position: relative;
-overflow: hidden;
-}
-
-.hero-bg {
-position: absolute; inset: 0;
-background:
-radial-gradient(ellipse at 30% 60%, rgba(201,169,110,0.06) 0%, transparent 60%),
-radial-gradient(ellipse at 80% 20%, rgba(201,169,110,0.04) 0%, transparent 50%),
-linear-gradient(160deg, #0a1220 0%, #06080f 50%, #0d1420 100%);
-}
-
-.hero-lines { display: none; }
-.hero-line { display: none; }
-
-.hero-watermark {
-position: absolute;
-top: 50%; left: 50%;
-transform: translate(-50%, -50%);
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(300px, 40vw, 600px);
-font-weight: 200;
-font-style: italic;
-color: rgba(201,169,110,0.03);
-line-height: 1;
-user-select: none;
-pointer-events: none;
-white-space: nowrap;
-}
-
-.hero-content {
-position: relative; z-index: 2;
-padding: 0 60px 90px;
-max-width: 900px;
-}
-
-.hero-eyebrow {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.55em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 28px;
-opacity: 0;
-animation: fadeUp 1s ease 0.3s forwards;
-display: flex; align-items: center; gap: 16px;
-}
-.hero-eyebrow::before {
-content: ‘’;
-display: block; width: 40px; height: 1px;
-background: #7a6040;
-}
-
-.hero-headline {
-font-size: clamp(52px, 7vw, 96px);
-font-weight: 200;
-line-height: 1.0;
-letter-spacing: -0.01em;
-color: #f2ece0;
-margin-bottom: 32px;
-opacity: 0;
-animation: fadeUp 1s ease 0.5s forwards;
-}
-.hero-headline em {
-font-style: italic;
-font-weight: 200;
-color: #c9a96e;
-display: block;
-}
-
-.hero-sub {
-font-size: 19px;
-font-weight: 300;
-line-height: 1.7;
-color: rgba(242,236,224,0.65);
-max-width: 540px;
-margin-bottom: 48px;
-opacity: 0;
-animation: fadeUp 1s ease 0.7s forwards;
-}
-
-.hero-actions {
-display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
-opacity: 0;
-animation: fadeUp 1s ease 0.9s forwards;
-}
-
-.btn-primary {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.45em;
-text-transform: uppercase;
-color: #080e1a !important;
--webkit-text-fill-color: #080e1a;
-background: #c9a96e;
-border: none;
-padding: 16px 36px;
-cursor: pointer;
-text-decoration: none !important;
-display: inline-block;
-transition: all 0.3s ease;
-position: relative;
-overflow: hidden;
-}
-.btn-primary span { position: relative; z-index: 1; color: #080e1a !important; -webkit-text-fill-color: #080e1a; }
-
-.btn-ghost {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.45em;
-text-transform: uppercase;
-color: rgba(242,236,224,0.65) !important;
--webkit-text-fill-color: rgba(242,236,224,0.65);
-background: none;
-border: 1px solid rgba(242,236,224,0.2);
-padding: 16px 36px;
-cursor: pointer;
-text-decoration: none !important;
-display: inline-block;
-transition: all 0.3s ease;
-}
-.btn-ghost:hover {
-color: #f2ece0 !important;
--webkit-text-fill-color: #f2ece0;
-border-color: rgba(242,236,224,0.5);
-}
-
-.hero-scroll {
-position: absolute;
-bottom: 40px; right: 60px;
-display: flex; flex-direction: column; align-items: center; gap: 8px;
-opacity: 0;
-animation: fadeIn 1s ease 1.4s forwards;
-}
-.hero-scroll-label {
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.4em;
-color: #5a5448;
-text-transform: uppercase;
-writing-mode: vertical-rl;
-}
-.hero-scroll-line {
-width: 1px; height: 48px;
-background: linear-gradient(to bottom, #7a6040, transparent);
-animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-0%, 100% { opacity: 0.4; transform: scaleY(1); }
-50% { opacity: 1; transform: scaleY(1.1); }
-}
-
-/* ─── SECTION BASE ─── */
-section { position: relative; }
-
-.section-inner {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 60px;
-}
-
-/* ─── MANIFESTO ─── */
-.manifesto {
-padding: 140px 0;
-border-top: 1px solid rgba(201,169,110,0.2);
-overflow: hidden;
-}
-
-.manifesto-grid {
+/* ── LAYOUT ── */
+.app {
 display: grid;
-grid-template-columns: 1fr 2fr;
-gap: 80px;
-align-items: start;
+grid-template-columns: 240px 1fr 280px;
+grid-template-rows: 54px 1fr;
+height: 100vh;
 }
 
-.manifesto-label {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.5em;
-color: #c9a96e;
-text-transform: uppercase;
-padding-top: 8px;
-position: sticky;
-top: 100px;
-}
-
-.manifesto-headline {
-font-size: clamp(32px, 4vw, 52px);
-font-weight: 300;
-line-height: 1.25;
-color: #f2ece0;
-margin-bottom: 40px;
-letter-spacing: 0.01em;
-}
-.manifesto-headline em { font-style: italic; color: #c9a96e; }
-
-.manifesto-text {
-font-size: 18px;
-font-weight: 300;
-line-height: 1.9;
-color: rgba(242,236,224,0.65);
-margin-bottom: 24px;
-}
-
-.manifesto-quote {
-border-left: 1px solid #7a6040;
-padding: 8px 0 8px 32px;
-margin: 48px 0;
-font-size: 24px;
-font-style: italic;
-font-weight: 300;
-color: #f2ece0;
-line-height: 1.5;
-}
-
-/* ─── DESTINATIONS ─── */
-.destinations {
-padding: 120px 0;
-background: #0d1526;
-border-top: 1px solid rgba(201,169,110,0.2);
-border-bottom: 1px solid rgba(201,169,110,0.2);
-}
-
-.destinations-header {
-display: flex; justify-content: space-between; align-items: flex-end;
-margin-bottom: 72px;
-}
-
-.section-eyebrow {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.5em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 16px;
-}
-
-.section-title {
-font-size: clamp(28px, 3.5vw, 44px);
-font-weight: 300;
-letter-spacing: 0.02em;
-color: #f2ece0;
-line-height: 1.1;
-}
-.section-title em { font-style: italic; color: #c9a96e; }
-
-.destinations-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 2px;
-}
-
-.destination-card {
-position: relative;
-height: 380px;
-overflow: hidden;
-cursor: pointer;
-}
-
-.destination-card:first-child {
-grid-row: span 2;
-height: 100%;
-}
-
-.dest-bg {
-position: absolute; inset: 0;
-transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-background-size: cover !important;
-background-position: center !important;
-}
-.destination-card:hover .dest-bg { transform: scale(1.06); }
-
-/* ── DESTINATION PHOTOS — only change from original ── */
-.dest-california .dest-bg, .dest-baja .dest-bg, .dest-provence .dest-bg, .dest-spain .dest-bg, .dest-tuscany .dest-bg {
-background-size: cover !important;
-background-position: center center !important;
-background-repeat: no-repeat !important;
-}
-
-/* Vineyard pattern overlay — kept from original */
-.dest-bg::after {
-content: ‘’;
-position: absolute; inset: 0;
-background-image:
-repeating-linear-gradient(
-170deg,
-transparent 0px,
-transparent 30px,
-rgba(255,255,255,0.015) 30px,
-rgba(255,255,255,0.015) 31px
-);
-}
-
-.dest-overlay {
-position: absolute; inset: 0;
-background: linear-gradient(to top, rgba(8,14,26,0.92) 0%, rgba(8,14,26,0.3) 50%, transparent 100%);
-transition: background 0.4s ease;
-}
-.destination-card:hover .dest-overlay {
-background: linear-gradient(to top, rgba(8,14,26,0.88) 0%, rgba(8,14,26,0.2) 60%, transparent 100%);
-}
-
-.dest-content {
-position: absolute;
-bottom: 0; left: 0; right: 0;
-padding: 32px;
-}
-
-.dest-region {
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.45em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 8px;
-}
-
-.dest-name {
-font-size: 24px;
-font-weight: 300;
-color: #f2ece0;
-margin-bottom: 6px;
-letter-spacing: 0.04em;
-}
-
-.dest-card-first .dest-name { font-size: 32px; }
-
-.dest-status {
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-display: flex; align-items: center; gap: 8px;
-}
-.dest-status-dot {
-width: 5px; height: 5px; border-radius: 50%;
-}
-.status-active { background: #6aad7e; box-shadow: 0 0 6px rgba(106,173,126,0.6); }
-.status-soon { background: #c9a96e; box-shadow: 0 0 6px rgba(201,169,110,0.5); }
-.status-horizon { background: #5a5448; }
-
-.dest-status-label { color: rgba(242,236,224,0.35); }
-
-/* ─── WORLD MAP ─── */
-.world-map-section {
-padding: 120px 0;
-background: linear-gradient(180deg, #080e1a 0%, #080d18 50%, #080e1a 100%);
-}
-
-.world-map-container {
-position: relative;
-margin-top: 64px;
-border: 1px solid rgba(201,169,110,0.2);
-overflow: hidden;
-background: radial-gradient(ellipse at 50% 50%, rgba(13,21,38,0.9) 0%, rgba(6,10,18,0.98) 100%);
-}
-
-.world-map-container::before {
-content: ‘’;
-position: absolute; inset: 0;
-background:
-radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.04) 0%, transparent 50%),
-radial-gradient(ellipse at 80% 50%, rgba(201,169,110,0.03) 0%, transparent 50%);
-pointer-events: none; z-index: 1;
-}
-
-.world-svg, #mapCanvas {
-width: 100%;
-display: block;
-}
-
-.map-pins {
-position: absolute; inset: 0; z-index: 3;
-}
-
-.map-pin {
-position: absolute;
-transform: translate(-50%, -50%);
-cursor: pointer;
-z-index: 4;
-}
-
-.pin-ring {
-position: absolute;
-top: 50%; left: 50%;
-transform: translate(-50%, -50%);
-width: 14px; height: 14px;
-border-radius: 50%;
-border: 1px solid rgba(201,169,110,0.4);
-animation: ringPulse 2.5s ease-out infinite;
-}
-
-.pin-ring-2 {
-animation-delay: 0.8s;
-width: 22px; height: 22px;
-border-color: rgba(201,169,110,0.2);
-}
-
-.pin-dot {
-width: 6px; height: 6px;
-border-radius: 50%;
-background: #c9a96e;
-box-shadow: 0 0 6px rgba(201,169,110,0.9), 0 0 2px rgba(201,169,110,1);
-position: relative; z-index: 2;
-}
-
-.pin-dot.soon {
-background: #e2c48a;
-box-shadow: 0 0 6px rgba(226,196,138,0.7), 0 0 2px rgba(226,196,138,1);
-}
-
-.pin-dot.horizon {
-background: rgba(90,84,72,0.8);
-box-shadow: 0 0 3px rgba(90,84,72,0.4);
-width: 4px; height: 4px;
-}
-
-.pin-dot.horizon ~ .pin-ring,
-.pin-dot.horizon ~ .pin-ring-2 { display: none; }
-
-.pin-label {
-position: absolute;
-bottom: calc(100% + 14px);
-left: 50%;
-transform: translateX(-50%);
-white-space: nowrap;
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.3em;
-color: #e2c48a;
-text-transform: uppercase;
-background: rgba(6,10,18,0.95);
-padding: 5px 10px;
-border: 1px solid rgba(201,169,110,0.3);
-pointer-events: none;
-opacity: 0;
-transition: opacity 0.25s ease, transform 0.25s ease;
-transform: translateX(-50%) translateY(4px);
-}
-
-.pin-label::after {
-content: ‘’;
-position: absolute;
-top: 100%; left: 50%;
-transform: translateX(-50%);
-border: 4px solid transparent;
-border-top-color: rgba(201,169,110,0.3);
-}
-
-.map-pin:hover .pin-label {
-opacity: 1;
-transform: translateX(-50%) translateY(0);
-}
-
-.map-legend {
+/* ── TOP NAV ── */
+.topnav {
+grid-column: 1 / -1;
+background: rgba(8,14,26,0.98);
+border-bottom: 1px solid rgba(201,169,110,0.15);
 display: flex;
-justify-content: center;
-gap: 32px;
-padding: 20px 32px;
-border-top: 1px solid rgba(201,169,110,0.2);
-background: rgba(6,10,18,0.6);
-}
-
-.map-legend-item {
-display: flex; align-items: center; gap: 8px;
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.3em;
-color: #5a5448;
-text-transform: uppercase;
-}
-
-.legend-pin {
-width: 8px; height: 8px;
-border-radius: 50%;
-}
-.lp-active { background: #c9a96e; box-shadow: 0 0 6px rgba(201,169,110,0.7); }
-.lp-soon   { background: #e2c48a; box-shadow: 0 0 6px rgba(226,196,138,0.5); }
-.lp-horizon{ background: rgba(90,84,72,0.8); }
-
-@keyframes ringPulse {
-0%   { transform: translate(-50%,-50%) scale(0.6); opacity: 0.8; }
-100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
-}
-
-/* ─── THE COLLECTIVE ─── */
-.collective {
-padding: 120px 0;
-background: #0d1526;
-border-top: 1px solid rgba(201,169,110,0.2);
-}
-
-.collective-intro {
-max-width: 600px;
-margin-bottom: 80px;
-}
-
-.collective-grid {
-display: grid;
-grid-template-columns: 1fr;
-gap: 2px;
-}
-
-.member-card {
-background: #101828;
-padding: 48px 56px;
-position: relative;
-overflow: hidden;
-transition: background 0.4s ease;
-}
-.member-card:hover { background: rgba(16,24,40,0.8); }
-
-.member-card::before {
-content: ‘’;
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 1px;
-background: linear-gradient(90deg, transparent, #7a6040, transparent);
-transform: scaleX(0);
-transition: transform 0.5s ease;
-}
-.member-card:hover::before { transform: scaleX(1); }
-
-.member-number {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 56px;
-font-weight: 200;
-font-style: italic;
-color: rgba(201,169,110,0.1);
-line-height: 1;
-margin-bottom: 8px;
-display: block;
-}
-
-.member-role {
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.45em;
-color: #c9a96e !important;
-text-transform: uppercase;
-margin-bottom: 12px;
-}
-
-.member-name {
-font-size: 28px;
-font-weight: 300;
-color: #f2ece0;
-letter-spacing: 0.04em;
-margin-bottom: 20px;
-line-height: 1.1;
-}
-.member-name em { font-style: italic; color: #c9a96e !important; }
-
-.member-rule {
-width: 32px; height: 1px;
-background: #7a6040;
-margin-bottom: 20px;
-}
-
-.member-bio {
-font-size: 16px;
-font-weight: 300;
-line-height: 1.9;
-color: rgba(242,236,224,0.6);
-max-width: 720px;
-}
-
-/* ─── MEMBERSHIP ─── */
-.membership {
-padding: 140px 0;
-}
-
-.membership-intro {
-text-align: center;
-max-width: 600px;
-margin: 0 auto 80px;
-}
-
-.membership-intro .section-title {
-margin-bottom: 20px;
-}
-
-.membership-intro p {
-font-size: 18px;
-font-weight: 300;
-line-height: 1.8;
-color: rgba(242,236,224,0.65);
-}
-
-.tiers-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 2px;
-margin-bottom: 64px;
-}
-
-.tier-card {
-padding: 56px 44px;
-background: #101828;
-position: relative;
-overflow: hidden;
-transition: background 0.4s ease;
-}
-.tier-card:hover { background: rgba(16,24,40,0.9); }
-
-.tier-card.featured {
-background: linear-gradient(160deg, rgba(201,169,110,0.1), rgba(201,169,110,0.03));
-border: 1px solid rgba(201,169,110,0.25);
-}
-
-.tier-featured-label {
-position: absolute;
-top: 24px; right: 24px;
-font-family: ‘Raleway’, sans-serif;
-font-size: 7px;
-letter-spacing: 0.4em;
-color: #c9a96e;
-text-transform: uppercase;
-border: 1px solid rgba(201,169,110,0.2);
-padding: 4px 10px;
-}
-
-.tier-name {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.5em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 8px;
-}
-
-.tier-title {
-font-size: 28px;
-font-weight: 300;
-color: #f2ece0;
-letter-spacing: 0.04em;
-margin-bottom: 24px;
-}
-
-.tier-price {
-margin-bottom: 32px;
-padding-bottom: 32px;
-border-bottom: 1px solid rgba(201,169,110,0.2);
-}
-
-.tier-amount {
-font-size: 44px;
-font-weight: 200;
-color: #e2c48a;
-line-height: 1;
-letter-spacing: -0.01em;
-}
-
-.tier-period {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.3em;
-color: #5a5448;
-text-transform: uppercase;
-margin-top: 6px;
-}
-
-.tier-benefits {
-list-style: none;
-margin-bottom: 40px;
-}
-.tier-benefits li {
-font-size: 14px;
-font-weight: 300;
-color: rgba(242,236,224,0.65);
-line-height: 1.5;
-padding: 8px 0;
-border-bottom: 1px solid rgba(201,169,110,0.06);
-padding-left: 18px;
-position: relative;
-}
-.tier-benefits li::before {
-content: ‘—’;
-position: absolute; left: 0;
-color: #7a6040;
-}
-
-.tier-cta {
-display: block;
-width: 100%;
-text-align: center;
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-padding: 14px;
-text-decoration: none;
-transition: all 0.3s ease;
-}
-.tier-cta.primary {
-background: #c9a96e;
-color: #080e1a;
-}
-.tier-cta.primary:hover { background: #e2c48a; }
-.tier-cta.ghost {
-border: 1px solid rgba(201,169,110,0.2);
-color: rgba(242,236,224,0.65);
-}
-.tier-cta.ghost:hover {
-border-color: #7a6040;
-color: #f2ece0;
-}
-
-.founding-cta {
-background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.03));
-border: 1px solid rgba(201,169,110,0.2);
-padding: 56px 64px;
-display: grid;
-grid-template-columns: 1fr auto;
-gap: 40px;
 align-items: center;
+justify-content: space-between;
+padding: 0 24px;
+z-index: 10;
 }
 
-.founding-cta-text .label {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.5em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 12px;
-display: flex; align-items: center; gap: 10px;
-}
-.founding-pulse-dot {
-width: 6px; height: 6px;
-background: #c9a96e;
-border-radius: 50%;
-animation: pulseDot 2s ease-in-out infinite;
-}
-@keyframes pulseDot {
-0%, 100% { opacity: 1; transform: scale(1); }
-50% { opacity: 0.4; transform: scale(0.7); }
-}
-
-.founding-cta-text h3 {
-font-size: 32px;
-font-weight: 300;
-color: #f2ece0;
-margin-bottom: 12px;
-letter-spacing: 0.02em;
-}
-.founding-cta-text p {
-font-size: 16px;
-font-weight: 300;
-color: rgba(242,236,224,0.65);
-line-height: 1.7;
-}
-
-/* ─── WAITLIST ─── */
-.waitlist {
-padding: 140px 0;
-background: linear-gradient(160deg, #060a14, #0a1020);
-border-top: 1px solid rgba(201,169,110,0.2);
-text-align: center;
-overflow: hidden;
-position: relative;
-}
-
-.waitlist-bg-text {
-position: absolute;
-top: 50%; left: 50%;
-transform: translate(-50%, -50%);
+.nav-left { display: flex; align-items: center; gap: 14px; }
+.nav-logo {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(120px, 18vw, 280px);
-font-weight: 200;
-font-style: italic;
-color: rgba(201,169,110,0.025);
-white-space: nowrap;
-user-select: none;
-pointer-events: none;
+font-size: 16px; font-weight: 300;
+letter-spacing: 0.15em; color: #f2ece0;
+text-transform: uppercase;
+}
+.nav-logo em { color: #c9a96e !important; }
+.nav-sep { width: 1px; height: 18px; background: rgba(201,169,110,0.2); }
+.nav-product {
+font-family: ‘Raleway’, sans-serif; font-size: 8.5px;
+font-weight: 300; letter-spacing: 0.45em;
+color: #c9a96e; text-transform: uppercase;
 }
 
-.waitlist .section-inner { position: relative; z-index: 1; }
-
-.waitlist-headline {
-font-size: clamp(36px, 5vw, 64px);
-font-weight: 200;
-line-height: 1.15;
-color: #f2ece0;
-margin: 24px auto 20px;
-max-width: 700px;
-letter-spacing: 0.01em;
-}
-.waitlist-headline em { font-style: italic; color: #c9a96e; }
-
-.waitlist-sub {
-font-size: 18px;
-font-weight: 300;
-color: rgba(242,236,224,0.65);
-margin-bottom: 56px;
-font-style: italic;
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.member-avatar {
+width: 28px; height: 28px; border-radius: 50%;
+background: linear-gradient(135deg, #c9a96e, #7a6040);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Raleway’, sans-serif; font-size: 9px;
+font-weight: 400; color: #080e1a;
 }
 
-.waitlist-form {
-display: flex;
-max-width: 480px;
-margin: 0 auto 24px;
-gap: 0;
+/* ── SIDEBAR LEFT ── */
+.sidebar-left {
+background: #0a1020;
+border-right: 1px solid rgba(201,169,110,0.1);
+padding: 20px 0;
+display: flex; flex-direction: column;
+overflow-y: auto;
 }
 
-.waitlist-input {
-flex: 1;
-background: rgba(255,255,255,0.04);
+.sidebar-section { padding: 0 16px; margin-bottom: 24px; }
+
+.sidebar-label {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.5em; color: #4a4438;
+text-transform: uppercase; padding: 0 8px; margin-bottom: 6px;
+}
+
+.sidebar-item {
+display: flex; align-items: center; gap: 9px;
+padding: 8px 10px; cursor: pointer;
+transition: all 0.2s ease; margin-bottom: 1px;
+border-left: 2px solid transparent;
+}
+.sidebar-item:hover { background: rgba(201,169,110,0.05); }
+.sidebar-item.active {
+background: rgba(201,169,110,0.08);
+border-left-color: #c9a96e;
+}
+.sidebar-icon { font-size: 12px; opacity: 0.7; }
+.sidebar-item.active .sidebar-icon { opacity: 1; }
+.sidebar-text {
+font-family: ‘Raleway’, sans-serif; font-size: 10.5px;
+font-weight: 300; letter-spacing: 0.06em;
+color: rgba(242,236,224,0.55);
+}
+.sidebar-item.active .sidebar-text { color: #f2ece0; }
+.sidebar-badge {
+margin-left: auto; background: rgba(201,169,110,0.12);
+border: 1px solid rgba(201,169,110,0.25);
+padding: 2px 6px; font-family: ‘Raleway’, sans-serif;
+font-size: 6.5px; letter-spacing: 0.2em;
+color: #c9a96e; text-transform: uppercase;
+}
+
+.pulse-dot {
+width: 5px; height: 5px; background: #6aad7e;
+border-radius: 50%; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+.agent-status {
+margin: auto 16px 0;
+padding: 12px 14px;
+background: rgba(201,169,110,0.04);
+border: 1px solid rgba(201,169,110,0.12);
+}
+.agent-label {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.4em; color: #c9a96e;
+text-transform: uppercase; margin-bottom: 10px;
+display: flex; align-items: center; gap: 6px;
+}
+.agent-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat-val {
+font-size: 20px; font-weight: 300;
+color: #c9a96e; line-height: 1;
+}
+.stat-label {
+font-family: ‘Raleway’, sans-serif; font-size: 6.5px;
+letter-spacing: 0.2em; color: #4a4438;
+text-transform: uppercase; margin-top: 1px;
+}
+
+/* ── MAIN CHAT ── */
+.main-chat {
+display: flex; flex-direction: column;
+overflow: hidden; background: #080e1a;
+}
+
+.chat-header {
+padding: 20px 28px 16px;
+border-bottom: 1px solid rgba(201,169,110,0.08);
+}
+.chat-title {
+font-size: 22px; font-weight: 300;
+color: #f2ece0; letter-spacing: 0.02em;
+}
+.chat-title em { color: #c9a96e !important; }
+.chat-subtitle {
+font-size: 12px; font-style: italic;
+font-weight: 300; color: rgba(242,236,224,0.35);
+margin-top: 2px;
+}
+
+.chat-messages {
+flex: 1; overflow-y: auto;
+padding: 20px 28px; display: flex;
+flex-direction: column; gap: 14px;
+}
+.chat-messages::-webkit-scrollbar { width: 2px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #3a3020; }
+
+.message {
+display: flex; gap: 10px;
+animation: msgIn 0.35s ease both;
+}
+@keyframes msgIn {
+from { opacity: 0; transform: translateY(6px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.message.user { flex-direction: row-reverse; }
+
+.msg-avatar {
+width: 26px; height: 26px; border-radius: 50%;
+flex-shrink: 0; display: flex; align-items: center;
+justify-content: center; font-size: 9px; margin-top: 2px;
+}
+.msg-avatar.voya {
+background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.03));
+border: 1px solid rgba(201,169,110,0.3); color: #c9a96e;
+font-family: ‘Raleway’, sans-serif; letter-spacing: 0.05em;
+}
+.msg-avatar.user {
+background: linear-gradient(135deg, #c9a96e, #7a6040);
+color: #080e1a; font-family: ‘Raleway’, sans-serif; font-weight: 400;
+}
+
+.msg-content { max-width: 82%; display: flex; flex-direction: column; gap: 6px; }
+.message.user .msg-content { align-items: flex-end; }
+
+.msg-bubble {
+padding: 11px 15px; font-size: 13.5px;
+font-weight: 300; line-height: 1.65;
+}
+.msg-bubble.voya {
+background: rgba(201,169,110,0.06);
+border: 1px solid rgba(201,169,110,0.12);
+color: rgba(242,236,224,0.85);
+border-radius: 2px 10px 10px 10px;
+}
+.msg-bubble.user {
+background: rgba(242,236,224,0.05);
+border: 1px solid rgba(242,236,224,0.08);
+color: rgba(242,236,224,0.7);
+border-radius: 10px 2px 10px 10px;
+text-align: right;
+}
+
+/* Rich cards */
+.wine-recommendation {
+background: rgba(8,14,26,0.8);
 border: 1px solid rgba(201,169,110,0.2);
-border-right: none;
-padding: 16px 24px;
-font-family: ‘Raleway’, sans-serif;
-font-size: 12px;
-font-weight: 300;
-letter-spacing: 0.1em;
-color: #f2ece0;
-outline: none;
+padding: 12px 14px;
+}
+.wine-rec-label {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.4em; color: #c9a96e;
+text-transform: uppercase; margin-bottom: 6px;
+}
+.wine-rec-name { font-size: 15px; font-weight: 400; color: #f2ece0; margin-bottom: 2px; }
+.wine-rec-detail {
+font-family: ‘Raleway’, sans-serif; font-size: 8px;
+letter-spacing: 0.25em; color: rgba(201,169,110,0.7);
+text-transform: uppercase;
+}
+.wine-rec-notes {
+font-size: 12px; font-style: italic;
+color: rgba(242,236,224,0.45); margin-top: 6px; line-height: 1.5;
+}
+
+.event-card {
+background: rgba(8,14,26,0.8);
+border: 1px solid rgba(201,169,110,0.2);
+padding: 12px 14px;
+}
+.event-card-top {
+display: flex; justify-content: space-between;
+align-items: flex-start; margin-bottom: 6px;
+}
+.event-card-name { font-size: 15px; font-weight: 400; color: #f2ece0; }
+.event-card-price { font-size: 15px; font-weight: 300; color: #c9a96e; }
+.event-card-detail {
+font-family: ‘Raleway’, sans-serif; font-size: 8px;
+letter-spacing: 0.25em; color: rgba(242,236,224,0.4);
+text-transform: uppercase; margin-bottom: 8px;
+}
+.event-card-btn {
+display: inline-block;
+background: rgba(201,169,110,0.12);
+border: 1px solid rgba(201,169,110,0.3);
+padding: 6px 14px; cursor: pointer;
+font-family: ‘Raleway’, sans-serif; font-size: 7.5px;
+letter-spacing: 0.35em; color: #c9a96e;
+text-transform: uppercase; transition: all 0.2s ease;
+}
+.event-card-btn:hover { background: rgba(201,169,110,0.2); }
+.event-card-btn.joined {
+background: rgba(106,173,126,0.12);
+border-color: rgba(106,173,126,0.3);
+color: #6aad7e;
+}
+
+.trip-card {
+background: rgba(8,14,26,0.8);
+border: 1px solid rgba(201,169,110,0.2);
+padding: 12px 14px;
+}
+.trip-card-dest {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.4em; color: #c9a96e;
+text-transform: uppercase; margin-bottom: 4px;
+}
+.trip-card-name { font-size: 15px; font-weight: 400; color: #f2ece0; margin-bottom: 4px; }
+.trip-card-body {
+font-size: 12px; font-style: italic;
+color: rgba(242,236,224,0.45); line-height: 1.55;
+}
+
+/* Typing indicator */
+.typing-indicator {
+display: flex; gap: 4px; align-items: center;
+padding: 14px 16px;
+background: rgba(201,169,110,0.06);
+border: 1px solid rgba(201,169,110,0.12);
+border-radius: 2px 10px 10px 10px;
+width: fit-content;
+}
+.typing-dot {
+width: 5px; height: 5px;
+background: #c9a96e; border-radius: 50%;
+animation: typingBounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingBounce {
+0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* Chat input */
+.chat-input-area {
+padding: 16px 28px 20px;
+border-top: 1px solid rgba(201,169,110,0.08);
+}
+
+.chat-input-wrap {
+display: flex; gap: 0;
+border: 1px solid rgba(201,169,110,0.18);
+background: rgba(255,255,255,0.02);
 transition: border-color 0.3s ease;
 }
-.waitlist-input::placeholder { color: #5a5448; }
-.waitlist-input:focus { border-color: #7a6040; }
+.chat-input-wrap:focus-within { border-color: rgba(201,169,110,0.4); }
 
-.waitlist-submit {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-background: #c9a96e;
-color: #080e1a;
-border: none;
-padding: 16px 28px;
-cursor: pointer;
-white-space: nowrap;
-transition: background 0.3s ease;
+.chat-input {
+flex: 1; background: none; border: none; outline: none;
+padding: 13px 18px;
+font-family: ‘Raleway’, sans-serif; font-size: 12px;
+font-weight: 300; letter-spacing: 0.05em; color: #f2ece0;
 }
-.waitlist-submit:hover { background: #e2c48a; }
+.chat-input::placeholder { color: #3a3428; }
 
-.waitlist-note {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.25em;
-color: #5a5448;
-text-transform: uppercase;
+.chat-send {
+background: #c9a96e; border: none;
+padding: 0 22px; cursor: pointer;
+font-family: ‘Raleway’, sans-serif; font-size: 8px;
+font-weight: 300; letter-spacing: 0.45em;
+text-transform: uppercase; color: #080e1a;
+transition: background 0.2s ease;
 }
+.chat-send:hover { background: #e2c48a; }
+.chat-send:disabled { background: #3a3020; color: #5a5448; cursor: not-allowed; }
 
-.waitlist-success {
-display: none;
-font-size: 18px;
-font-style: italic;
-color: #c9a96e;
-font-weight: 300;
-padding: 20px;
+.quick-prompts {
+display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;
 }
-
-/* ─── FOOTER ─── */
-footer {
-padding: 64px 0 48px;
-border-top: 1px solid rgba(201,169,110,0.2);
+.quick-prompt {
+font-family: ‘Raleway’, sans-serif; font-size: 8px;
+font-weight: 300; letter-spacing: 0.2em;
+color: rgba(201,169,110,0.6);
+border: 1px solid rgba(201,169,110,0.15);
+padding: 5px 12px; cursor: pointer;
+transition: all 0.2s ease; text-transform: uppercase;
+}
+.quick-prompt:hover {
+color: #c9a96e; border-color: rgba(201,169,110,0.35);
+background: rgba(201,169,110,0.05);
 }
 
-.footer-grid {
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
-gap: 64px;
-margin-bottom: 64px;
+/* ── SIDEBAR RIGHT ── */
+.sidebar-right {
+border-left: 1px solid rgba(201,169,110,0.1);
+background: #0a1020; overflow-y: auto;
+display: flex; flex-direction: column;
 }
 
-.footer-brand-name {
-font-size: 22px;
-font-weight: 300;
-letter-spacing: 0.12em;
-color: #f2ece0;
-margin-bottom: 16px;
-text-transform: uppercase;
-}
-.footer-brand-name em { font-style: italic; color: #c9a96e; }
-
-.footer-tagline {
-font-size: 14px;
-font-style: italic;
-font-weight: 300;
-color: #5a5448;
-line-height: 1.6;
-margin-bottom: 28px;
+.right-section {
+padding: 18px 18px; border-bottom: 1px solid rgba(201,169,110,0.08);
 }
 
-.footer-col-title {
-font-family: ‘Raleway’, sans-serif;
-font-size: 8px;
-letter-spacing: 0.45em;
-color: #c9a96e;
-text-transform: uppercase;
-margin-bottom: 20px;
+.right-label {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.5em; color: #4a4438;
+text-transform: uppercase; margin-bottom: 12px;
+display: flex; align-items: center; gap: 6px;
 }
 
-.footer-links {
-list-style: none;
-display: flex; flex-direction: column; gap: 10px;
+.event-items { display: flex; flex-direction: column; gap: 8px; }
+.event-item {
+padding: 10px 12px;
+background: rgba(201,169,110,0.04);
+border: 1px solid rgba(201,169,110,0.1);
+cursor: pointer; transition: all 0.2s ease;
 }
-.footer-links a {
-font-size: 14px;
-font-weight: 300;
+.event-item:hover { border-color: rgba(201,169,110,0.25); }
+.event-item-date {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.3em; color: #c9a96e;
+text-transform: uppercase; margin-bottom: 3px;
+}
+.event-item-name { font-size: 13px; font-weight: 400; color: #f2ece0; margin-bottom: 2px; }
+.event-item-loc {
+font-size: 11px; font-style: italic;
 color: rgba(242,236,224,0.35);
-text-decoration: none;
-letter-spacing: 0.02em;
-transition: color 0.3s ease;
 }
-.footer-links a:hover { color: #c9a96e; }
-
-.footer-bottom {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding-top: 32px;
-border-top: 1px solid rgba(201,169,110,0.1);
+.event-item-status {
+font-family: ‘Raleway’, sans-serif; font-size: 7px;
+letter-spacing: 0.2em; text-transform: uppercase;
+margin-top: 6px; padding: 3px 8px;
+display: inline-block;
 }
+.status-open { background: rgba(106,173,126,0.1); color: #6aad7e; }
+.status-waitlist { background: rgba(201,169,110,0.1); color: #c9a96e; }
+.status-members { background: rgba(107,154,189,0.1); color: #6b9abd; }
 
-.footer-copy {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.25em;
-color: #5a5448;
-text-transform: uppercase;
-}
-
-.footer-locations {
-font-family: ‘Raleway’, sans-serif;
-font-size: 9px;
-letter-spacing: 0.25em;
-color: #5a5448;
-text-transform: uppercase;
-}
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(20px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to   { opacity: 1; }
-}
-
-.reveal {
-opacity: 0;
-transform: translateY(24px);
-transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
-.destinations-grid { grid-template-columns: 1fr 1fr; }
-.destination-card:first-child { grid-row: span 1; height: 380px; }
-.footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-}
-
-@media (max-width: 768px) {
-nav { padding: 20px 24px; }
-nav.scrolled { padding: 14px 24px; }
-.nav-links { display: none; }
-.nav-mobile-toggle { display: flex; }
-
-.hero { min-height: auto; padding-top: 100px; }
-.hero-content { padding: 0 24px 60px; }
-.hero-scroll { display: none; }
-.hero-watermark { font-size: 200px; }
-
-.section-inner { padding: 0 24px; }
-
-.manifesto { padding: 80px 0; }
-.manifesto-grid { grid-template-columns: 1fr; gap: 32px; }
-.manifesto-label { position: static; }
-
-.destinations { padding: 80px 0; }
-.destinations-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-.destinations-grid { grid-template-columns: 1fr; }
-.destination-card:first-child { height: 320px; }
-.destination-card { height: 260px; }
-
-.collective-grid { grid-template-columns: 1fr; gap: 2px; }
-.member-card { padding: 36px 28px; }
-.member-bio { font-size: 15px; }
-.tiers-grid { grid-template-columns: 1fr; gap: 2px; }
-.founding-cta { grid-template-columns: 1fr; padding: 40px 32px; }
-
-.waitlist-form { flex-direction: column; }
-.waitlist-input { border-right: 1px solid rgba(201,169,110,0.2); border-bottom: none; }
-
-.footer-grid { grid-template-columns: 1fr; gap: 40px; }
-.footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+/* Responsive */
+@media (max-width: 900px) {
+.app { grid-template-columns: 1fr; grid-template-rows: 54px 1fr; }
+.sidebar-left, .sidebar-right { display: none; }
 }
 </style>
 
 </head>
 <body>
+<div class="app">
 
-<!-- ─── NAV ─── -->
+  <!-- TOP NAV -->
 
-<nav id="nav">
-  <a href="#" class="nav-logo"><em>Vin</em> Azul</a>
-  <ul class="nav-links">
-    <li><a href="#experiences">Experiences</a></li>
-    <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#collective">The Collective</a></li>
-    <li><a href="#membership">Membership</a></li>
-    <li><a href="/voya.html" style="color:#c9a96e !important; -webkit-text-fill-color:#c9a96e;">Voya AI</a></li>
-    <li><a href="#waitlist" class="nav-cta">Join the Circle</a></li>
-  </ul>
-  <button class="nav-mobile-toggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ─── HERO ─── -->
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-lines">
-    <div class="hero-line"></div>
-    <div class="hero-line"></div>
-    <div class="hero-line"></div>
-    <div class="hero-line"></div>
-  </div>
-  <div class="hero-watermark">VA</div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">Vin Azul Collective &nbsp;·&nbsp; Est. 2026</div>
-    <h1 class="hero-headline">
-      Where wine is<br>the language.
-      <em>The world<br>is the table.</em>
-    </h1>
-    <p class="hero-sub">
-      A curated circle for people who experience life through wine, culture, and extraordinary hospitality — from California to Provence, Baja to Tuscany.
-    </p>
-    <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary"><span>Request an Invitation</span></a>
-      <a href="#collective" class="btn-ghost">Meet the Collective</a>
+  <nav class="topnav">
+    <div class="nav-left">
+      <a href="/" style="font-family:'Raleway',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.35em;color:rgba(242,236,224,0.4);text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:6px;margin-right:4px;transition:color 0.2s ease;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='rgba(242,236,224,0.4)'">← Home</a>
+      <div class="nav-sep"></div>
+      <div class="nav-logo"><em>Vin</em> Azul</div>
+      <div class="nav-sep"></div>
+      <div class="nav-product">Voya AI</div>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    <div class="hero-scroll-label">Scroll</div>
-  </div>
-</section>
-
-<!-- ─── MANIFESTO ─── -->
-
-<section class="manifesto" id="about">
-  <div class="section-inner">
-    <div class="manifesto-grid">
-      <div class="manifesto-label reveal">What We Are</div>
-      <div class="manifesto-body">
-        <h2 class="manifesto-headline reveal">
-          Not a wine club.<br>
-          Not a travel company.<br>
-          <em>Something that didn't exist before.</em>
-        </h2>
-        <p class="manifesto-text reveal reveal-delay-1">
-          Vin Azul Collective is the operating system for a life lived with taste. We connect the world's most curious, successful people to the winemakers, estates, and tables that most will never find — not because they lack resources, but because nobody had built the bridge.
-        </p>
-        <p class="manifesto-text reveal reveal-delay-2">
-          Every experience is curated by a collective of genuine authorities: a Four Seasons hospitality veteran, an Advanced Sommelier, and a media voice that has spent years making wine culture legible to the world. This is not a platform. It is a circle of people who know what they are doing.
-        </p>
-        <blockquote class="manifesto-quote reveal reveal-delay-3">
-          "When you are part of Vin Azul, you are recognized. Not famous. Recognized. The winemaker knows your palate. The hotel expects you."
-        </blockquote>
-        <p class="manifesto-text reveal reveal-delay-4">
-          We launched in California and we are building toward the world — Baja, Provence, Priorat, Tuscany, and beyond. The founding circle is fifty people. There will never be another one.
-        </p>
-      </div>
+    <div class="nav-right">
+      <a href="/#waitlist" style="font-family:'Raleway',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.4em;color:#c9a96e;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,169,110,0.3);padding:7px 16px;transition:all 0.2s ease;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='transparent'">Join the Circle</a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ─── DESTINATIONS ─── -->
+  <!-- SIDEBAR LEFT -->
 
-<section class="destinations" id="destinations">
-  <div class="section-inner">
-    <div class="destinations-header reveal">
-      <div>
-        <div class="section-eyebrow">Where We Go</div>
-        <h2 class="section-title">The <em>World</em><br>Is Our Cellar</h2>
+  <aside class="sidebar-left">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Concierge</div>
+      <div class="sidebar-item active">
+        <div class="sidebar-icon">🍷</div>
+        <div class="sidebar-text">Voya AI</div>
+        <div class="sidebar-badge">Live</div>
       </div>
     </div>
 
 ```
-<div class="destinations-grid">
-  <div class="destination-card dest-card-first dest-california reveal">
-    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1400&auto=format&fit=crop');"></div>
-    <div class="dest-overlay"></div>
-    <div class="dest-content">
-      <div class="dest-region">California, USA</div>
-      <div class="dest-name">Napa · Sonoma<br>Paso Robles · Fallbrook</div>
-      <div class="dest-status">
-        <div class="dest-status-dot status-active"></div>
-        <span class="dest-status-label">Now Active · First Events 2026</span>
-      </div>
-    </div>
+<div class="sidebar-section">
+  <div class="sidebar-label">2026 Events</div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about The Founding Table on June 4th';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🌅</div>
+    <div class="sidebar-text">The Founding Table</div>
   </div>
-
-  <div class="destination-card dest-baja reveal reveal-delay-1">
-    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop');"></div>
-    <div class="dest-overlay"></div>
-    <div class="dest-content">
-      <div class="dest-region">Baja California, Mexico</div>
-      <div class="dest-name">Valle de Guadalupe</div>
-      <div class="dest-status">
-        <div class="dest-status-dot status-soon"></div>
-        <span class="dest-status-label">Winter 2026</span>
-      </div>
-    </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Harvest Weekend in Paso Robles';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🍇</div>
+    <div class="sidebar-text">Harvest Weekend</div>
   </div>
-
-  <div class="destination-card dest-provence reveal reveal-delay-2">
-    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1573246123716-6b1782bfc499?w=900&auto=format&fit=crop');"></div>
-    <div class="dest-overlay"></div>
-    <div class="dest-content">
-      <div class="dest-region">South of France</div>
-      <div class="dest-name">Provence · Rhône</div>
-      <div class="dest-status">
-        <div class="dest-status-dot status-soon"></div>
-        <span class="dest-status-label">2027</span>
-      </div>
-    </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Napa Valley Winter Estate experience';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">❄️</div>
+    <div class="sidebar-text">Napa Winter Estate</div>
   </div>
-
-  <div class="destination-card dest-spain reveal reveal-delay-1">
-    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=900&auto=format&fit=crop');"></div>
-    <div class="dest-overlay"></div>
-    <div class="dest-content">
-      <div class="dest-region">Spain</div>
-      <div class="dest-name">Priorat · Ribera del Duero</div>
-      <div class="dest-status">
-        <div class="dest-status-dot status-horizon"></div>
-        <span class="dest-status-label">On the Horizon</span>
-      </div>
-    </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about the Fallbrook Wine Festival';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🏆</div>
+    <div class="sidebar-text">Fallbrook Festival</div>
   </div>
+</div>
 
-  <div class="destination-card dest-tuscany reveal reveal-delay-2">
-    <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=900&auto=format&fit=crop');"></div>
-    <div class="dest-overlay"></div>
-    <div class="dest-content">
-      <div class="dest-region">Italy</div>
-      <div class="dest-name">Tuscany · Maremma</div>
-      <div class="dest-status">
-        <div class="dest-status-dot status-horizon"></div>
-        <span class="dest-status-label">On the Horizon</span>
-      </div>
-    </div>
+<div class="sidebar-section">
+  <div class="sidebar-label">Ask Voya</div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Recommend a wine based on my palate';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">🍾</div>
+    <div class="sidebar-text">Wine Recommendation</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Plan a wine trip to Provence for 5 days';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">✈️</div>
+    <div class="sidebar-text">Plan a Trip</div>
+  </div>
+  <div class="sidebar-item" onclick="document.getElementById('chatInput').value='Tell me about Vin Azul membership';document.getElementById('chatInput').focus()">
+    <div class="sidebar-icon">⭐</div>
+    <div class="sidebar-text">Membership</div>
   </div>
 </div>
 ```
 
-  </div>
-</section>
+  </aside>
 
-<!-- ─── WORLD MAP ─── -->
+  <!-- MAIN CHAT -->
 
-<section class="world-map-section" id="experiences">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center; margin-bottom: 8px;">
-      <div class="section-eyebrow" style="justify-content:center; display:flex;">Global Footprint</div>
-      <h2 class="section-title" style="margin-top:12px;">Built for the <em>World</em></h2>
-    </div>
-    <div class="world-map-container reveal" style="position:relative;">
-      <svg id="worldMap" style="width:100%;display:block;background:#080e1a;"></svg>
-      <div id="mapPins" style="position:absolute;inset:0;pointer-events:none;"></div>
-      <div class="map-legend">
-        <div class="map-legend-item"><div class="legend-pin lp-active"></div>Active</div>
-        <div class="map-legend-item"><div class="legend-pin lp-soon"></div>Coming Soon</div>
-        <div class="map-legend-item"><div class="legend-pin lp-horizon"></div>On the Horizon</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
-
-<script>
-(async function() {
-  const svg = document.getElementById('worldMap');
-  const W = svg.parentElement.clientWidth || 900;
-  const H = Math.round(W * 0.52);
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-  svg.setAttribute('height', H);
-
-  const S = d3.select('#worldMap');
-
-  const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-  const land = topojson.merge(world, world.objects.countries.geometries);
-
-  const projection = d3.geoEquirectangular()
-    .fitSize([W, H], {type:'Sphere'});
-
-  const path = d3.geoPath().projection(projection);
-
-  S.append('path')
-    .datum({type:'Sphere'})
-    .attr('d', path)
-    .attr('fill', '#080e1a')
-    .attr('stroke', 'rgba(201,169,110,0.15)')
-    .attr('stroke-width', 0.5);
-
-  const graticule = d3.geoGraticule().step([30, 30]);
-  S.append('path')
-    .datum(graticule())
-    .attr('d', path)
-    .attr('fill', 'none')
-    .attr('stroke', 'rgba(201,169,110,0.07)')
-    .attr('stroke-width', 0.4);
-
-  S.append('path')
-    .datum({type:'LineString', coordinates:[[-180,0],[180,0]]})
-    .attr('d', path)
-    .attr('fill', 'none')
-    .attr('stroke', 'rgba(201,169,110,0.2)')
-    .attr('stroke-width', 0.7)
-    .attr('stroke-dasharray', '4,8');
-
-  S.append('path')
-    .datum(land)
-    .attr('d', path)
-    .attr('fill', 'rgba(201,169,110,0.12)')
-    .attr('stroke', 'rgba(201,169,110,0.6)')
-    .attr('stroke-width', 0.7)
-    .attr('stroke-linejoin', 'round');
-
-  [[60,'60°N'],[0,'EQ'],[-30,'30°S']].forEach(([lat, label]) => {
-    const [,y] = projection([0, lat]);
-    S.append('text')
-      .attr('x', 8).attr('y', y - 3)
-      .attr('fill', 'rgba(201,169,110,0.35)')
-      .attr('font-size', '9')
-      .attr('font-family', 'Georgia, serif')
-      .text(label);
-  });
-
-  const locations = [
-    { lon:-118.2, lat:34.1,  type:'active',  label:'California' },
-    { lon:-117.1, lat:32.7,  type:'active',  label:'Fallbrook' },
-    { lon:-116.5, lat:31.5,  type:'soon',    label:'Valle de Guadalupe' },
-    { lon:5.0,    lat:44.0,  type:'soon',    label:'Provence' },
-    { lon:1.0,    lat:41.4,  type:'soon',    label:'Spain' },
-    { lon:11.3,   lat:43.8,  type:'soon',    label:'Tuscany' },
-    { lon:-68.8,  lat:-32.9, type:'horizon', label:'Mendoza' },
-    { lon:-8.0,   lat:39.5,  type:'horizon', label:'Douro' },
-    { lon:169.3,  lat:-45.0, type:'horizon', label:'Otago' },
-  ];
-
-  const pinGroup = S.append('g').attr('class', 'pin-group');
-
-  locations.forEach(loc => {
-    const [px, py] = projection([loc.lon, loc.lat]);
-    const isActive  = loc.type === 'active';
-    const isSoon    = loc.type === 'soon';
-    const isHorizon = loc.type === 'horizon';
-    const color = isHorizon ? 'rgba(90,84,72,0.8)' : isActive ? '#c9a96e' : '#e2c48a';
-    const r = isHorizon ? 2.5 : 3.5;
-
-    const g = pinGroup.append('g').attr('transform', `translate(${px},${py})`);
-
-    if (!isHorizon) {
-      g.append('circle')
-        .attr('r', 10).attr('fill', 'none')
-        .attr('stroke', color).attr('stroke-width', 0.8)
-        .attr('opacity', 0.4)
-        .append('animate')
-          .attr('attributeName', 'r').attr('from', 4).attr('to', 14)
-          .attr('dur', '2.5s').attr('repeatCount', 'indefinite');
-
-      g.append('circle')
-        .attr('r', 6).attr('fill', 'none')
-        .attr('stroke', color).attr('stroke-width', 0.6)
-        .attr('opacity', 0.3)
-        .append('animate')
-          .attr('attributeName', 'r').attr('from', 4).attr('to', 10)
-          .attr('dur', '2.5s').attr('begin', '0.8s').attr('repeatCount', 'indefinite');
-    }
-
-    if (!isHorizon) {
-      g.append('circle')
-        .attr('r', r + 3)
-        .attr('fill', color)
-        .attr('opacity', 0.2);
-    }
-
-    g.append('circle')
-      .attr('r', r)
-      .attr('fill', color)
-      .attr('stroke', 'rgba(255,255,255,0.3)')
-      .attr('stroke-width', 0.5);
-
-    g.append('title').text(loc.label);
-  });
-
-  document.getElementById('mapPins').style.display = 'none';
-
-})();
-</script>
-
-<!-- ─── THE COLLECTIVE ─── -->
-
-<section class="collective" id="collective">
-  <div class="section-inner">
-    <div class="collective-intro reveal">
-      <div class="section-eyebrow">The Collective</div>
-      <h2 class="section-title" style="margin-top: 14px; margin-bottom: 20px;">The Authorities<br><em>Behind the Experience</em></h2>
-      <p style="font-size:17px; font-weight:300; line-height:1.8; color:rgba(242,236,224,0.65);">
-        Vin Azul is not a company with a team. It is a collective of genuine authorities — in hospitality, wine, and storytelling — who came together around a shared belief: that the finest experiences in life happen around a table, and the right company matters as much as the wine.
-      </p>
+  <main class="main-chat">
+    <div class="chat-header">
+      <div class="chat-title"><em>Voya</em> — Your Private Concierge</div>
+      <div class="chat-subtitle">Private access to Vin Azul's world · By invitation · Always curated</div>
     </div>
 
 ```
-<div class="collective-grid">
-
-  <div class="member-card reveal">
-    <span class="member-number">I</span>
-    <div class="member-role">Head Sommelier</div>
-    <div class="member-name">Lisa<br><em>Redwine</em></div>
-    <div class="member-rule"></div>
-    <p class="member-bio">One of only four women in San Diego to hold Advanced Sommelier accreditation from the Court of Master Sommeliers — a distinction she earned in 2010 while pursuing her Master Sommelier certification. A Culinary Institute of America graduate with honors, Lisa has built award-winning wine programs at some of the finest restaurants in San Francisco and San Diego, including The Marine Room and the legendary Cypress Club. A wine judge at the San Diego International Wine Competition and Sommelier Challenge, a professor at San Diego State University's Business of Wine Program, and the founder of the Women's Wine Alliance — a nonprofit advancing wine education for women professionals. Lisa's palate, relationships, and authority are the curatorial spine of everything Vin Azul pours, recommends, and travels toward.</p>
-  </div>
-
-  <div class="member-card reveal reveal-delay-1">
-    <span class="member-number">II</span>
-    <div class="member-role">Head of Hospitality</div>
-    <div class="member-name">Joseph<br><em>Peukert</em></div>
-    <div class="member-rule"></div>
-    <p class="member-bio">Twenty-five years of world-class hospitality experience distilled into every Vin Azul event. Holder of a BS in Hospitality Management from UNLV — the most prestigious hospitality program in the world — Joseph spent a decade working alongside culinary legend José Andrés at the Cosmopolitan of Las Vegas, where food, art, and spectacle converge at the highest level. He then brought that excellence to the Four Seasons Hualalai on the Big Island of Hawaii — one of the brand's most celebrated flagship properties, where aloha and luxury meet in perfect harmony. Joseph is the reason every Vin Azul experience feels effortless, intentional, and utterly unforgettable from the moment you arrive.</p>
-  </div>
-
-  <div class="member-card reveal reveal-delay-2">
-    <span class="member-number">III</span>
-    <div class="member-role">Media, Brand & Storytelling</div>
-    <div class="member-name">Will<br><em>Burtner</em></div>
-    <div class="member-rule"></div>
-    <p class="member-bio">Sommelier, author, and media personality best known for Wine Wednesday on Fox News. Will has spent years making wine culture feel alive, relevant, and worth paying attention to — bringing both deep expertise and a rare ability to translate the world of fine wine into stories that move people. He is the voice that will tell the world what Vin Azul is building.</p>
-  </div>
-
-</div>
-```
-
-  </div>
-</section>
-
-<!-- ─── MEMBERSHIP ─── -->
-
-<section class="membership" id="membership">
-  <div class="section-inner">
-    <div class="membership-intro reveal">
-      <div class="section-eyebrow">Private Membership</div>
-      <h2 class="section-title" style="margin-top:14px;"><em>Access.</em> Recognition.<br>A World That Knows You.</h2>
-      <p style="margin-top:20px;">Vin Azul is not a wine club. It is a private global network where members are recognized, welcomed, and granted access to curated wine, travel, and lifestyle experiences — from California to Provence.</p>
-    </div>
-
-```
-<div class="tiers-grid">
-
-  <div class="tier-card reveal">
-    <div class="tier-name">Introduction</div>
-    <div class="tier-title">Cellar</div>
-    <div style="font-size:12px;font-style:italic;font-weight:300;color:rgba(242,236,224,0.35);margin-bottom:20px;line-height:1.6;">An introduction to the world of Vin Azul — designed for those beginning their journey into curated wine experiences and global access.</div>
-    <div class="tier-price">
-      <div class="tier-amount">$1,200</div>
-      <div class="tier-period">Per Year</div>
-    </div>
-    <ul class="tier-benefits">
-      <li>Event access at member pricing</li>
-      <li>Recognized access across partner wineries</li>
-      <li>Complimentary welcome glass at select partner wineries</li>
-      <li>Invitation-based experiences released throughout the year</li>
-      <li>Digital access to the Azul Journal — monthly editorial</li>
-      <li>Access to the Vin Azul member community</li>
-      <li>Priority notification on new events</li>
-    </ul>
-    <a href="/voya.html" class="tier-cta ghost" style="display:block;width:100%;text-align:center;padding:14px;border:1px solid rgba(201,169,110,0.3);color:#c9a96e;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.08)'" onmouseout="this.style.background='transparent'">Explore Access with Voya</a>
-  </div>
-
-  <div class="tier-card featured reveal reveal-delay-1">
-    <div class="tier-featured-label">Most Popular</div>
-    <div class="tier-name">Private Access</div>
-    <div class="tier-title">Reserve</div>
-    <div style="font-size:12px;font-style:italic;font-weight:300;color:rgba(242,236,224,0.45);margin-bottom:20px;line-height:1.6;">For those who want Vin Azul fully integrated into their lifestyle — with priority access, concierge guidance, and curated experiences tailored to your preferences.</div>
-    <div class="tier-price">
-      <div class="tier-amount">$3,600</div>
-      <div class="tier-period">Per Year</div>
-    </div>
-    <ul class="tier-benefits">
-      <li>Everything in Cellar</li>
-      <li>2 complimentary event tickets annually</li>
-      <li>$500 annual travel credit</li>
-      <li>Sommelier concierge — direct access to Lisa Redwine</li>
-      <li>Preferred partner perks — hotels, spas, wineries globally</li>
-      <li>Priority reservations across all Vin Azul partner locations</li>
-      <li>Fallbrook Wine Festival VIP access</li>
-      <li>Enhanced Azul Journal — featured experiences & deeper curation</li>
-    </ul>
-    <a href="/voya.html" class="tier-cta" style="display:block;width:100%;text-align:center;padding:14px;background:#c9a96e;color:#080e1a;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#e2c48a'" onmouseout="this.style.background='#c9a96e'">Request Private Invitation via Voya</a>
-  </div>
-
-  <div class="tier-card reveal reveal-delay-2" style="background: linear-gradient(160deg, #0d1220, #080e1a); border: 1px solid rgba(201,169,110,0.3); position: relative;">
-    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);"></div>
-    <div style="position:absolute;top:20px;right:20px;font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.4em;color:#c9a96e;text-transform:uppercase;border:1px solid rgba(201,169,110,0.3);padding:4px 10px;">Private · By Invitation</div>
-    <div class="tier-name" style="color:#e2c48a;">Elite Access</div>
-    <div class="tier-title" style="font-size:32px;color:#f2ece0;">Grand Cru</div>
-    <div style="font-size:12px;font-style:italic;font-weight:300;color:rgba(242,236,224,0.45);margin-bottom:4px;line-height:1.6;">Limited to a select number of members annually.</div>
-    <div style="font-size:11px;font-family:'Raleway',sans-serif;letter-spacing:0.2em;color:rgba(201,169,110,0.6);text-transform:uppercase;margin-bottom:20px;">Designed for those who value access, not availability.</div>
-    <div class="tier-price">
-      <div class="tier-amount" style="color:#e2c48a;">$9,600</div>
-      <div class="tier-period">Per Year</div>
-    </div>
-    <ul class="tier-benefits">
-      <li>Everything in Reserve</li>
-      <li>Unlimited access to Vin Azul events</li>
-      <li>Priority placement at all global experiences</li>
-      <li>Dedicated travel planner</li>
-      <li>Private estate & cellar access</li>
-      <li>International experience priority</li>
-      <li style="border-color:rgba(201,169,110,0.15);">
-        <span style="color:#f2ece0;font-weight:400;">Annual Private Dinner — The Collective</span>
-        <span style="display:block;font-size:11px;font-style:italic;color:rgba(242,236,224,0.35);margin-top:3px;">An invitation-only gathering at a private estate — winemakers, industry leaders, select members.</span>
-      </li>
-      <li style="border-color:rgba(201,169,110,0.15);">
-        <span style="color:#f2ece0;font-weight:400;">Quarterly Vin Azul Collection</span>
-        <span style="display:block;font-size:11px;font-style:italic;color:rgba(242,236,224,0.35);margin-top:3px;">Curated selections from global partner wineries, delivered directly.</span>
-      </li>
-    </ul>
-    <a href="/voya.html" style="display:block;width:100%;text-align:center;padding:16px;background:transparent;border:1px solid rgba(201,169,110,0.5);color:#c9a96e;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.45em;text-transform:uppercase;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='transparent'">Inquire Privately via Voya</a>
-  </div>
-
-</div>
-```
-
-  </div>
-</section>
-
-<!-- ─── WAITLIST ─── -->
-
-<section class="waitlist" id="waitlist">
-  <div class="waitlist-bg-text">Vin Azul</div>
-  <div class="section-inner">
-    <div class="section-eyebrow" style="justify-content:center; display:flex;">Join the Circle</div>
-    <h2 class="waitlist-headline reveal">
-      The World Opens<br>to <em>Founding Members</em> First
-    </h2>
-    <p class="waitlist-sub reveal">Fifty seats. By personal invitation. No exceptions.</p>
-
-```
-<div class="reveal" id="waitlist-form">
-  <form
-    name="founding-circle"
-    method="POST"
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    action="/success"
-    style="display:flex; max-width:480px; margin:0 auto 24px; gap:0;"
-    onsubmit="handleNetlifySubmit(event)"
-  >
-    <input type="hidden" name="form-name" value="founding-circle">
-    <input type="hidden" name="bot-field" style="display:none;">
-    <input
-      type="email"
-      name="email"
-      class="waitlist-input"
-      placeholder="Your email address"
-      id="email-input"
-      required
-    >
-    <button type="submit" class="waitlist-submit">Request Access</button>
-  </form>
-</div>
-<div class="waitlist-success" id="waitlist-success">
-  Your request has been received. We will be in touch personally.
-</div>
-<p class="waitlist-note reveal">Curated access · No mass invitations · Reviewed individually</p>
-```
-
-  </div>
-</section>
-
-<!-- ─── VOYA SECTION ─── -->
-
-<section style="padding: 100px 40px; background: linear-gradient(180deg, #080e1a 0%, #0d1526 100%); border-top: 1px solid rgba(201,169,110,0.15);">
-  <div style="max-width: 800px; margin: 0 auto;">
-
-```
-<div style="text-align: center; margin-bottom: 48px;" class="reveal">
-  <div style="font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 0.5em; color: #c9a96e; text-transform: uppercase; margin-bottom: 12px;">Voya · Private Concierge</div>
-  <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: #f2ece0; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 14px;">Book an event. Plan a trip.<br><em>Discover your next wine.</em></h2>
-  <p style="font-size: 15px; font-style: italic; font-weight: 300; color: rgba(242,236,224,0.4); max-width: 480px; margin: 0 auto;">Voya is available to every visitor — ask anything about wine, travel, or upcoming experiences.</p>
-</div>
-
-<div style="background: #111828; border: 1px solid rgba(201,169,110,0.15); position: relative;" class="reveal">
-  <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,110,0.4), transparent);"></div>
-
-  <div id="homeChatMessages" style="padding: 28px 28px 0; min-height: 180px; max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px;">
-    <div style="display: flex; gap: 10px;">
-      <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.03)); border: 1px solid rgba(201,169,110,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-size: 9px; color: #c9a96e; flex-shrink: 0; margin-top: 2px;">V</div>
-      <div style="background: rgba(201,169,110,0.06); border: 1px solid rgba(201,169,110,0.12); padding: 12px 16px; font-size: 14px; font-weight: 300; line-height: 1.65; color: rgba(242,236,224,0.85); border-radius: 2px 10px 10px 10px; max-width: 85%;">
+<div class="chat-messages" id="chatMessages">
+  <div class="message" id="voyaGreeting">
+    <div class="msg-avatar voya">V</div>
+    <div class="msg-content">
+      <div class="msg-bubble voya">
         Welcome to Vin Azul. I'm Voya — your private concierge. May I curate something for you?
       </div>
     </div>
   </div>
-
-  <div style="padding: 16px 28px 20px; border-top: 1px solid rgba(201,169,110,0.08); margin-top: 16px;">
-    <div style="display: flex; border: 1px solid rgba(201,169,110,0.2); background: rgba(255,255,255,0.02);">
-      <input
-        type="text"
-        id="homeChatInput"
-        placeholder="Tell Voya what you're looking for..."
-        onkeypress="if(event.key==='Enter') homeChat()"
-        style="flex: 1; background: none; border: none; outline: none; padding: 14px 18px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 300; letter-spacing: 0.05em; color: #f2ece0;">
-      <button
-        onclick="homeChat()"
-        id="homeSendBtn"
-        style="background: #c9a96e; border: none; padding: 0 24px; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 0.45em; text-transform: uppercase; color: #080e1a;">
-        Send
-      </button>
-    </div>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-      <div onclick="document.getElementById('homeChatInput').value='I am looking for a one-time experience'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease;">Book an Experience</div>
-      <div onclick="document.getElementById('homeChatInput').value='I am interested in something more exclusive and ongoing'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Private Membership</div>
-      <div onclick="document.getElementById('homeChatInput').value='Tell me about upcoming Vin Azul events'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Upcoming Events</div>
-    </div>
-  </div>
 </div>
 
-<div style="text-align: center; margin-top: 24px;" class="reveal">
-  <a href="/voya.html" style="font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 0.4em; color: rgba(201,169,110,0.5); text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.2); padding-bottom: 3px;">Continue with Voya →</a>
+<div class="chat-input-area">
+  <div class="chat-input-wrap">
+    <input
+      type="text"
+      class="chat-input"
+      id="chatInput"
+      placeholder="Ask Voya about wine, travel, or upcoming events..."
+      onkeypress="if(event.key==='Enter') sendMessage()">
+    <button class="chat-send" id="sendBtn" onclick="sendMessage()">Send</button>
+  </div>
+  <div class="quick-prompts">
+    <div class="quick-prompt" onclick="setPrompt('Recommend a wine for a special dinner')">Wine Pairing</div>
+    <div class="quick-prompt" onclick="setPrompt('What Vin Azul events are coming up?')">Upcoming Events</div>
+    <div class="quick-prompt" onclick="setPrompt('Plan a wine trip to Provence')">Trip to Provence</div>
+    <div class="quick-prompt" onclick="setPrompt('I love bold reds with dark fruit and earthy notes')">My Palate</div>
+    <div class="quick-prompt" onclick="setPrompt('Tell me about Napa Valley wine country')">Napa Valley</div>
+  </div>
 </div>
 ```
 
-  </div>
-</section>
+  </main>
+
+  <!-- SIDEBAR RIGHT -->
+
+  <aside class="sidebar-right">
+    <div class="right-section">
+      <div class="right-label">📅 Upcoming Events</div>
+      <div class="event-items">
+        <div class="event-item" onclick="setPrompt('Tell me about The Founding Table on June 4th')">
+          <div class="event-item-date">Jun 4, 2026</div>
+          <div class="event-item-name">The Founding Table</div>
+          <div class="event-item-loc">Monserate Winery, Fallbrook</div>
+          <div class="event-item-status status-open">$250 · Accepting RSVPs</div>
+        </div>
+        <div class="event-item" onclick="setPrompt('Tell me about The Summer Cellar in July')">
+          <div class="event-item-date">Jul 16, 2026</div>
+          <div class="event-item-name">The Summer Cellar</div>
+          <div class="event-item-loc">San Diego County</div>
+          <div class="event-item-status status-members">Members Only</div>
+        </div>
+        <div class="event-item" onclick="setPrompt('Tell me about the Paso Robles Harvest Weekend')">
+          <div class="event-item-date">Sep 26, 2026</div>
+          <div class="event-item-name">Harvest Weekend</div>
+          <div class="event-item-loc">Paso Robles, CA</div>
+          <div class="event-item-status status-waitlist">Join Waitlist</div>
+        </div>
+        <div class="event-item" onclick="setPrompt('Tell me about the Fallbrook Wine Festival')">
+          <div class="event-item-date">Oct 10, 2026</div>
+          <div class="event-item-name">Fallbrook Wine Festival</div>
+          <div class="event-item-loc">Fallbrook, CA</div>
+          <div class="event-item-status status-open">Founding Access</div>
+        </div>
+        <div class="event-item" onclick="setPrompt('Tell me about the Napa Valley Winter Experience')">
+          <div class="event-item-date">Dec 10, 2026</div>
+          <div class="event-item-name">Napa Winter Estate</div>
+          <div class="event-item-loc">Napa Valley, CA</div>
+          <div class="event-item-status status-waitlist">Join Waitlist</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
 
 <script>
-const HOME_VOYA_SYSTEM = `You are Voya — a world-class private wine and travel concierge, and the conversion intelligence engine of Vin Azul Collective.
+// ── CONVERSATION HISTORY ──
+let conversationHistory = [];
+
+// Restore conversation from homepage float tab if it exists
+(function restoreConversation() {
+  const savedHistory = sessionStorage.getItem('voyaHistory');
+  const savedMessages = sessionStorage.getItem('voyaMessages');
+  if (savedHistory && savedMessages) {
+    try {
+      conversationHistory = JSON.parse(savedHistory);
+      const messages = document.getElementById('chatMessages');
+      const greeting = document.getElementById('voyaGreeting');
+      if (greeting) greeting.remove();
+      const notice = document.createElement('div');
+      notice.style.cssText = 'text-align:center;padding:8px 16px;margin:4px 0;';
+      notice.innerHTML = '<span style="font-family:\'Raleway\',sans-serif;font-size:8px;letter-spacing:0.3em;color:rgba(201,169,110,0.4);text-transform:uppercase;">Continuing your conversation</span>';
+      messages.appendChild(notice);
+      conversationHistory.forEach(msg => {
+        const div = document.createElement('div');
+        div.className = `message ${msg.role === 'user' ? 'user' : ''}`;
+        if (msg.role === 'user') {
+          div.innerHTML = `<div class="msg-content" style="align-items:flex-end;"><div class="msg-bubble user">${msg.content}</div></div><div class="msg-avatar user">M</div>`;
+        } else {
+          div.innerHTML = `<div class="msg-avatar voya">V</div><div class="msg-content"><div class="msg-bubble voya">${msg.content}</div></div>`;
+        }
+        messages.appendChild(div);
+      });
+      messages.scrollTop = messages.scrollHeight;
+      sessionStorage.removeItem('voyaHistory');
+      sessionStorage.removeItem('voyaMessages');
+    } catch(e) { conversationHistory = []; }
+  }
+})();
+
+// ── EVENT WAITLIST ──
+const waitlist = {};
+
+// ══════════════════════════════════════════════════════════════
+// VOYA SYSTEM PROMPT — UPGRADED WINERY CONVERSION INTELLIGENCE
+// ══════════════════════════════════════════════════════════════
+const VOYA_SYSTEM = `You are Voya — a world-class private wine and travel concierge, and the conversion intelligence engine of Vin Azul Collective.
 
 ═══════════════════════════════════════
 WHO YOU ARE
@@ -1776,19 +655,17 @@ THE THREE CONVERSIONS — PRIORITY ORDER
 — Always create anticipation, never pressure. The best slots fill by Wednesday. Harvest season books weeks out.
 — Paint the picture of the experience before asking them to book it. They should feel they'd be missing out not to lock it in.
 — When they're ready: "I can point you to exactly where to book — what weekend were you thinking?"
-— Direct them to: [WINERY BOOKING LINK]
 
 2. WINE CLUB SIGN-UP (Second priority)
 — Never lead with the club. Earn it through the conversation first.
 — The right moment: after they've expressed love for a wine, asked about coming back, or shown they're already a fan.
 — Frame it as insider access, not a subscription: "The people who really love this place tend to join the club — you get [TOP BENEFIT] and [SECOND BENEFIT] before anyone else."
 — Handle the one objection they always have: "You can pause or cancel anytime — most members tell us they forget it's even a subscription because the value is so obvious."
-— Direct them to: [WINERY CLUB LINK]
 
 3. DIRECT BOTTLE PURCHASE (Third priority)
 — One recommendation. Always one. Based on what they've told you about their taste.
-— Be specific: don't say "our Cabernet is great" — say "the 2022 Reserve Cabernet is drinking beautifully right now, dark fruit with a long finish, perfect if you like [what they said they like]."
-— Then give them the direct path: "You can grab it here: [WINERY SHOP LINK]"
+— Be specific: don't say "our Cabernet is great" — say "the 2022 Reserve Cabernet is drinking beautifully right now, dark fruit with a long finish, perfect if you like bold structured reds."
+— Then give them the direct path to purchase.
 
 ═══════════════════════════════════════
 CONVERSION RULES — NEVER BREAK THESE
@@ -1804,94 +681,100 @@ CONVERSION RULES — NEVER BREAK THESE
 ANSWERING vs ACTING
 ═══════════════════════════════════════
 ANSWERING is always free and always excellent:
-— Wine recommendations and tasting notes
+— Wine recommendations and tasting notes anywhere in the world
 — Logistics: hours, directions, what to expect, how to book
 — Food pairings, vintage advice, regional expertise
 — Honest comparisons between experiences
+— Specific venue names, booking platforms, insider tips
 
 ACTING requires Vin Azul membership (personal concierge work):
 — Making reservation inquiries on their behalf
-— Building custom itineraries
+— Building custom full itineraries with bookings
 — Arranging private estate or cellar access
 — Coordinating multi-winery trips
 
 When asked to ACT: "Handling that personally — drafting inquiries, securing reservations, coordinating access — is part of what I do for Vin Azul members. In the meantime, [give one specific free tip so they can take action themselves right now]." Always end with the useful tip. Make it feel like a door, not a wall.
 
 ═══════════════════════════════════════
+DEPTH OF KNOWLEDGE — WINE REGIONS
+═══════════════════════════════════════
+You are an expert on every major and emerging wine region globally:
+
+USA: California (Napa, Sonoma, Paso Robles, Santa Barbara, Temecula, Fallbrook, Santa Ynez), Oregon (Willamette), Washington, New York (Finger Lakes), Virginia, Texas Hill Country, Wisconsin, Michigan
+
+France: Burgundy, Bordeaux, Champagne, Rhône, Provence, Alsace, Loire
+Italy: Tuscany, Piedmont, Sicily, Veneto, Campania, Barolo, Barbaresco
+Spain: Rioja, Priorat, Ribera del Duero, Galicia, Cava
+Portugal: Douro, Alentejo, Vinho Verde
+Germany: Mosel, Rheingau · Austria · Greece
+
+Argentina: Mendoza, Patagonia · Chile: Colchagua, Casablanca · Uruguay · Brazil
+Australia: Barossa, McLaren Vale, Margaret River, Yarra Valley
+New Zealand: Central Otago, Marlborough
+South Africa: Stellenbosch, Swartland
+
+Mexico: Valle de Guadalupe, Ensenada · Georgia: Kakheti · Lebanon: Bekaa Valley
+
+You give SPECIFIC names — producers, estates, tasting rooms, wine bars, restaurants. Never generic answers. The brilliant friend who has been everywhere.
+
+═══════════════════════════════════════
 VIN AZUL KNOWLEDGE
 ═══════════════════════════════════════
-Team:
-— Lisa Redwine: Advanced CMS Sommelier, CIA honors grad, SDSU wine professor, Women's Wine Alliance founder, Marine Room + Cypress Club alum. The curatorial spine of everything Vin Azul pours.
-— Joseph Peukert: UNLV Hospitality BS, decade with José Andrés at Cosmopolitan Las Vegas, 5 years Four Seasons Hualalai. Every Vin Azul event feels effortless because of him.
+THE TEAM:
+— Lisa Redwine: Advanced CMS Sommelier, one of only 4 women in San Diego with this credential, CIA graduate with honors, SDSU professor, Women's Wine Alliance founder, wine judge at multiple competitions. The curatorial spine of everything Vin Azul pours.
+— Joseph Peukert: Head of Hospitality, BS Hospitality UNLV, decade with José Andrés at the Cosmopolitan Las Vegas, 5 years Four Seasons Hualalai. Every event feels effortless because of him.
 — Will Burtner: Sommelier, author, Fox News Wine Wednesday. The voice that tells the world what Vin Azul is building.
 
-Membership tiers:
-— Cellar $1,200/yr: Event access, member pricing, quarterly wine shipment, Azul Journal, member community
-— Reserve $3,600/yr: All above + 2 complimentary event tickets, $500 travel credit, direct sommelier concierge access to Lisa Redwine, preferred partner perks globally
-— Grand Cru $9,600/yr: All above + unlimited events worldwide, dedicated travel planner, private estate + cellar access, annual private dinner with the Collective, quarterly curated wine collection
+POSITIONING: Vin Azul is not a wine club. Not a travel company. Not a members club. It is wine as passport — the only membership that turns wine into a way of moving through the world.
 
-2026 Events:
-— Jun 4: The Founding Table · Monserate Winery, Fallbrook · $250 · Accepting RSVPs now
+MEMBERSHIP TIERS:
+— Cellar $1,200/yr: Event access at member pricing, quarterly wine shipment from partner estates, Azul Journal, member community, partner winery recognition
+— Reserve $3,600/yr: All above + 2 complimentary event tickets, $500 annual travel credit, direct sommelier concierge access to Lisa Redwine, preferred partner perks globally, priority reservations
+— Grand Cru $9,600/yr: All above + unlimited events worldwide, dedicated travel planner, private estate and cellar access, Annual Private Dinner with The Collective, Quarterly Vin Azul Collection wine deliveries
+
+2026 EVENTS:
+— Jun 4: The Founding Table · Monserate Winery, Fallbrook · $250 · Accepting RSVPs NOW — intimate 4-course dinner, sunset vineyard walk, Monserate head sommelier and culinary team hosting
 — Jul 16: The Summer Cellar · San Diego County · Members only
 — Aug 20: Terroir & Table · $195 members / $250 guests
 — Sep 10: Winemaker's Dinner · $350 members / $450 guests
-— Sep 26: Harvest Weekend · Paso Robles · $1,800 · Limited seats
+— Sep 26: Harvest Weekend · Paso Robles · $1,800 · Limited seats — 2 nights private estate
 — Oct 10: Fallbrook Wine Festival · Founding member access
 — Nov 19: Autumn Table · $350 members / $500 guests
-— Dec 10: Napa Winter Estate · $2,800 · Ultra-exclusive
+— Dec 10: Napa Winter Estate · $2,800 · Ultra-exclusive · 3 nights · 12 guests maximum
 
-Positioning: Vin Azul is not a wine club. Not a travel company. Not a members club. It is wine as passport — the only membership that turns wine into a way of moving through the world.
+WINE PARTNERS: Monserate Winery (Fallbrook CA — Italian varietals, stunning 116-acre estate, founding partner), De Amo Winery (97-point Cabernet), GRW Wine Collection
 
-When to mention Vin Azul: When someone is planning California wine travel, exploring SoCal wine culture, interested in wine communities, or traveling to our markets (Baja, Provence, Tuscany, Priorat, Spain). Introduce it as something they'd want to know about, not as a pitch.
+EXPANSION MARKETS: Baja California (Valle de Guadalupe — winter 2026), Provence and Rhône (2027), Priorat and Ribera del Duero, Tuscany and Maremma, Mendoza, Douro Valley, Central Otago
 
-For deeper conversation: suggest vinazul.com/voya.html
+THE JUNE 4TH FOUNDING TABLE:
+This is the inaugural Vin Azul event. The first stamp in the passport. When visitors ask about it — make them feel that being in that room on June 4th is a genuine privilege. Space is extremely limited. The evening is guided by Monserate's head sommelier and culinary team. It will not repeat. To request a seat: vinazul.com
 
 ═══════════════════════════════════════
-WINERY PARTNER CONTEXT — MONSERATE
+TONE & STYLE
 ═══════════════════════════════════════
-Monserate Winery is Vin Azul's founding partner — our first stamp. Located in Fallbrook, California, it is a stunning Italian-inspired estate producing exceptional wines in San Diego's most exciting wine-growing region. The June 4th Founding Table is the inaugural Vin Azul event. Space is extremely limited and this evening will not repeat.
+— Warm, intelligent, specific, genuinely helpful
+— Elegant but never cold or robotic
+— Conversational — like texting a brilliant friend who knows wine deeply
+— Responses as long as they need to be — short for simple questions, detailed for complex ones
+— Never use "Great question!" "Certainly!" "Of course!" or any filler
+— Never be pushy about Vin Azul — mention it only when it genuinely adds value
+— One question at a time if clarification is needed
+— If someone asks about price, give it confidently — never apologize for premium pricing
+— The best conversion tool is genuine expertise — be so helpful that people want to be part of what you represent`;
 
-When visitors ask about Monserate or the June 4th event:
-— Make them feel that being in that room on June 4th is a genuine privilege, not just a ticket purchase
-— The evening is guided by Monserate's head sommelier and culinary team — it is intimate, curated, and one of a kind
-— Request a seat: vinazul.com
-`;
-
-let homeChatHistory = [];
-
-async function homeChat() {
-  const input = document.getElementById('homeChatInput');
-  const btn = document.getElementById('homeSendBtn');
-  const messages = document.getElementById('homeChatMessages');
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
   const text = input.value.trim();
-  if (!text || btn.disabled) return;
+  if (!text || sendBtn.disabled) return;
 
-  const userDiv = document.createElement('div');
-  userDiv.style.cssText = 'display:flex;gap:10px;flex-direction:row-reverse;';
-  userDiv.innerHTML = `
-    <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#c9a96e,#7a6040);display:flex;align-items:center;justify-content:center;font-family:Raleway,sans-serif;font-size:9px;color:#080e1a;flex-shrink:0;margin-top:2px;">M</div>
-    <div style="background:rgba(242,236,224,0.05);border:1px solid rgba(242,236,224,0.08);padding:12px 16px;font-size:14px;font-weight:300;line-height:1.65;color:rgba(242,236,224,0.7);border-radius:10px 2px 10px 10px;max-width:85%;text-align:right;">${text}</div>`;
-  messages.appendChild(userDiv);
+  addMessage('user', text);
   input.value = '';
-  btn.disabled = true;
-  messages.scrollTop = messages.scrollHeight;
+  sendBtn.disabled = true;
 
-  homeChatHistory.push({ role: 'user', content: text });
+  conversationHistory.push({ role: 'user', content: text });
 
-  const typingDiv = document.createElement('div');
-  typingDiv.id = 'homeTyping';
-  typingDiv.style.cssText = 'display:flex;gap:10px;';
-  typingDiv.innerHTML = `
-    <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-family:Raleway,sans-serif;font-size:9px;color:#c9a96e;flex-shrink:0;margin-top:2px;">V</div>
-    <div style="background:rgba(201,169,110,0.06);border:1px solid rgba(201,169,110,0.12);padding:14px 16px;border-radius:2px 10px 10px 10px;">
-      <div style="display:flex;gap:4px;align-items:center;">
-        <div class="hd" style="width:5px;height:5px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out infinite;"></div>
-        <div class="hd" style="width:5px;height:5px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out 0.2s infinite;"></div>
-        <div class="hd" style="width:5px;height:5px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out 0.4s infinite;"></div>
-      </div>
-    </div>`;
-  messages.appendChild(typingDiv);
-  messages.scrollTop = messages.scrollHeight;
+  const typingId = showTyping();
 
   try {
     const response = await fetch('/.netlify/functions/voya', {
@@ -1899,280 +782,158 @@ async function homeChat() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 300,
-        system: HOME_VOYA_SYSTEM,
-        messages: homeChatHistory
+        max_tokens: 1000,
+        system: VOYA_SYSTEM,
+        messages: conversationHistory
       })
     });
 
     const data = await response.json();
-    document.getElementById('homeTyping')?.remove();
+    removeTyping(typingId);
 
     if (data.content && data.content[0]) {
       const reply = data.content[0].text;
-      homeChatHistory.push({ role: 'assistant', content: reply });
+      conversationHistory.push({ role: 'assistant', content: reply });
 
-      const voyaDiv = document.createElement('div');
-      voyaDiv.style.cssText = 'display:flex;gap:10px;';
-      voyaDiv.innerHTML = `
-        <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-family:Raleway,sans-serif;font-size:9px;color:#c9a96e;flex-shrink:0;margin-top:2px;">V</div>
-        <div style="background:rgba(201,169,110,0.06);border:1px solid rgba(201,169,110,0.12);padding:12px 16px;font-size:14px;font-weight:300;line-height:1.65;color:rgba(242,236,224,0.85);border-radius:2px 10px 10px 10px;max-width:85%;">${reply}</div>`;
-      messages.appendChild(voyaDiv);
-      messages.scrollTop = messages.scrollHeight;
+      const lowerInput = text.toLowerCase();
+
+      if (lowerInput.includes('waitlist') || lowerInput.includes('rsvp') || lowerInput.includes('join') || lowerInput.includes('attend') || lowerInput.includes('sign up')) {
+        addMessage('voya', reply, 'waitlist', text);
+      } else if (lowerInput.includes('recommend') && (lowerInput.includes('wine') || lowerInput.includes('bottle') || lowerInput.includes('red') || lowerInput.includes('white'))) {
+        addMessage('voya', reply, 'wine');
+      } else if (lowerInput.includes('trip') || lowerInput.includes('travel') || lowerInput.includes('itinerary') || lowerInput.includes('visit') || lowerInput.includes('provence') || lowerInput.includes('napa') || lowerInput.includes('tuscany')) {
+        addMessage('voya', reply, 'trip');
+      } else {
+        addMessage('voya', reply);
+      }
+    } else {
+      addMessage('voya', 'I apologize — I encountered an issue. Please try again.');
     }
-  } catch(e) {
-    document.getElementById('homeTyping')?.remove();
+  } catch (err) {
+    removeTyping(typingId);
+    addMessage('voya', 'Voya is momentarily unavailable. Please ensure your API connection is configured and try again.');
   }
 
-  btn.disabled = false;
+  sendBtn.disabled = false;
+  document.getElementById('chatInput').focus();
 }
-</script>
 
-<style>
-@keyframes hb {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-5px); opacity: 1; }
-}
-</style>
+function addMessage(role, text, cardType, originalInput) {
+  const messages = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
 
-<!-- ─── FOOTER ─── -->
+  const avatar = document.createElement('div');
+  avatar.className = `msg-avatar ${role}`;
+  avatar.textContent = role === 'voya' ? 'V' : 'M';
 
-<footer>
-  <div class="section-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name"><em>Vin</em> Azul Collective</div>
-        <p class="footer-tagline">The infrastructure of a life well-traveled.</p>
-        <p style="font-family:'Raleway',sans-serif; font-size:9px; letter-spacing:0.25em; color:#5a5448; text-transform:uppercase;">vinazul.com</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Experiences</div>
-        <ul class="footer-links">
-          <li><a href="#">Wine Dinners</a></li>
-          <li><a href="#">Estate Weekends</a></li>
-          <li><a href="#">Destination Trips</a></li>
-          <li><a href="https://www.fallbrookwinefestival.com" target="_blank">Fallbrook Wine Festival</a></li>
-          <li><a href="#">Private Events</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Collective</div>
-        <ul class="footer-links">
-          <li><a href="#">About</a></li>
-          <li><a href="#">The Team</a></li>
-          <li><a href="#">Membership</a></li>
-          <li><a href="#">The Azul Journal</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Partners</div>
-        <ul class="footer-links">
-          <li><a href="#">Winery Partners</a></li>
-          <li><a href="#">Hotel Partners</a></li>
-          <li><a href="#">Become a Partner</a></li>
-          <li><a href="#">Sponsorship</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Vin Azul Collective · All Rights Reserved</div>
-      <div class="footer-locations">San Diego · Fallbrook · Baja · Provence · Coming Everywhere</div>
-    </div>
-  </div>
-</footer>
+  const content = document.createElement('div');
+  content.className = 'msg-content';
 
-<script>
-// Nav scroll behavior
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+  const bubble = document.createElement('div');
+  bubble.className = `msg-bubble ${role}`;
+  bubble.textContent = text;
+  content.appendChild(bubble);
 
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
-
-// Netlify form handler
-function handleNetlifySubmit(e) {
-  e.preventDefault();
-  const email = document.getElementById('email-input').value;
-  if (!email || !email.includes('@')) {
-    document.getElementById('email-input').style.borderColor = 'rgba(201,169,110,0.6)';
-    return;
+  if (role === 'voya' && cardType === 'wine') {
+    const card = document.createElement('div');
+    card.className = 'wine-recommendation';
+    card.innerHTML = `
+      <div class="wine-rec-label">Voya Recommends</div>
+      <div class="wine-rec-name">De Amo Cabernet Sauvignon</div>
+      <div class="wine-rec-detail">Carlsbad, CA &nbsp;·&nbsp; 97 Points &nbsp;·&nbsp; Full-Bodied</div>
+      <div class="wine-rec-notes">Dark fruit, structured tannins, extraordinary finish. Featured at The Founding Table, June 4th.</div>`;
+    content.appendChild(card);
   }
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ 'form-name': 'founding-circle', 'email': email }).toString()
-  })
-  .finally(() => {
-    document.getElementById('waitlist-form').style.display = 'none';
-    document.getElementById('waitlist-success').style.display = 'block';
-  });
-}
 
-document.getElementById('email-input')?.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') e.target.closest('form')?.requestSubmit();
-});
-</script>
+  if (role === 'voya' && cardType === 'waitlist') {
+    const inp = (originalInput || '').toLowerCase();
+    let eventName = 'Upcoming Event';
+    let eventDate = '';
+    if (inp.includes('founding') || inp.includes('june') || inp.includes('monserate')) {
+      eventName = 'The Founding Table'; eventDate = 'June 4, 2026';
+    } else if (inp.includes('harvest') || inp.includes('paso')) {
+      eventName = 'Harvest Weekend — Paso Robles'; eventDate = 'September 26, 2026';
+    } else if (inp.includes('napa') || inp.includes('winter') || inp.includes('december')) {
+      eventName = 'Napa Valley Winter Estate'; eventDate = 'December 10, 2026';
+    } else if (inp.includes('summer') || inp.includes('cellar')) {
+      eventName = 'The Summer Cellar'; eventDate = 'July 16, 2026';
+    } else if (inp.includes('fallbrook') || inp.includes('festival')) {
+      eventName = 'Fallbrook Wine Festival'; eventDate = 'October 10, 2026';
+    } else if (inp.includes('autumn') || inp.includes('november')) {
+      eventName = 'The Autumn Table'; eventDate = 'November 19, 2026';
+    }
 
-<!-- ── FLOATING VOYA TAB ── -->
-
-<div id="voyaTab" style="position:fixed;bottom:32px;right:32px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-
-  <div id="voyaPanel" style="display:none;width:340px;background:#0d1526;border:1px solid rgba(201,169,110,0.25);box-shadow:0 24px 64px rgba(0,0,0,0.6);flex-direction:column;overflow:hidden;animation:panelIn 0.3s ease both;">
-    <div style="padding:16px 20px;border-bottom:1px solid rgba(201,169,110,0.12);display:flex;align-items:center;justify-content:space-between;background:rgba(201,169,110,0.05);">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div style="width:6px;height:6px;background:#c9a96e;transform:rotate(45deg);"></div>
-        <span style="font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.35em;color:#c9a96e;text-transform:uppercase;">Voya</span>
-        <span style="font-family:'Raleway',sans-serif;font-size:9px;font-weight:300;letter-spacing:0.2em;color:rgba(242,236,224,0.3);text-transform:uppercase;">· Private Concierge</span>
+    const card = document.createElement('div');
+    card.className = 'event-card';
+    const btnId = 'btn_' + Date.now();
+    card.innerHTML = `
+      <div class="event-card-top">
+        <div class="event-card-name">${eventName}</div>
       </div>
-      <div style="display:flex;align-items:center;gap:14px;">
-        <a href="/voya.html" style="font-family:'Raleway',sans-serif;font-size:7.5px;letter-spacing:0.3em;color:rgba(201,169,110,0.6);text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.2);padding-bottom:2px;transition:color 0.2s ease;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='rgba(201,169,110,0.6)'">Full Experience →</a>
-        <div onclick="toggleVoya()" style="cursor:pointer;color:rgba(242,236,224,0.4);font-size:18px;line-height:1;padding:2px 6px;font-family:sans-serif;" onmouseover="this.style.color='#f2ece0'" onmouseout="this.style.color='rgba(242,236,224,0.4)'">×</div>
-      </div>
-    </div>
+      <div class="event-card-detail">${eventDate} &nbsp;·&nbsp; Vin Azul Collective</div>
+      <div id="${btnId}" class="event-card-btn" onclick="joinWaitlist('${btnId}', '${eventName}')">Join Waitlist</div>`;
+    content.appendChild(card);
+  }
 
-```
-<div id="floatMessages" style="padding:20px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;">
-  <div style="display:flex;gap:8px;">
-    <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:8px;color:#c9a96e;flex-shrink:0;margin-top:2px;">V</div>
-    <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.85);border-radius:2px 8px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;">
-      Welcome to Vin Azul. I'm Voya — your private concierge. May I curate something for you?
-    </div>
-  </div>
-</div>
+  if (role === 'voya' && cardType === 'trip') {
+    const card = document.createElement('div');
+    card.className = 'trip-card';
+    card.innerHTML = `
+      <div class="trip-card-dest">Vin Azul Destination</div>
+      <div class="trip-card-name">Curated Wine Journey</div>
+      <div class="trip-card-body">Voya can design a bespoke wine itinerary for your travel dates. Ask me to build a full day-by-day plan for any region.</div>`;
+    content.appendChild(card);
+  }
 
-<div style="padding:12px 16px;border-top:1px solid rgba(201,169,110,0.08);">
-  <div style="display:flex;border:1px solid rgba(201,169,110,0.18);background:rgba(255,255,255,0.02);">
-    <input id="floatInput" type="text" placeholder="Ask Voya anything..." onkeypress="if(event.key==='Enter')floatChat()" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.05em;color:#f2ece0;">
-    <button onclick="floatChat()" id="floatBtn" style="background:#c9a96e;border:none;padding:0 16px;cursor:pointer;font-family:'Raleway',sans-serif;font-size:7.5px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:#080e1a;transition:background 0.2s ease;" onmouseover="this.style.background='#e2c48a'" onmouseout="this.style.background='#c9a96e'">Send</button>
-  </div>
-  <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
-    <div onclick="floatPrompt('I am looking for a curated wine experience')" style="font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.2em;color:rgba(201,169,110,0.45);border:1px solid rgba(201,169,110,0.1);padding:4px 9px;cursor:pointer;text-transform:uppercase;">Book Event</div>
-    <div onclick="floatPrompt('I am interested in private membership')" style="font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.2em;color:rgba(201,169,110,0.45);border:1px solid rgba(201,169,110,0.1);padding:4px 9px;cursor:pointer;text-transform:uppercase;">Membership</div>
-    <div onclick="floatPrompt('Recommend a wine for me')" style="font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.2em;color:rgba(201,169,110,0.45);border:1px solid rgba(201,169,110,0.1);padding:4px 9px;cursor:pointer;text-transform:uppercase;">Wine Rec</div>
-    <div onclick="floatPrompt('Plan a wine trip for me')" style="font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.2em;color:rgba(201,169,110,0.45);border:1px solid rgba(201,169,110,0.1);padding:4px 9px;cursor:pointer;text-transform:uppercase;">Travel</div>
-  </div>
-</div>
-```
+  if (role === 'voya') {
+    div.appendChild(avatar);
+    div.appendChild(content);
+  } else {
+    div.appendChild(content);
+    div.appendChild(avatar);
+  }
 
-  </div>
-
-  <button onclick="toggleVoya()" id="voyaBtn" style="display:flex;align-items:center;gap:10px;background:#0d1526;border:1px solid rgba(201,169,110,0.35);padding:12px 22px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 8px 32px rgba(0,0,0,0.4);" onmouseover="this.style.background='rgba(201,169,110,0.1)';this.style.borderColor='rgba(201,169,110,0.6)'" onmouseout="this.style.background='#0d1526';this.style.borderColor='rgba(201,169,110,0.35)'">
-    <div style="width:7px;height:7px;background:#c9a96e;transform:rotate(45deg);flex-shrink:0;"></div>
-    <span style="font-family:'Raleway',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.45em;color:#c9a96e;text-transform:uppercase;">Voya</span>
-  </button>
-
-</div>
-
-<style>
-@keyframes panelIn {
-  from { opacity:0; transform:translateY(12px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-</style>
-
-<script>
-let floatHistory = [];
-let voyaOpen = false;
-let floatGreeted = false;
-
-function toggleVoya() {
-  voyaOpen = !voyaOpen;
-  const panel = document.getElementById('voyaPanel');
-  panel.style.display = voyaOpen ? 'flex' : 'none';
-  panel.style.flexDirection = 'column';
-  if (voyaOpen) document.getElementById('floatInput').focus();
-}
-
-function floatPrompt(text) {
-  if (!floatGreeted) floatGreeted = true;
-  document.getElementById('floatInput').value = text;
-  floatChat();
-}
-
-function saveConversation() {
-  const messages = document.getElementById('floatMessages');
-  sessionStorage.setItem('voyaHistory', JSON.stringify(floatHistory));
-  sessionStorage.setItem('voyaMessages', messages.innerHTML);
-}
-
-async function floatChat() {
-  const input = document.getElementById('floatInput');
-  const btn = document.getElementById('floatBtn');
-  const messages = document.getElementById('floatMessages');
-  const text = input.value.trim();
-  if (!text || btn.disabled) return;
-
-  floatGreeted = true;
-
-  const uDiv = document.createElement('div');
-  uDiv.style.cssText = 'display:flex;gap:8px;flex-direction:row-reverse;';
-  uDiv.innerHTML = `
-    <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#c9a96e,#7a6040);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:8px;color:#080e1a;flex-shrink:0;margin-top:2px;">M</div>
-    <div style="background:rgba(242,236,224,0.05);border:1px solid rgba(242,236,224,0.08);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.7);border-radius:8px 2px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;text-align:right;">${text}</div>`;
-  messages.appendChild(uDiv);
-  input.value = '';
-  btn.disabled = true;
+  messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
-  floatHistory.push({ role: 'user', content: text });
+}
 
-  const tDiv = document.createElement('div');
-  tDiv.id = 'floatTyping';
-  tDiv.style.cssText = 'display:flex;gap:8px;';
-  tDiv.innerHTML = `
-    <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-size:8px;color:#c9a96e;flex-shrink:0;margin-top:2px;font-family:'Raleway',sans-serif;">V</div>
-    <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:12px 14px;border-radius:2px 8px 8px 8px;">
-      <div style="display:flex;gap:4px;align-items:center;">
-        <div style="width:4px;height:4px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out infinite;"></div>
-        <div style="width:4px;height:4px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out 0.2s infinite;"></div>
-        <div style="width:4px;height:4px;background:#c9a96e;border-radius:50%;animation:hb 1.2s ease-in-out 0.4s infinite;"></div>
-      </div>
+function joinWaitlist(btnId, eventName) {
+  const btn = document.getElementById(btnId);
+  if (!btn || btn.classList.contains('joined')) return;
+  btn.textContent = '✓ You\'re on the list';
+  btn.classList.add('joined');
+  waitlist[eventName] = true;
+  setTimeout(() => {
+    addMessage('voya', `You've been added to the waitlist for ${eventName}. The Vin Azul team will reach out personally within 24 hours to confirm your spot. We look forward to welcoming you.`);
+  }, 400);
+}
+
+function showTyping() {
+  const messages = document.getElementById('chatMessages');
+  const id = 'typing_' + Date.now();
+  const div = document.createElement('div');
+  div.className = 'message'; div.id = id;
+  div.innerHTML = `
+    <div class="msg-avatar voya">V</div>
+    <div class="typing-indicator">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
     </div>`;
-  messages.appendChild(tDiv);
+  messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
+  return id;
+}
 
-  try {
-    const res = await fetch('/.netlify/functions/voya', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 300,
-        system: HOME_VOYA_SYSTEM,
-        messages: floatHistory
-      })
-    });
-    const data = await res.json();
-    document.getElementById('floatTyping')?.remove();
+function removeTyping(id) {
+  const el = document.getElementById(id);
+  if (el) el.remove();
+}
 
-    if (data.content && data.content[0]) {
-      const reply = data.content[0].text;
-      floatHistory.push({ role: 'assistant', content: reply });
-      const vDiv = document.createElement('div');
-      vDiv.style.cssText = 'display:flex;gap:8px;';
-      vDiv.innerHTML = `
-        <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-size:8px;color:#c9a96e;flex-shrink:0;margin-top:2px;font-family:'Raleway',sans-serif;">V</div>
-        <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.85);border-radius:2px 8px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;">${reply}</div>`;
-      messages.appendChild(vDiv);
-      messages.scrollTop = messages.scrollHeight;
-      saveConversation();
-    }
-  } catch(e) {
-    document.getElementById('floatTyping')?.remove();
-  }
-  btn.disabled = false;
+function setPrompt(text) {
+  document.getElementById('chatInput').value = text;
+  document.getElementById('chatInput').focus();
 }
 </script>
 
