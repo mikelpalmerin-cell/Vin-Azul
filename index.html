@@ -65,13 +65,11 @@
 html {
 font-size: 16px;
 scroll-behavior: smooth;
-background: #080e1a; /* fallback before CSS vars load */
+background: #080e1a;
 }
 
 body {
 background: #080e1a !important;
-background: #080e1a !important;
-color: #f2ece0 !important;
 color: #f2ece0 !important;
 font-family: ‘Cormorant Garamond’, Georgia, ‘Times New Roman’, serif;
 overflow-x: hidden;
@@ -137,11 +135,10 @@ font-size: 20px;
 font-weight: 300;
 letter-spacing: 0.18em;
 color: #f2ece0;
-color: #f2ece0;
 text-decoration: none;
 text-transform: uppercase;
 }
-.nav-logo em { font-style: italic; color: #c9a96e; color: #c9a96e; }
+.nav-logo em { font-style: italic; color: #c9a96e; }
 
 .nav-links {
 display: flex; align-items: center; gap: 40px;
@@ -207,11 +204,9 @@ radial-gradient(ellipse at 80% 20%, rgba(201,169,110,0.04) 0%, transparent 50%),
 linear-gradient(160deg, #0a1220 0%, #06080f 50%, #0d1420 100%);
 }
 
-/* Animated vineyard lines — removed for Safari iOS compatibility */
 .hero-lines { display: none; }
 .hero-line { display: none; }
 
-/* Large decorative letter */
 .hero-watermark {
 position: absolute;
 top: 50%; left: 50%;
@@ -257,7 +252,6 @@ font-weight: 200;
 line-height: 1.0;
 letter-spacing: -0.01em;
 color: #f2ece0;
-color: #f2ece0;
 margin-bottom: 32px;
 opacity: 0;
 animation: fadeUp 1s ease 0.5s forwards;
@@ -265,7 +259,6 @@ animation: fadeUp 1s ease 0.5s forwards;
 .hero-headline em {
 font-style: italic;
 font-weight: 200;
-color: #c9a96e;
 color: #c9a96e;
 display: block;
 }
@@ -329,7 +322,6 @@ color: #f2ece0 !important;
 border-color: rgba(242,236,224,0.5);
 }
 
-/* Scroll indicator */
 .hero-scroll {
 position: absolute;
 bottom: 40px; right: 60px;
@@ -389,8 +381,6 @@ position: sticky;
 top: 100px;
 }
 
-.manifesto-body {}
-
 .manifesto-headline {
 font-size: clamp(32px, 4vw, 52px);
 font-weight: 300;
@@ -399,10 +389,7 @@ color: #f2ece0;
 margin-bottom: 40px;
 letter-spacing: 0.01em;
 }
-.manifesto-headline em {
-font-style: italic;
-color: #c9a96e;
-}
+.manifesto-headline em { font-style: italic; color: #c9a96e; }
 
 .manifesto-text {
 font-size: 18px;
@@ -475,27 +462,29 @@ height: 100%;
 .dest-bg {
 position: absolute; inset: 0;
 transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+background-size: cover !important;
+background-position: center !important;
 }
 .destination-card:hover .dest-bg { transform: scale(1.06); }
 
-/* Destination backgrounds using CSS gradients as placeholders */
+/* ── DESTINATION PHOTOS — only change from original ── */
 .dest-california .dest-bg {
-background: linear-gradient(160deg, #1a2535 0%, #0d1e30 40%, #162030 100%);
+background: url(‘https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1400&q=85&fit=crop’) center/cover no-repeat;
 }
 .dest-baja .dest-bg {
-background: linear-gradient(160deg, #1f1a10 0%, #2a1e08 40%, #1a1508 100%);
+background: url(‘https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85&fit=crop’) center/cover no-repeat;
 }
 .dest-provence .dest-bg {
-background: linear-gradient(160deg, #1a1228 0%, #150e20 40%, #0e0a1a 100%);
+background: url(‘https://images.unsplash.com/photo-1560963513-1e64e7ca96bd?w=900&q=85&fit=crop’) center/cover no-repeat;
 }
 .dest-spain .dest-bg {
-background: linear-gradient(160deg, #1f0e0e 0%, #2a1010 40%, #1a0808 100%);
+background: url(‘https://images.unsplash.com/photo-1543871595-e11129b309b4?w=900&q=85&fit=crop’) center/cover no-repeat;
 }
 .dest-tuscany .dest-bg {
-background: linear-gradient(160deg, #181510 0%, #221c0e 40%, #1a160c 100%);
+background: url(‘https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=900&q=85&fit=crop’) center/cover no-repeat;
 }
 
-/* Vineyard pattern overlay */
+/* Vineyard pattern overlay — kept from original */
 .dest-bg::after {
 content: ‘’;
 position: absolute; inset: 0;
@@ -925,7 +914,6 @@ border-color: #7a6040;
 color: #f2ece0;
 }
 
-/* Founding circle CTA */
 .founding-cta {
 background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.03));
 border: 1px solid rgba(201,169,110,0.2);
@@ -1063,7 +1051,6 @@ color: #5a5448;
 text-transform: uppercase;
 }
 
-/* Success state */
 .waitlist-success {
 display: none;
 font-size: 18px;
@@ -1418,17 +1405,14 @@ nav.scrolled { padding: 14px 24px; }
 
   const S = d3.select('#worldMap');
 
-  // Load real world topography
   const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
   const land = topojson.merge(world, world.objects.countries.geometries);
 
-  // Use fitSize so the map fills the SVG exactly — pins will always align
   const projection = d3.geoEquirectangular()
     .fitSize([W, H], {type:'Sphere'});
 
   const path = d3.geoPath().projection(projection);
 
-  // Draw ocean sphere first
   S.append('path')
     .datum({type:'Sphere'})
     .attr('d', path)
@@ -1436,7 +1420,6 @@ nav.scrolled { padding: 14px 24px; }
     .attr('stroke', 'rgba(201,169,110,0.15)')
     .attr('stroke-width', 0.5);
 
-  // Grid lines using graticule
   const graticule = d3.geoGraticule().step([30, 30]);
   S.append('path')
     .datum(graticule())
@@ -1445,7 +1428,6 @@ nav.scrolled { padding: 14px 24px; }
     .attr('stroke', 'rgba(201,169,110,0.07)')
     .attr('stroke-width', 0.4);
 
-  // Equator
   S.append('path')
     .datum({type:'LineString', coordinates:[[-180,0],[180,0]]})
     .attr('d', path)
@@ -1454,7 +1436,6 @@ nav.scrolled { padding: 14px 24px; }
     .attr('stroke-width', 0.7)
     .attr('stroke-dasharray', '4,8');
 
-  // Draw land
   S.append('path')
     .datum(land)
     .attr('d', path)
@@ -1463,7 +1444,6 @@ nav.scrolled { padding: 14px 24px; }
     .attr('stroke-width', 0.7)
     .attr('stroke-linejoin', 'round');
 
-  // Latitude labels
   [[60,'60°N'],[0,'EQ'],[-30,'30°S']].forEach(([lat, label]) => {
     const [,y] = projection([0, lat]);
     S.append('text')
@@ -1474,7 +1454,6 @@ nav.scrolled { padding: 14px 24px; }
       .text(label);
   });
 
-  // Place pins as SVG elements — perfectly aligned with projection
   const locations = [
     { lon:-118.2, lat:34.1,  type:'active',  label:'California' },
     { lon:-117.1, lat:32.7,  type:'active',  label:'Fallbrook' },
@@ -1499,7 +1478,6 @@ nav.scrolled { padding: 14px 24px; }
 
     const g = pinGroup.append('g').attr('transform', `translate(${px},${py})`);
 
-    // Pulse rings for active/soon
     if (!isHorizon) {
       g.append('circle')
         .attr('r', 10).attr('fill', 'none')
@@ -1518,7 +1496,6 @@ nav.scrolled { padding: 14px 24px; }
           .attr('dur', '2.5s').attr('begin', '0.8s').attr('repeatCount', 'indefinite');
     }
 
-    // Glow
     if (!isHorizon) {
       g.append('circle')
         .attr('r', r + 3)
@@ -1526,18 +1503,15 @@ nav.scrolled { padding: 14px 24px; }
         .attr('opacity', 0.2);
     }
 
-    // Main dot
     g.append('circle')
       .attr('r', r)
       .attr('fill', color)
       .attr('stroke', 'rgba(255,255,255,0.3)')
       .attr('stroke-width', 0.5);
 
-    // Label on hover via title
     g.append('title').text(loc.label);
   });
 
-  // Clear HTML pins div since we're using SVG now
   document.getElementById('mapPins').style.display = 'none';
 
 })();
@@ -1558,7 +1532,6 @@ nav.scrolled { padding: 14px 24px; }
 ```
 <div class="collective-grid">
 
-  <!-- LISA — NUMBER I -->
   <div class="member-card reveal">
     <span class="member-number">I</span>
     <div class="member-role">Head Sommelier</div>
@@ -1567,7 +1540,6 @@ nav.scrolled { padding: 14px 24px; }
     <p class="member-bio">One of only four women in San Diego to hold Advanced Sommelier accreditation from the Court of Master Sommeliers — a distinction she earned in 2010 while pursuing her Master Sommelier certification. A Culinary Institute of America graduate with honors, Lisa has built award-winning wine programs at some of the finest restaurants in San Francisco and San Diego, including The Marine Room and the legendary Cypress Club. A wine judge at the San Diego International Wine Competition and Sommelier Challenge, a professor at San Diego State University's Business of Wine Program, and the founder of the Women's Wine Alliance — a nonprofit advancing wine education for women professionals. Lisa's palate, relationships, and authority are the curatorial spine of everything Vin Azul pours, recommends, and travels toward.</p>
   </div>
 
-  <!-- JOSEPH — NUMBER II -->
   <div class="member-card reveal reveal-delay-1">
     <span class="member-number">II</span>
     <div class="member-role">Head of Hospitality</div>
@@ -1576,7 +1548,6 @@ nav.scrolled { padding: 14px 24px; }
     <p class="member-bio">Twenty-five years of world-class hospitality experience distilled into every Vin Azul event. Holder of a BS in Hospitality Management from UNLV — the most prestigious hospitality program in the world — Joseph spent a decade working alongside culinary legend José Andrés at the Cosmopolitan of Las Vegas, where food, art, and spectacle converge at the highest level. He then brought that excellence to the Four Seasons Hualalai on the Big Island of Hawaii — one of the brand's most celebrated flagship properties, where aloha and luxury meet in perfect harmony. Joseph is the reason every Vin Azul experience feels effortless, intentional, and utterly unforgettable from the moment you arrive.</p>
   </div>
 
-  <!-- WILL — NUMBER III -->
   <div class="member-card reveal reveal-delay-2">
     <span class="member-number">III</span>
     <div class="member-role">Media, Brand & Storytelling</div>
@@ -1604,7 +1575,6 @@ nav.scrolled { padding: 14px 24px; }
 ```
 <div class="tiers-grid">
 
-  <!-- CELLAR -->
   <div class="tier-card reveal">
     <div class="tier-name">Introduction</div>
     <div class="tier-title">Cellar</div>
@@ -1625,7 +1595,6 @@ nav.scrolled { padding: 14px 24px; }
     <a href="/voya.html" class="tier-cta ghost" style="display:block;width:100%;text-align:center;padding:14px;border:1px solid rgba(201,169,110,0.3);color:#c9a96e;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.08)'" onmouseout="this.style.background='transparent'">Explore Access with Voya</a>
   </div>
 
-  <!-- RESERVE -->
   <div class="tier-card featured reveal reveal-delay-1">
     <div class="tier-featured-label">Most Popular</div>
     <div class="tier-name">Private Access</div>
@@ -1648,7 +1617,6 @@ nav.scrolled { padding: 14px 24px; }
     <a href="/voya.html" class="tier-cta" style="display:block;width:100%;text-align:center;padding:14px;background:#c9a96e;color:#080e1a;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#e2c48a'" onmouseout="this.style.background='#c9a96e'">Request Private Invitation via Voya</a>
   </div>
 
-  <!-- GRAND CRU -->
   <div class="tier-card reveal reveal-delay-2" style="background: linear-gradient(160deg, #0d1220, #080e1a); border: 1px solid rgba(201,169,110,0.3); position: relative;">
     <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);"></div>
     <div style="position:absolute;top:20px;right:20px;font-family:'Raleway',sans-serif;font-size:7px;letter-spacing:0.4em;color:#c9a96e;text-transform:uppercase;border:1px solid rgba(201,169,110,0.3);padding:4px 10px;">Private · By Invitation</div>
@@ -1690,7 +1658,7 @@ nav.scrolled { padding: 14px 24px; }
 <section class="waitlist" id="waitlist">
   <div class="waitlist-bg-text">Vin Azul</div>
   <div class="section-inner">
-    <div class="section-eyebrow" style="justify-content:center; display:flex;" >Join the Circle</div>
+    <div class="section-eyebrow" style="justify-content:center; display:flex;">Join the Circle</div>
     <h2 class="waitlist-headline reveal">
       The World Opens<br>to <em>Founding Members</em> First
     </h2>
@@ -1741,11 +1709,9 @@ nav.scrolled { padding: 14px 24px; }
   <p style="font-size: 15px; font-style: italic; font-weight: 300; color: rgba(242,236,224,0.4); max-width: 480px; margin: 0 auto;">Voya is available to every visitor — ask anything about wine, travel, or upcoming experiences.</p>
 </div>
 
-<!-- Chat Interface -->
 <div style="background: #111828; border: 1px solid rgba(201,169,110,0.15); position: relative;" class="reveal">
   <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,110,0.4), transparent);"></div>
 
-  <!-- Messages -->
   <div id="homeChatMessages" style="padding: 28px 28px 0; min-height: 180px; max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px;">
     <div style="display: flex; gap: 10px;">
       <div style="width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.03)); border: 1px solid rgba(201,169,110,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-size: 9px; color: #c9a96e; flex-shrink: 0; margin-top: 2px;">V</div>
@@ -1755,7 +1721,6 @@ nav.scrolled { padding: 14px 24px; }
     </div>
   </div>
 
-  <!-- Input -->
   <div style="padding: 16px 28px 20px; border-top: 1px solid rgba(201,169,110,0.08); margin-top: 16px;">
     <div style="display: flex; border: 1px solid rgba(201,169,110,0.2); background: rgba(255,255,255,0.02);">
       <input
@@ -1771,8 +1736,6 @@ nav.scrolled { padding: 14px 24px; }
         Send
       </button>
     </div>
-
-    <!-- Quick prompts -->
     <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
       <div onclick="document.getElementById('homeChatInput').value='I am looking for a one-time experience'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease;">Book an Experience</div>
       <div onclick="document.getElementById('homeChatInput').value='I am interested in something more exclusive and ongoing'; homeChat()" style="font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 0.2em; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.12); padding: 5px 12px; cursor: pointer; text-transform: uppercase;">Private Membership</div>
@@ -1822,7 +1785,6 @@ Membership: Founding Circle $1,000/yr (50 seats, locked for life), Cellar $1,200
 2026 Events: Founding Table Jun 4 ($250, Monserate Winery Fallbrook), Summer Cellar Jul 16 (members), Terroir & Table Aug 20 ($195/$250), Winemaker's Dinner Sep 10 ($350/$450), Harvest Weekend Sep 26 ($1,800), Fallbrook Festival Oct 10, Autumn Table Nov 19 ($350/$500), Napa Winter Estate Dec 10 ($2,800)
 For deeper conversation suggest vinazul.com/voya.html`;
 
-
 let homeChatHistory = [];
 
 async function homeChat() {
@@ -1832,7 +1794,6 @@ async function homeChat() {
   const text = input.value.trim();
   if (!text || btn.disabled) return;
 
-  // User message
   const userDiv = document.createElement('div');
   userDiv.style.cssText = 'display:flex;gap:10px;flex-direction:row-reverse;';
   userDiv.innerHTML = `
@@ -1845,7 +1806,6 @@ async function homeChat() {
 
   homeChatHistory.push({ role: 'user', content: text });
 
-  // Typing
   const typingDiv = document.createElement('div');
   typingDiv.id = 'homeTyping';
   typingDiv.style.cssText = 'display:flex;gap:10px;';
@@ -1996,38 +1956,10 @@ document.getElementById('email-input')?.addEventListener('keypress', (e) => {
 
 <!-- ── FLOATING VOYA TAB ── -->
 
-<div id="voyaTab" style="
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-">
+<div id="voyaTab" style="position:fixed;bottom:32px;right:32px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
 
-  <!-- Chat Panel -->
-
-  <div id="voyaPanel" style="
-    display: none;
-    width: 340px;
-    background: #0d1526;
-    border: 1px solid rgba(201,169,110,0.25);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
-    flex-direction: column;
-    overflow: hidden;
-    animation: panelIn 0.3s ease both;
-  ">
-    <!-- Panel Header -->
-    <div style="
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(201,169,110,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(201,169,110,0.05);
-    ">
+  <div id="voyaPanel" style="display:none;width:340px;background:#0d1526;border:1px solid rgba(201,169,110,0.25);box-shadow:0 24px 64px rgba(0,0,0,0.6);flex-direction:column;overflow:hidden;animation:panelIn 0.3s ease both;">
+    <div style="padding:16px 20px;border-bottom:1px solid rgba(201,169,110,0.12);display:flex;align-items:center;justify-content:space-between;background:rgba(201,169,110,0.05);">
       <div style="display:flex;align-items:center;gap:10px;">
         <div style="width:6px;height:6px;background:#c9a96e;transform:rotate(45deg);"></div>
         <span style="font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.35em;color:#c9a96e;text-transform:uppercase;">Voya</span>
@@ -2040,15 +1972,7 @@ document.getElementById('email-input')?.addEventListener('keypress', (e) => {
     </div>
 
 ```
-<!-- Messages -->
-<div id="floatMessages" style="
-  padding: 20px;
-  height: 260px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-">
+<div id="floatMessages" style="padding:20px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;">
   <div style="display:flex;gap:8px;">
     <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,rgba(201,169,110,0.15),rgba(201,169,110,0.03));border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:8px;color:#c9a96e;flex-shrink:0;margin-top:2px;">V</div>
     <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.85);border-radius:2px 8px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;">
@@ -2057,16 +1981,9 @@ document.getElementById('email-input')?.addEventListener('keypress', (e) => {
   </div>
 </div>
 
-<!-- Input -->
 <div style="padding:12px 16px;border-top:1px solid rgba(201,169,110,0.08);">
   <div style="display:flex;border:1px solid rgba(201,169,110,0.18);background:rgba(255,255,255,0.02);">
-    <input
-      id="floatInput"
-      type="text"
-      placeholder="Ask Voya anything..."
-      onkeypress="if(event.key==='Enter')floatChat()"
-      style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.05em;color:#f2ece0;"
-    >
+    <input id="floatInput" type="text" placeholder="Ask Voya anything..." onkeypress="if(event.key==='Enter')floatChat()" style="flex:1;background:none;border:none;outline:none;padding:10px 14px;font-family:'Raleway',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.05em;color:#f2ece0;">
     <button onclick="floatChat()" id="floatBtn" style="background:#c9a96e;border:none;padding:0 16px;cursor:pointer;font-family:'Raleway',sans-serif;font-size:7.5px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;color:#080e1a;transition:background 0.2s ease;" onmouseover="this.style.background='#e2c48a'" onmouseout="this.style.background='#c9a96e'">Send</button>
   </div>
   <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
@@ -2080,22 +1997,10 @@ document.getElementById('email-input')?.addEventListener('keypress', (e) => {
 
   </div>
 
-  <!-- The Button -->
-
-<button onclick="toggleVoya()" id="voyaBtn" style="
-display: flex;
-align-items: center;
-gap: 10px;
-background: #0d1526;
-border: 1px solid rgba(201,169,110,0.35);
-padding: 12px 22px;
-cursor: pointer;
-transition: all 0.25s ease;
-box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-" onmouseover="this.style.background='rgba(201,169,110,0.1)';this.style.borderColor='rgba(201,169,110,0.6)'" onmouseout="this.style.background='#0d1526';this.style.borderColor='rgba(201,169,110,0.35)'">
-<div style="width:7px;height:7px;background:#c9a96e;transform:rotate(45deg);flex-shrink:0;"></div>
-<span style="font-family:'Raleway',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.45em;color:#c9a96e;text-transform:uppercase;">Voya</span>
-</button>
+  <button onclick="toggleVoya()" id="voyaBtn" style="display:flex;align-items:center;gap:10px;background:#0d1526;border:1px solid rgba(201,169,110,0.35);padding:12px 22px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 8px 32px rgba(0,0,0,0.4);" onmouseover="this.style.background='rgba(201,169,110,0.1)';this.style.borderColor='rgba(201,169,110,0.6)'" onmouseout="this.style.background='#0d1526';this.style.borderColor='rgba(201,169,110,0.35)'">
+    <div style="width:7px;height:7px;background:#c9a96e;transform:rotate(45deg);flex-shrink:0;"></div>
+    <span style="font-family:'Raleway',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.45em;color:#c9a96e;text-transform:uppercase;">Voya</span>
+  </button>
 
 </div>
 
@@ -2120,13 +2025,11 @@ function toggleVoya() {
 }
 
 function floatPrompt(text) {
-  // Skip greeting if already greeted — go straight to the request
   if (!floatGreeted) floatGreeted = true;
   document.getElementById('floatInput').value = text;
   floatChat();
 }
 
-// Save conversation to sessionStorage so voya.html can pick it up
 function saveConversation() {
   const messages = document.getElementById('floatMessages');
   sessionStorage.setItem('voyaHistory', JSON.stringify(floatHistory));
@@ -2142,7 +2045,6 @@ async function floatChat() {
 
   floatGreeted = true;
 
-  // User message
   const uDiv = document.createElement('div');
   uDiv.style.cssText = 'display:flex;gap:8px;flex-direction:row-reverse;';
   uDiv.innerHTML = `
@@ -2154,7 +2056,6 @@ async function floatChat() {
   messages.scrollTop = messages.scrollHeight;
   floatHistory.push({ role: 'user', content: text });
 
-  // Typing
   const tDiv = document.createElement('div');
   tDiv.id = 'floatTyping';
   tDiv.style.cssText = 'display:flex;gap:8px;';
@@ -2194,8 +2095,6 @@ async function floatChat() {
         <div style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.12);padding:10px 14px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(242,236,224,0.85);border-radius:2px 8px 8px 8px;font-family:'Cormorant Garamond',Georgia,serif;">${reply}</div>`;
       messages.appendChild(vDiv);
       messages.scrollTop = messages.scrollHeight;
-
-      // Save conversation after every exchange
       saveConversation();
     }
   } catch(e) {
