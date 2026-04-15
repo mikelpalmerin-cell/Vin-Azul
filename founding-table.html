@@ -658,8 +658,11 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 <section class="section reveal" id="evening">
   <span class="section-eyebrow">The Evening</span>
   <h2 class="section-title">An Estate at Sunset</h2>
+
+  <!-- ── CHANGE 1: "Thirty guests" → "An intimate gathering" ── -->
+
   <p class="section-body">
-    Nestled in the scenic hills of Fallbrook on a breathtaking 116-acre Italian-inspired estate, Monserate Winery is the setting for the first Vin Azul gathering. Thirty guests. A sunset walk through the vineyards. A four-course dinner paired with Monserate's cellar selections — and a conversation worth having.
+    Nestled in the scenic hills of Fallbrook on a breathtaking 116-acre Italian-inspired estate, Monserate Winery is the setting for the first Vin Azul gathering. An intimate gathering of the most influential voices in wine, hospitality, and the table. A sunset walk through the vineyards. A four-course dinner paired with Monserate's cellar selections — and a conversation worth having.
     <br><br>
     This is the evening that begins everything.
   </p>
@@ -673,30 +676,36 @@ transition: opacity 0.8s ease, transform 0.8s ease;
         <div class="timeline-desc">Guests arrive to a welcome glass on the estate grounds</div>
       </div>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-time">6:30 PM</div>
-      <div class="timeline-line"></div>
-      <div class="timeline-content">
-        <div class="timeline-title">Sunset Vineyard Walk</div>
-        <div class="timeline-desc">A guided walk through the estate — vineyards, lakes, and the hills of Gird Valley</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">7:15 PM</div>
-      <div class="timeline-line"></div>
-      <div class="timeline-content">
-        <div class="timeline-title">Seated Dinner</div>
-        <div class="timeline-desc">Four courses, four pairings, one table — led by the Monserate sommelier team</div>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">9:00 PM</div>
-      <div class="timeline-line"></div>
-      <div class="timeline-content">
-        <div class="timeline-title">Evening Closes</div>
-        <div class="timeline-desc">The beginning of something</div>
-      </div>
-    </div>
+
+```
+<!-- ── CHANGE 2: Remove fixed 6:30 PM time, keep it soft ── -->
+<div class="timeline-item">
+  <div class="timeline-time">6:30 PM</div>
+  <div class="timeline-line"></div>
+  <div class="timeline-content">
+    <div class="timeline-title">Guided Vineyard Tour</div>
+    <div class="timeline-desc">A guided walk through the estate — vineyards, lakes, and the hills of Gird Valley</div>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-time">7:15 PM</div>
+  <div class="timeline-line"></div>
+  <div class="timeline-content">
+    <div class="timeline-title">Seated Dinner</div>
+    <div class="timeline-desc">Four courses, four pairings, one table — led by the Monserate sommelier team</div>
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-time">9:00 PM</div>
+  <div class="timeline-line"></div>
+  <div class="timeline-content">
+    <div class="timeline-title">Evening Closes</div>
+    <div class="timeline-desc">The beginning of something</div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
@@ -779,7 +788,10 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 <section class="rsvp-section" id="rsvp">
   <span class="section-eyebrow">Reserve Your Seat</span>
   <h2 class="section-title">Join Us at The Founding Table</h2>
-  <p class="section-body" style="margin-bottom:32px;">Seating is limited to thirty guests. This evening is by private invitation only.</p>
+
+  <!-- ── CHANGE 1 (RSVP copy): Remove "thirty" cap, keep intimacy ── -->
+
+  <p class="section-body" style="margin-bottom:32px;">Seating is limited and this evening is by private invitation only.</p>
 
   <!-- Toggle -->
 
@@ -838,7 +850,6 @@ transition: opacity 0.8s ease, transform 0.8s ease;
       </select>
     </div>
 
-    <!-- Second guest dietary — shown only when +1 selected -->
     <div class="form-group" id="guest2Dietary" style="display:none;">
       <label class="form-label">Guest Dietary Restrictions</label>
       <select name="dietary-2" class="form-select">
@@ -851,12 +862,12 @@ transition: opacity 0.8s ease, transform 0.8s ease;
         <option value="other">Other — see notes</option>
       </select>
     </div>
+
     <div class="form-group full">
       <label class="form-label">Additional Notes or Dietary Details</label>
       <textarea name="notes" class="form-textarea" placeholder="Any allergies, dietary needs, or notes for the evening..."></textarea>
     </div>
 
-    <!-- Invitation code for comped guests -->
     <div class="form-group full" id="inviteCodeGroup" style="display:none;">
       <label class="form-label">Invitation Code</label>
       <input type="text" name="invite-code" id="inviteCode" class="form-input" placeholder="Enter your private invitation code">
@@ -961,7 +972,6 @@ function switchTab(type) {
   document.getElementById('inviteCodeGroup').style.display = isPaying ? 'none' : 'block';
 }
 
-
 // Form submission
 async function handleRsvp(e) {
   e.preventDefault();
@@ -977,10 +987,8 @@ async function handleRsvp(e) {
     }
   }
 
-  // Save email for confirmation
   document.getElementById('confirmedEmail').textContent = email;
 
-  // Submit to Netlify
   const data = new FormData(form);
   try {
     await fetch('/', {
@@ -997,7 +1005,6 @@ async function handleRsvp(e) {
       : 'https://square.link/u/m94ORL4k?src=sheet';
     window.location.href = squareLink;
   } else {
-    // Show success state for comped guests
     document.getElementById('rsvpForm').style.display = 'none';
     document.getElementById('successState').style.display = 'block';
     document.getElementById('successState').scrollIntoView({ behavior: 'smooth' });
