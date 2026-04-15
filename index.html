@@ -1263,7 +1263,7 @@ nav.scrolled { padding: 14px 24px; }
           <em>Something that didn't exist before.</em>
         </h2>
         <p class="manifesto-text reveal reveal-delay-1">
-          Vin Azul Collective is the operating system for a life lived with taste. We connect the world's most curious, successful people to the winemakers, estates, and tables that most will never find — not because they lack resources, but because nobody had built the bridge.
+          Vin Azul Collective turns wine into a way of moving through the world. We connect the world's most curious, successful people to the winemakers, estates, and tables that most will never find — not because they lack resources, but because nobody had built the bridge.
         </p>
         <p class="manifesto-text reveal reveal-delay-2">
           Every experience is curated by a collective of genuine authorities: a Four Seasons hospitality veteran, an Advanced Sommelier, and a media voice that has spent years making wine culture legible to the world. This is not a platform. It is a circle of people who know what they are doing.
@@ -1653,7 +1653,7 @@ nav.scrolled { padding: 14px 24px; }
     <h2 class="waitlist-headline reveal">
       The World Opens<br>to <em>Founding Members</em> First
     </h2>
-    <p class="waitlist-sub reveal">Fifty seats. By personal invitation. No exceptions.</p>
+    <p class="waitlist-sub reveal">The Founding Circle — fifty seats, $1,000/yr, locked for life. By personal invitation. No exceptions.</p>
 
 ```
 <div class="reveal" id="waitlist-form">
@@ -1662,7 +1662,7 @@ nav.scrolled { padding: 14px 24px; }
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
-    action="/success"
+    action="javascript:void(0)"
     style="display:flex; max-width:480px; margin:0 auto 24px; gap:0;"
     onsubmit="handleNetlifySubmit(event)"
   >
@@ -1942,15 +1942,16 @@ async function homeChat() {
     <div class="footer-grid">
       <div>
         <div class="footer-brand-name"><em>Vin</em> Azul Collective</div>
-        <p class="footer-tagline">The infrastructure of a life well-traveled.</p>
+        <p class="footer-tagline">Wine as passport.<br>Where wine is the language. The world is the table.</p>
         <p style="font-family:'Raleway',sans-serif; font-size:9px; letter-spacing:0.25em; color:#5a5448; text-transform:uppercase;">vinazul.com</p>
+        <a href="mailto:mikel@vinazul.com" style="font-family:'Raleway',sans-serif; font-size:9px; letter-spacing:0.25em; color:#5a5448; text-transform:uppercase; text-decoration:none; display:block; margin-top:8px; transition:color 0.3s ease;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='#5a5448'">mikel@vinazul.com</a>
       </div>
       <div>
         <div class="footer-col-title">Experiences</div>
         <ul class="footer-links">
-          <li><a href="#">Wine Dinners</a></li>
-          <li><a href="#">Estate Weekends</a></li>
-          <li><a href="#">Destination Trips</a></li>
+          <li><a href="#waitlist">Wine Dinners</a></li>
+          <li><a href="#waitlist">Estate Weekends</a></li>
+          <li><a href="#destinations">Destination Trips</a></li>
           <li><a href="https://www.fallbrookwinefestival.com" target="_blank">Fallbrook Wine Festival</a></li>
           <li><a href="#">Private Events</a></li>
         </ul>
@@ -1958,20 +1959,20 @@ async function homeChat() {
       <div>
         <div class="footer-col-title">Collective</div>
         <ul class="footer-links">
-          <li><a href="#">About</a></li>
-          <li><a href="#">The Team</a></li>
-          <li><a href="#">Membership</a></li>
-          <li><a href="#">The Azul Journal</a></li>
-          <li><a href="#">Press</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#collective">The Team</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#waitlist">The Azul Journal</a></li>
+          <li><a href="mailto:mikel@vinazul.com">Press</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Partners</div>
         <ul class="footer-links">
-          <li><a href="#">Winery Partners</a></li>
-          <li><a href="#">Hotel Partners</a></li>
-          <li><a href="#">Become a Partner</a></li>
-          <li><a href="#">Sponsorship</a></li>
+          <li><a href="#collective">Winery Partners</a></li>
+          <li><a href="#collective">Hotel Partners</a></li>
+          <li><a href="mailto:mikel@vinazul.com">Become a Partner</a></li>
+          <li><a href="mailto:mikel@vinazul.com">Sponsorship</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
