@@ -187,6 +187,66 @@ display: block; width: 24px; height: 1px; background: #f2ece0;
 transition: all 0.3s ease;
 }
 
+/* ── MOBILE DROPDOWN MENU ── */
+.mobile-menu {
+display: none;
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+background: rgba(8,14,26,0.98);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+z-index: 200;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 0;
+}
+.mobile-menu.open { display: flex; }
+
+.mobile-menu-close {
+position: absolute;
+top: 28px; right: 28px;
+background: none; border: none;
+color: rgba(242,236,224,0.5);
+font-size: 28px; cursor: pointer;
+font-family: sans-serif; line-height: 1;
+padding: 8px;
+}
+.mobile-menu-close:hover { color: #c9a96e; }
+
+.mobile-menu-item {
+width: 100%;
+text-align: center;
+padding: 20px 40px;
+border-bottom: 1px solid rgba(201,169,110,0.08);
+}
+.mobile-menu-item:first-of-type { border-top: 1px solid rgba(201,169,110,0.08); }
+
+.mobile-menu-item a {
+font-family: ‘Raleway’, sans-serif;
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.45em;
+color: rgba(242,236,224,0.7);
+text-transform: uppercase;
+text-decoration: none;
+display: block;
+transition: color 0.2s ease;
+}
+.mobile-menu-item a:hover,
+.mobile-menu-item a.highlight { color: #c9a96e; }
+
+.mobile-menu-brand {
+font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-size: 13px;
+font-weight: 300;
+letter-spacing: 0.2em;
+color: rgba(242,236,224,0.2);
+text-transform: uppercase;
+margin-top: 40px;
+}
+.mobile-menu-brand em { font-style: italic; color: rgba(201,169,110,0.3); }
+
 /* ─── HERO ─── */
 .hero {
 min-height: 100vh;
@@ -1213,10 +1273,25 @@ nav.scrolled { padding: 14px 24px; }
     <li><a href="/voya.html" style="color:#c9a96e !important; -webkit-text-fill-color:#c9a96e;">Voya AI</a></li>
     <li><a href="#waitlist" class="nav-cta">Join the Circle</a></li>
   </ul>
-  <button class="nav-mobile-toggle" aria-label="Menu">
+  <button class="nav-mobile-toggle" onclick="openMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- ─── MOBILE MENU ─── -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close">×</button>
+  <div class="mobile-menu-item"><a href="/journal.html" onclick="closeMobileMenu()" class="highlight">The Azul Journal</a></div>
+  <div class="mobile-menu-item"><a href="#experiences" onclick="closeMobileMenu()">Experiences</a></div>
+  <div class="mobile-menu-item"><a href="#destinations" onclick="closeMobileMenu()">Destinations</a></div>
+  <div class="mobile-menu-item"><a href="#collective" onclick="closeMobileMenu()">The Collective</a></div>
+  <div class="mobile-menu-item"><a href="#membership" onclick="closeMobileMenu()">Membership</a></div>
+  <div class="mobile-menu-item"><a href="/voya.html" onclick="closeMobileMenu()" style="color:#c9a96e;">Voya AI</a></div>
+  <div class="mobile-menu-item"><a href="/foundingtable.html" onclick="closeMobileMenu()">The Founding Table</a></div>
+  <div class="mobile-menu-item"><a href="#waitlist" onclick="closeMobileMenu()" style="color:#c9a96e;letter-spacing:0.45em;">Join the Circle</a></div>
+  <div class="mobile-menu-brand"><em>Vin</em> Azul Collective</div>
+</div>
 
 <!-- ─── HERO ─── -->
 
@@ -1990,6 +2065,20 @@ async function homeChat() {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile menu
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on backdrop tap
+document.getElementById('mobileMenu').addEventListener('click', function(e) {
+  if (e.target === this) closeMobileMenu();
 });
 
 // Scroll reveal
